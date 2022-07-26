@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{20515B49-29C0-67B4-F6CD-B75D776EA181}</ProjectGuid>
+    <ProjectGuid>{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>NaughtyAttributes.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -56,59 +56,45 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/1_Scripts/Systems/Interfaces/IWaiting.cs" />
-    <Compile Include="Assets/1_Scripts/UI/Windows/UIWindow.cs" />
-    <Compile Include="Assets/1_Scripts/UI/Buttons/MyButton.cs" />
-    <Compile Include="Assets/1_Scripts/UI/Buttons/CloseButton.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/PositionEnemyMove.cs" />
-    <Compile Include="Assets/1_Scripts/UI/TypeAnimation.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/ObjectScene.cs" />
-    <Compile Include="Assets/UJoystick/Content/Script/Core/bl_Joystick.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/Effects/EffectBase.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/Target/TargetTowerSystem.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/MoveObjectSystem.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/DontDestroy.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/EffectManager.cs" />
-    <Compile Include="Assets/UJoystick/Content/Script/Internal/bl_JoystickUtils.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Interface/ISettings.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/NamesData.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Interface/IShoot.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/GameManager.cs" />
-    <Compile Include="Assets/1_Scripts/UI/Windows/MainUIWindow.cs" />
-    <Compile Include="Assets/1_Scripts/Data/TypeEffect.cs" />
-    <Compile Include="Assets/UJoystick/Example/Scrips/bl_ControllerExample.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/ClassReferenceAttribute.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/BaseManager.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Storage/FileStorage.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Storage/GameData.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Settings/AudioSettingsData.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Storage/Storage.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/Target/TargetSystem.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/UpdateManager.cs" />
-    <Compile Include="Assets/1_Scripts/Core/SCRO/SCRO_SceneManagers.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/AllObjectsInScene.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/ChangeTransformSystem.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Interface/IManager.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/RotationSystem.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/CreatorManager.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/BoxManager.cs" />
-    <Compile Include="Assets/1_Scripts/UI/UIManager.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Settings/AudioSettingsCore.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Interface/IUIElement.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Interface/IMove.cs" />
-    <Compile Include="Assets/1_Scripts/UI/Windows/SettingsWindow.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/Starter.cs" />
-    <Compile Include="Assets/1_Scripts/UI/UIElement.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Interface/IInitialize.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/Singleton.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Settings/GameSettings.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/UpdateGame.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Main/Coroutines.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/TimeManager.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/Joystick/JoystickController.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/_NaughtyScriptableObject.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/InputAxisTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/OnValueChangedTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ShowAssetPreviewTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/_NaughtyComponent.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/InfoBoxTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ShowNonSerializedFieldTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/EnumFlagsTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ExpandableTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/EnableIfTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ShowIfTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ShowNativePropertyTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/SceneTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/_TestScriptableObjectB.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/_TestScriptableObjectA.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/AnimatorParamTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/MinMaxValueTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/HorizontalLineTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/LabelTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/LayerTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ReadOnlyTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/MinMaxSliderTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/BoxGroupTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ButtonTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ResizableTextAreaTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/TagTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/HideIfTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ProgressBarTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/CurveRangeTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/RequiredTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ValidateInputTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/DisableIfTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/DropdownTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/FoldoutTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/ReorderableListTest.cs" />
+    <Compile Include="Assets/4_Plugins/NaughtyAttributes/Test/SortingLayerTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets/UJoystick/ReadMe.txt" />
+    <None Include="Assets/4_Plugins/NaughtyAttributes/Test/NaughtyAttributes.Test.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -323,6 +309,33 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.OSXStandalone.Extensions">
+      <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.12/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.12/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.12/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+      <HintPath>Library/PackageCache/com.unity.collab-proxy@1.15.12/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -675,58 +688,17 @@
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2020.3.30f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NaughtyAttributes.Editor.csproj">
-      <Project>{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}</Project>
-      <Name>NaughtyAttributes.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="NaughtyAttributes.Core.csproj">
       <Project>{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}</Project>
       <Name>NaughtyAttributes.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="NaughtyAttributes.Test.csproj">
-      <Project>{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}</Project>
-      <Name>NaughtyAttributes.Test</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
