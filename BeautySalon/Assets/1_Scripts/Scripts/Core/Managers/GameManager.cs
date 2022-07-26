@@ -1,6 +1,4 @@
-using ObjectsOnScene;
 using System;
-using Towers;
 using UnityEngine;
 
 namespace Core
@@ -52,19 +50,6 @@ namespace Core
             CanShoot = true;
             CanSpawn = true;
             TimeGo = true;
-        }
-
-        public void ClickBuyTowerButton(TypeTower typeTower)
-        {
-            if (BoxManager.GetManager<CoinsManager>().CanBuyTower())
-            {
-                if (AllObjectsInScene.Instance.GetTilesParent.HaveTileForSpawn())
-                {
-                    BoxManager.GetManager<CoinsManager>().BuyTower();
-                    BoxManager.GetManager<PriceManager>().UpPriceAfterBuyTower();
-                    BoxManager.GetManager<TowersManager>().BuyTower(typeTower);
-                }
-            }
         }
 
         #region DO_ACTIONS

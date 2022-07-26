@@ -8,42 +8,42 @@ namespace Core
     {
         [SerializeField] private EffectBase[] effects;
 
-        public void ShowEffect(TypeEffect typeEffect, Transform transformPosition)
-        {
-            EffectBase currentEffect = ChooseEffect(typeEffect);
+        //public void ShowEffect(TypeEffect typeEffect, Transform transformPosition)
+        //{
+        //    EffectBase currentEffect = ChooseEffect(typeEffect);
 
-            if (currentEffect != null)
-            {
-                EffectBase effect = BoxManager.GetManager<CreatorManager>().CreateEffect(currentEffect, transformPosition);
+        //    if (currentEffect != null)
+        //    {
+        //        EffectBase effect = BoxManager.GetManager<CreatorManager>().CreateEffect(currentEffect, transformPosition);
 
-                effect.AfterShowEffect += EndedEffect;
-                effect.ShowEffect();
-            }
-        }
+        //        effect.AfterShowEffect += EndedEffect;
+        //        effect.ShowEffect();
+        //    }
+        //}
 
-        private EffectBase ChooseEffect(TypeEffect typeEffect)
-        {
-            EffectBase currentEffect = null;
+        //private EffectBase ChooseEffect(TypeEffect typeEffect)
+        //{
+        //    EffectBase currentEffect = null;
 
-            foreach (var effect in effects)
-            {
-                if (effect.GetTypeEffect == typeEffect)
-                {
-                    currentEffect = effect;
-                }
-            }
+        //    foreach (var effect in effects)
+        //    {
+        //        if (effect.GetTypeEffect == typeEffect)
+        //        {
+        //            currentEffect = effect;
+        //        }
+        //    }
 
-            if (currentEffect == null)
-            {
-                Debug.Log($"<color=red>Не найден эффект с типом {typeEffect}</color>");
-            }
+        //    if (currentEffect == null)
+        //    {
+        //        Debug.Log($"<color=red>?? ?????? ?????? ? ????? {typeEffect}</color>");
+        //    }
 
-            return currentEffect;
-        }
+        //    return currentEffect;
+        //}
 
-        private void EndedEffect(EffectBase effect)
-        {
-            effect.HideEffect();
-        }
+        //private void EndedEffect(EffectBase effect)
+        //{
+        //    effect.HideEffect();
+        //}
     }
 }
