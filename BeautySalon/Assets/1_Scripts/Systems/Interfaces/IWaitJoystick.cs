@@ -4,6 +4,6 @@ namespace InputSystem
 {
     public interface IWaitJoystick
     {
-        public void SwipeJoystick(Vector2 positionMove);
+        public void SwipeJoystick(Vector3 positionMove);
     }
 }

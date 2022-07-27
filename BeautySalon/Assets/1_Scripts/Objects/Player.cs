@@ -6,17 +6,17 @@ using UnityEngine;
 
 public class Player : ObjectScene, IWaitJoystick
 {
-    private MoveObjectSystem moveSystem;
-
+    private MoveObjectComponent moveSystem;
 
     public override void OnInitialize()
     {
-        moveSystem = new MoveObjectSystem();
+        moveSystem = gameObject.AddComponent<MoveObjectComponent>();
         BoxManager.GetManager<InputManager>().AddListenerJoystick(this);
     }
 
-    public void SwipeJoystick(Vector2 positionMove)
+    public void SwipeJoystick(Vector3 positionMove)
     {
-        Debug.Log("move player");
+        Debug.Log(positionMove);
+        moveSystem.SetNextPosition(positionMove);
     }
 }

@@ -4,31 +4,32 @@ using UnityEngine;
 
 namespace SystemMove
 {
-    public class ChangeTransformSystem : MonoBehaviour, IMove
+    public class MoveObjectComponent : MonoBehaviour, IMove
     {
         [HideInInspector]
         public event Action EndedChangeTransform;
 
+        protected Vector3 nextPos;
         // TODO: устанавливать скорость в конструкторе
-        protected float speedChange = 3f;
-        protected Transform targetTransform;
+        protected float speedMove = 10f;
+        protected bool canMove = false;
 
-        protected bool canChange;
-
-        public float SetSpeed { set => speedChange = value; }
+        public float SetSpeed { set => speedMove = value; }
 
         private void Awake()
         {
             BoxManager.GetManager<UpdateManager>().AddMoveObject(this);
+            nextPos = transform.position;
+            Debug.Log(transform);
         }
 
         public void Move()
         {
-            if (canChange)
+            if (canMove)
             {
-                if (targetTransform != null)
-                {
-                    ChangeTransform();
+                if (transform.position != nextPos)
+                {                    
+                    transform.position = Vector2.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
                 }
                 else
                 {
@@ -37,16 +38,16 @@ namespace SystemMove
             }
         }
 
-        public void SetTransformForChange(Transform targetTransform)
+        public void SetNextPosition(Vector3 nextPos)
         {
-            this.targetTransform = targetTransform;
-            SetData();
-            canChange = true;
+            nextPos.y = transform.position.y;
+            this.nextPos = nextPos;
+            canMove = true;
         }
 
         public void StopMove()
         {
-            canChange = false;
+            canMove = false;
 
             if (EndedChangeTransform != null)
             {
@@ -54,12 +55,9 @@ namespace SystemMove
             }
         }
 
-        protected virtual void ChangeTransform() { }
-        protected virtual void SetData() { }
-
         protected void EndChangeTransform()
         {
-            canChange = false;
+            canMove = false;
 
             EndedChangeTransform?.Invoke();
         }

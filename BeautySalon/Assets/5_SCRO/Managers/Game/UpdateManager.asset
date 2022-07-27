@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 189b0a23cf959444ab663d05c824e305, type: 3}
-  m_Name: SceneManagerGame
+  m_Script: {fileID: 11500000, guid: 54492433de0b6664d814db37a68f1fce, type: 3}
+  m_Name: UpdateManager
   m_EditorClassIdentifier: 
-  managers:
-  - {fileID: 11400000, guid: a1f6d234904b8456e84e4e6aed1445ae, type: 2}
-  - {fileID: 11400000, guid: 04f352a743ef24b76933fafca704701d, type: 2}

@@ -21,7 +21,7 @@ namespace Core
             }
         }
 
-        public void SwipeJoyStick(Vector2 positionMove)
+        public void SwipeJoyStick(Vector3 positionMove)
         {
             foreach (var listener in listenerJoystick)
             {
