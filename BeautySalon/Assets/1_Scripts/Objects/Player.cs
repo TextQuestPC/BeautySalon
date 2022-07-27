@@ -4,18 +4,22 @@ using ObjectsOnScene;
 using SystemMove;
 using UnityEngine;
 
-public class Player : ObjectScene, IWaitJoystick
+namespace Character
 {
-    private MoveObjectComponent moveSystem;
-
-    public override void OnInitialize()
+    public class Player : ObjectScene, IWaitJoystick
     {
-        moveSystem = gameObject.AddComponent<MoveObjectComponent>();
-        BoxManager.GetManager<InputManager>().AddListenerJoystick(this);
-    }
+        private MoveObjectComponent moveSystem;
 
-    public void SwipeJoystick(Vector3 positionMove)
-    {
-        moveSystem.SetNextPosition(positionMove);
+        public override void OnInitialize()
+        {
+            moveSystem = gameObject.AddComponent<MoveObjectComponent>();
+
+            BoxManager.GetManager<InputManager>().AddListenerJoystick(this);
+        }
+
+        public void SwipeJoystick(Vector3 positionMove)
+        {
+            moveSystem.SetNextPosition(positionMove);
+        }
     }
 }

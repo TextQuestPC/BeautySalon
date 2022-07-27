@@ -1,5 +1,5 @@
-﻿using ObjectsOnScene;
-using SystemEffect;
+﻿using Character;
+using ObjectsOnScene;
 using UnityEngine;
 
 namespace Core
@@ -7,26 +7,27 @@ namespace Core
     [CreateAssetMenu(fileName = "CreatorManager", menuName = "Managers/CreatorManager")]
     public class CreatorManager : BaseManager
     {
-        private GameObject someParent;
+        [SerializeField] private Player playerPrefab;
+
+        private GameObject objectsParent;
+
+        private Vector3 startSpawnPosition = new Vector3(0, 0, 0);
 
         public override void OnInitialize()
         {
-            someParent = new GameObject(NamesData.SOME_NAME);
+            objectsParent = new GameObject(NamesData.OBJECTS);
         }
 
-        //public Tower CreateTower(Tower towerPrefab, Tile tileForSpawn)
-        //{
-        //    Vector3 positionSpawn = tileForSpawn.transform.position;
-        //    Quaternion rotationSpawn = Quaternion.Euler(0, 0, 0);
-        //    positionSpawn.y += offsetYTower;
+        public Player CreatePlayer()
+        {
+            Vector3 spawnPos = PositionsOnScene.Instance.GetSpawnPlayerPos.transform.position;
 
-        //    Tower tower = Instantiate(towerPrefab, positionSpawn, rotationSpawn);
+            Player player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
+            player.gameObject.name = NamesData.PLAYER_NAME;
+            player.transform.SetParent(objectsParent.transform);
+            player.OnInitialize();
 
-        //    tower.tag = NamesData.TagTower;
-        //    tower.transform.SetParent(towersParent.transform);
-        //    tower.OnInitialize();
-
-        //    return tower;
-        //}
+            return player;
+        }
     }
 }

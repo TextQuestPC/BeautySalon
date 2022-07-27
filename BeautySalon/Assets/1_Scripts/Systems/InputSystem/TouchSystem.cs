@@ -1,9 +1,10 @@
+using Character;
 using Core;
 using UnityEngine;
 
 namespace InputSystem
 {
-    public class TouchSystem : MonoBehaviour
+    public class TouchSystem : Singleton<TouchSystem>
     {
         [SerializeField] private float speedModifier;
 
@@ -13,6 +14,9 @@ namespace InputSystem
         private InputManager inputManager;
 
         private bool dragNow = false;
+
+        private Player player;
+        public Player SetPlayer { set => player = value; }
 
         Camera mainCamera;
 
@@ -42,9 +46,9 @@ namespace InputSystem
                 Vector3 newPos = Input.mousePosition;
 
                 nextPos = new Vector3(
-                        transform.position.x + newPos.x * speedModifier,
-                        transform.position.y,
-                        transform.position.x + newPos.y * speedModifier);
+                        player.transform.position.x + newPos.x * speedModifier,
+                        player.transform.position.y,
+                        player.transform.position.x + newPos.y * speedModifier);
 
                 BoxManager.GetManager<InputManager>().SwipeJoyStick(nextPos);
             }

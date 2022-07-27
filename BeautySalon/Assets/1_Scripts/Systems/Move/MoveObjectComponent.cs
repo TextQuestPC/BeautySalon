@@ -20,17 +20,14 @@ namespace SystemMove
         {
             BoxManager.GetManager<UpdateManager>().AddMoveObject(this);
             nextPos = transform.position;
-            Debug.Log(transform);
         }
 
-        подписать на updateManager
         public void Move()
         {
             if (canMove)
             {
                 if (transform.position != nextPos)
                 {
-                    Debug.Log("move");
                     transform.position = Vector3.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
                 }
                 else
@@ -42,7 +39,6 @@ namespace SystemMove
 
         public void SetNextPosition(Vector3 nextPos)
         {
-            Debug.Log("set pos");
             nextPos.y = transform.position.y;
             this.nextPos = nextPos;
             canMove = true;

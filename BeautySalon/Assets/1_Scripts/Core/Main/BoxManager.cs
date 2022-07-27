@@ -17,7 +17,7 @@ namespace Core
 
         #region INIT
 
-        public static void Init(SCRO_SceneManagers sceneManagers,bool isLogging)
+        public static void Init(SCRO_SceneManagers sceneManagers, bool isLogging)
         {
             BoxManager.sceneManagers = sceneManagers;
             BoxManager.isLogging = isLogging;

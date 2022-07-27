@@ -24,7 +24,7 @@ namespace Core
         public override void OnInitialize()
         {
             GameObject newObject = new GameObject();
-            //newObject.name = NamesData.UpdateGameName;
+            newObject.name = NamesData.UPDATE_MANAGER;
 
             updateGame = newObject.gameObject.AddComponent<UpdateGame>();
 

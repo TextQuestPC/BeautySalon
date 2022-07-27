@@ -11,8 +11,6 @@ namespace Core
 
         [SerializeField] private UIManager uiManager;
 
-        [SerializeField] private Player player;
-
         private void Start()
         {
             //AllObjectsInScene.Instance.OnInitialize();
@@ -20,8 +18,6 @@ namespace Core
 
             UIManager.Instance.OnInitialize();
             UIManager.Instance.OnStart();
-
-            player.OnInitialize();
         }
     }
 }
