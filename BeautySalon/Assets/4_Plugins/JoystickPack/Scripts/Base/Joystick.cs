@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace JoyStickSystem
@@ -36,14 +37,17 @@ namespace JoyStickSystem
         private RectTransform baseRect = null;
 
 
-        это не нужно
         private Canvas canvas;
         private Camera cam;
 
         private Vector2 input = Vector2.zero;
 
+        private InputManager inputManager;
+
         protected virtual void Start()
         {
+            inputManager = BoxManager.GetManager<InputManager>();
+
             HandleRange = handleRange;
             DeadZone = deadZone;
             baseRect = GetComponent<RectTransform>();
@@ -77,6 +81,7 @@ namespace JoyStickSystem
             HandleInput(input.magnitude, input.normalized, radius, cam);
             handle.anchoredPosition = input * radius * handleRange;
 
+            inputManager.SwipeJoyStick(input);
         }
 
         protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)

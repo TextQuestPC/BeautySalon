@@ -6,7 +6,7 @@ namespace SystemMove
     {
         protected override void ChangeTransform()
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, speedChange * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, speedChange * Time.deltaTime);
 
             if (transform.position == targetTransform.position)
             {

@@ -1,29 +1,32 @@
 using System.Collections.Generic;
-using Core;
 using InputSystem;
 using UnityEngine;
 
-public class InputManager : BaseManager
+namespace Core
 {
-    private List<IWaitJoystick> listenerJoystick = new List<IWaitJoystick>();
-
-    public void AddListenerJoystick(IWaitJoystick listener)
+    [CreateAssetMenu(fileName = "InputManager", menuName = "Managers/InputManager")]
+    public class InputManager : BaseManager
     {
-        if (listenerJoystick.Contains(listener))
-        {
-            Debug.Log($"<color=red>Уже добавлен listener {listener}!!!</color>");
-        }
-        else
-        {
-            listenerJoystick.Add(listener);
-        }
-    }
+        private List<IWaitJoystick> listenerJoystick = new List<IWaitJoystick>();
 
-    public void SwipeJoyStick(float horizontal, float vertical)
-    {
-        foreach (var listener in listenerJoystick)
+        public void AddListenerJoystick(IWaitJoystick listener)
         {
-            listener.SwipeJoystick(horizontal, vertical);
+            if (listenerJoystick.Contains(listener))
+            {
+                Debug.Log($"<color=red>Уже добавлен listener {listener}!!!</color>");
+            }
+            else
+            {
+                listenerJoystick.Add(listener);
+            }
+        }
+
+        public void SwipeJoyStick(Vector2 positionMove)
+        {
+            foreach (var listener in listenerJoystick)
+            {
+                listener.SwipeJoystick(positionMove);
+            }
         }
     }
 }

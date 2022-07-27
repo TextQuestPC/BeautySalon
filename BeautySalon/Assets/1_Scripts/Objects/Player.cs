@@ -2,6 +2,7 @@ using Core;
 using InputSystem;
 using ObjectsOnScene;
 using SystemMove;
+using UnityEngine;
 
 public class Player : ObjectScene, IWaitJoystick
 {
@@ -14,8 +15,8 @@ public class Player : ObjectScene, IWaitJoystick
         BoxManager.GetManager<InputManager>().AddListenerJoystick(this);
     }
 
-    public void SwipeJoystick(float horizontal, float vertical)
+    public void SwipeJoystick(Vector2 positionMove)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("move player");
     }
 }
