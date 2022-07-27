@@ -35,6 +35,8 @@ namespace JoyStickSystem
         [SerializeField] private RectTransform handle = null;
         private RectTransform baseRect = null;
 
+
+        это не нужно
         private Canvas canvas;
         private Camera cam;
 
@@ -74,6 +76,7 @@ namespace JoyStickSystem
             FormatInput();
             HandleInput(input.magnitude, input.normalized, radius, cam);
             handle.anchoredPosition = input * radius * handleRange;
+
         }
 
         protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)

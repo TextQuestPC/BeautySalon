@@ -56,16 +56,15 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/1_Scripts/Systems/Interfaces/IWaiting.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/Interfaces/IWaitTimer.cs" />
     <Compile Include="Assets/1_Scripts/UI/Windows/UIWindow.cs" />
     <Compile Include="Assets/1_Scripts/UI/Buttons/MyButton.cs" />
     <Compile Include="Assets/1_Scripts/UI/Buttons/CloseButton.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/PositionEnemyMove.cs" />
     <Compile Include="Assets/1_Scripts/UI/TypeAnimation.cs" />
     <Compile Include="Assets/1_Scripts/Objects/ObjectScene.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Effects/EffectBase.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Target/TargetTowerSystem.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/MoveObjectSystem.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/Move/MoveObjectSystem.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/DontDestroy.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/EffectManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/ISettings.cs" />
@@ -84,9 +83,9 @@
     <Compile Include="Assets/1_Scripts/Core/Managers/UpdateManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/SCRO/SCRO_SceneManagers.cs" />
     <Compile Include="Assets/1_Scripts/Objects/AllObjectsInScene.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/ChangeTransformSystem.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/Move/ChangeTransformSystem.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/IManager.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/RotationSystem.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/Move/RotationSystem.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/CreatorManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/BoxManager.cs" />
     <Compile Include="Assets/1_Scripts/UI/UIManager.cs" />
@@ -109,6 +108,9 @@
     <Compile Include="Assets/4_Plugins/JoystickPack/Examples/JoystickPlayerExample.cs" />
     <Compile Include="Assets/4_Plugins/JoystickPack/Examples/JoystickSetterExample.cs" />
     <Compile Include="Assets/4_Plugins/JoystickPack/Scripts/Joysticks/FixedJoystick.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/Player.cs" />
+    <Compile Include="Assets/1_Scripts/Core/Managers/InputManager.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/Interfaces/IWaitJoystick.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

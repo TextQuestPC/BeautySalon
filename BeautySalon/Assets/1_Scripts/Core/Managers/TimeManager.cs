@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using TimerSystem;
 
 namespace Core
 {
     [CreateAssetMenu(fileName = "TimeManager", menuName = "Managers/TimeManager")]
-    public class TimeManager : BaseManager, IWaiting
+    public class TimeManager : BaseManager, IWaitTimer
     {
-        private List<IWaiting> waitingObjects = new List<IWaiting>();
+        private List<IWaitTimer> waitingObjects = new List<IWaitTimer>();
 
-        public void AddWaitingObject(IWaiting waitingObject)
+        public void AddWaitingObject(IWaitTimer waitingObject)
         {
             waitingObjects.Add(waitingObject);
         }
 
-        public void RemoveWaitingObject(IWaiting waitingObject)
+        public void RemoveWaitingObject(IWaitTimer waitingObject)
         {
             if (waitingObjects.Contains(waitingObject))
             {
