@@ -16,7 +16,6 @@ public class Player : ObjectScene, IWaitJoystick
 
     public void SwipeJoystick(Vector3 positionMove)
     {
-        Debug.Log(positionMove);
         moveSystem.SetNextPosition(positionMove);
     }
 }

@@ -23,13 +23,15 @@ namespace SystemMove
             Debug.Log(transform);
         }
 
+        подписать на updateManager
         public void Move()
         {
             if (canMove)
             {
                 if (transform.position != nextPos)
-                {                    
-                    transform.position = Vector2.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
+                {
+                    Debug.Log("move");
+                    transform.position = Vector3.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
                 }
                 else
                 {
@@ -40,19 +42,10 @@ namespace SystemMove
 
         public void SetNextPosition(Vector3 nextPos)
         {
+            Debug.Log("set pos");
             nextPos.y = transform.position.y;
             this.nextPos = nextPos;
             canMove = true;
-        }
-
-        public void StopMove()
-        {
-            canMove = false;
-
-            if (EndedChangeTransform != null)
-            {
-                EndedChangeTransform = null;
-            }
         }
 
         protected void EndChangeTransform()
