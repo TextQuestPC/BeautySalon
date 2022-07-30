@@ -81,7 +81,12 @@ namespace JoyStickSystem
             HandleInput(input.magnitude, input.normalized, radius, cam);
             handle.anchoredPosition = input * radius * handleRange;
 
-            inputManager.SwipeJoyStick(input);
+            if (inputManager == null)
+            {
+                inputManager = BoxManager.GetManager<InputManager>();
+            }
+
+            inputManager.SwipeJoyStick(new Vector3(Horizontal, 0, Vertical));
         }
 
         protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
@@ -141,6 +146,8 @@ namespace JoyStickSystem
         {
             input = Vector2.zero;
             handle.anchoredPosition = Vector2.zero;
+
+            BoxManager.GetManager<InputManager>().StopSwipe();
         }
 
         protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)

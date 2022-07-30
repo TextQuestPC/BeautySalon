@@ -21,5 +21,10 @@ namespace Character
         {
             moveSystem.SetNextPosition(positionMove);
         }
+
+        public void StopSwipe()
+        {
+            moveSystem.StopMove();
+        }
     }
 }

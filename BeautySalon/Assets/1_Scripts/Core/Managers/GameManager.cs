@@ -59,7 +59,7 @@ namespace Core
         private void SpawnObjects()
         {
             Player player = BoxManager.GetManager<CreatorManager>().CreatePlayer();
-            TouchSystem.Instance.SetPlayer = player;
+            //TouchSystem.Instance.SetPlayer = player;
             Camera.main.gameObject.transform.SetParent(player.transform);
         }
 

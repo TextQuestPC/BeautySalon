@@ -28,5 +28,13 @@ namespace Core
                 listener.SwipeJoystick(positionMove);
             }
         }
+
+        public void StopSwipe()
+        {
+            foreach (var listener in listenerJoystick)
+            {
+                listener.StopSwipe();
+            }
+        }
     }
 }

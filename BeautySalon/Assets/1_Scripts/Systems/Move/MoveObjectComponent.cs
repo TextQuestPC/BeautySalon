@@ -28,7 +28,7 @@ namespace SystemMove
             {
                 if (transform.position != nextPos)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
+                    transform.position = Vector3.forward * speedMove * Time.deltaTime;
                 }
                 else
                 {
@@ -37,11 +37,20 @@ namespace SystemMove
             }
         }
 
-        public void SetNextPosition(Vector3 nextPos)
+        public void SetNextPosition(Vector3 newPos)
         {
+            nextPos.x += newPos.x;
+            nextPos.z += newPos.z;
             nextPos.y = transform.position.y;
-            this.nextPos = nextPos;
+
+            transform.rotation = new Quaternion(newPos.x, newPos.y, newPos.z, 0);
+
             canMove = true;
+        }
+
+        public void StopMove()
+        {
+            canMove = false;
         }
 
         protected void EndChangeTransform()
