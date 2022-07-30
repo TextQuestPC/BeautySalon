@@ -13,7 +13,7 @@ namespace SystemMove
 
         private void Awake()
         {
-            controller = GetComponent<CharacterController>();
+            controller = gameObject.AddComponent<CharacterController>();
             playerInput = new PlayerActionsExample();
         }
 

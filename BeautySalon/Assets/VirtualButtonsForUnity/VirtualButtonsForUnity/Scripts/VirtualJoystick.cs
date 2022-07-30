@@ -9,21 +9,19 @@ namespace JoyStick
 {
     public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
-
         [SerializeField] private RectTransform centerArea = null;
         [SerializeField] private RectTransform handle = null;
         [InputControl(layout = "Vector2")]
         [SerializeField] private string stickControlPath;
         [SerializeField] private float movementRange = 100f;
 
-        protected VirtualJoystickType joystickType = VirtualJoystickType.Fixed;
-        protected bool _hideOnPointerUp = false;
-        protected bool _centralizeOnPointerUp = true;
+        private bool hideOnPointerUp = false;
+        private bool centralizeOnPointerUp = true;
         private Canvas canvas;
-        protected RectTransform baseRect = null;
-        protected OnScreenStick handleStickController = null;
-        protected CanvasGroup bgCanvasGroup = null;
-        protected Vector2 initialPosition = Vector2.zero;
+        private RectTransform baseRect = null;
+        private OnScreenStick handleStickController = null;
+        private CanvasGroup bgCanvasGroup = null;
+        private Vector2 initialPosition = Vector2.zero;
 
         protected virtual void Awake()
         {
@@ -43,15 +41,13 @@ namespace JoyStick
 
             initialPosition = centerArea.anchoredPosition;
 
-            if (joystickType == VirtualJoystickType.Fixed)
+            if (hideOnPointerUp)
             {
-                centerArea.anchoredPosition = initialPosition;
-                bgCanvasGroup.alpha = 1;
+                bgCanvasGroup.alpha = 0;
             }
-            else if (joystickType == VirtualJoystickType.Floating)
+            else
             {
-                if (_hideOnPointerUp) bgCanvasGroup.alpha = 0;
-                else bgCanvasGroup.alpha = 1;
+                bgCanvasGroup.alpha = 1;
             }
         }
 
@@ -61,32 +57,33 @@ namespace JoyStick
             constructedEventData.position = handle.position;
             handleStickController.OnPointerDown(constructedEventData);
 
-            if (joystickType == VirtualJoystickType.Floating)
-            {
-                centerArea.anchoredPosition = GetAnchoredPosition(eventData.position);
+            centerArea.anchoredPosition = GetAnchoredPosition(eventData.position);
 
-                if (_hideOnPointerUp)
-                    bgCanvasGroup.alpha = 1;
+            if (hideOnPointerUp)
+            {
+                bgCanvasGroup.alpha = 1;
             }
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (joystickType == VirtualJoystickType.Floating)
-            {
-                handleStickController.OnDrag(eventData);
-            }
+            handleStickController.OnDrag(eventData);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (joystickType == VirtualJoystickType.Floating)
+            if (centralizeOnPointerUp)
             {
-                if (_centralizeOnPointerUp)
-                    centerArea.anchoredPosition = initialPosition;
+                centerArea.anchoredPosition = initialPosition;
+            }
 
-                if (_hideOnPointerUp) bgCanvasGroup.alpha = 0;
-                else bgCanvasGroup.alpha = 1;
+            if (hideOnPointerUp)
+            {
+                bgCanvasGroup.alpha = 0;
+            }
+            else
+            {
+                bgCanvasGroup.alpha = 1;
             }
 
             PointerEventData constructedEventData = new PointerEventData(EventSystem.current);

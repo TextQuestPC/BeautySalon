@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7994729574101362313}
   - component: {fileID: 7994729574101362319}
   - component: {fileID: 7994729574101362312}
-  - component: {fileID: 4684214475355825702}
+  - component: {fileID: 175863265}
   m_Layer: 5
   m_Name: Joystick Floating
   m_TagString: Untagged
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4684214475355825702
+--- !u!114 &175863265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,15 +175,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7994729574101362314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54ae418ed01fd513d96455d6356e49bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2054e083065b45bd59e2feb7c28e6840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerArea: {fileID: 7994729573854476862}
   handle: {fileID: 7994729574394115877}
-  stickControlPath: 
+  stickControlPath: <Gamepad>/leftStick
   movementRange: 100
-  hideOnPointerUp: 0
-  centralizeOnPointerUp: 1
 --- !u!1 &7994729574394115878
 GameObject:
   m_ObjectHideFlags: 0
