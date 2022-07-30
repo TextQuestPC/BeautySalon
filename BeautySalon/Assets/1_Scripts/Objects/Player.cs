@@ -1,30 +1,20 @@
-using Core;
-using InputSystem;
 using ObjectsOnScene;
 using SystemMove;
 using UnityEngine;
 
-namespace Character
+namespace Characters
 {
-    public class Player : ObjectScene, IWaitJoystick
+    public class Player : ObjectScene
     {
-        private MoveObjectComponent moveSystem;
+        private MovePlayerComponent moveComponent;
 
         public override void OnInitialize()
         {
-            moveSystem = gameObject.AddComponent<MoveObjectComponent>();
-
-            BoxManager.GetManager<InputManager>().AddListenerJoystick(this);
-        }
-
-        public void SwipeJoystick(Vector3 positionMove)
-        {
-            moveSystem.SetNextPosition(positionMove);
+            moveComponent = gameObject.AddComponent<MovePlayerComponent>();
         }
 
         public void StopSwipe()
         {
-            moveSystem.StopMove();
         }
     }
 }

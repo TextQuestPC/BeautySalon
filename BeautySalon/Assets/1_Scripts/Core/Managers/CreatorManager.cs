@@ -1,4 +1,4 @@
-﻿using Character;
+﻿using Characters;
 using ObjectsOnScene;
 using UnityEngine;
 
@@ -25,7 +25,7 @@ namespace Core
             Player player = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
             player.gameObject.name = NamesData.PLAYER_NAME;
             player.transform.SetParent(objectsParent.transform);
-            player.OnInitialize();
+            //player.OnInitialize();
 
             return player;
         }

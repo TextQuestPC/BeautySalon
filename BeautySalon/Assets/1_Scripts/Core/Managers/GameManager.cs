@@ -1,5 +1,4 @@
-using Character;
-using InputSystem;
+using Characters;
 using System;
 using UnityEngine;
 
