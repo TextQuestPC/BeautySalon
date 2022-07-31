@@ -59,7 +59,6 @@
     <Compile Include="Assets\4_Plugins\VirtualButtonsForUnity\Examples\Scripts\PlayerActionsExample.cs" />
     <Compile Include="Assets\4_Plugins\VirtualButtonsForUnity\Scripts\VirtualJoystick.cs" />
     <Compile Include="Assets\4_Plugins\VirtualButtonsForUnity\Scripts\VirtualDPad.cs" />
-    <Compile Include="Assets\4_Plugins\VirtualButtonsForUnity\Examples\Scripts\MovePlayerComponent.cs" />
     <Compile Include="Assets\4_Plugins\VirtualButtonsForUnity\Scripts\VirtualButton.cs" />
   </ItemGroup>
   <ItemGroup>

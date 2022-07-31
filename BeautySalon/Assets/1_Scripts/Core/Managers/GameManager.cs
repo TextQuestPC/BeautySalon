@@ -1,5 +1,6 @@
 using Characters;
 using System;
+using SystemMove;
 using UnityEngine;
 
 namespace Core
@@ -58,7 +59,7 @@ namespace Core
         private void SpawnObjects()
         {
             Player player = BoxManager.GetManager<CreatorManager>().CreatePlayer();
-            Camera.main.gameObject.transform.SetParent(player.transform);
+            Camera.main.GetComponent<MoveCameraComponent>().SetNextTarget(player.transform);
         }
 
         #region DO_ACTIONS
