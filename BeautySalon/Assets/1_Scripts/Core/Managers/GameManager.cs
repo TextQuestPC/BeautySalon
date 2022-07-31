@@ -58,13 +58,7 @@ namespace Core
         private void SpawnObjects()
         {
             Player player = BoxManager.GetManager<CreatorManager>().CreatePlayer();
-            //TouchSystem.Instance.SetPlayer = player;
             Camera.main.gameObject.transform.SetParent(player.transform);
-        }
-
-        private object GetManager<T>()
-        {
-            throw new NotImplementedException();
         }
 
         #region DO_ACTIONS

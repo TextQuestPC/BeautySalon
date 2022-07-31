@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: CreatorManager
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2222959432342790524, guid: ae59e612884644bcd92385cf40997027, type: 3}
+  placesSpawnPrefabs:
+  - {fileID: 1614394254505943674, guid: fd52520e50f3b22418fa6342107246ff, type: 3}

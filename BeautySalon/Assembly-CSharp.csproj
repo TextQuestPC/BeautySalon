@@ -65,7 +65,7 @@
     <Compile Include="Assets\1_Scripts\Core\Managers\EffectManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\Interface\IShoot.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\GameManager.cs" />
-    <Compile Include="Assets\1_Scripts\Data\TypeEffect.cs" />
+    <Compile Include="Assets\1_Scripts\Type\TypeEffect.cs" />
     <Compile Include="Assets\1_Scripts\Core\Storage\FileStorage.cs" />
     <Compile Include="Assets\1_Scripts\Core\Settings\AudioSettingsData.cs" />
     <Compile Include="Assets\1_Scripts\Systems\Target\TargetSystem.cs" />
@@ -90,7 +90,7 @@
     <Compile Include="Assets\1_Scripts\Core\Managers\BaseManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\Storage\GameData.cs" />
     <Compile Include="Assets\1_Scripts\Core\Storage\Storage.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\PositionsOnScene.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Positions\PositionsOnScene.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\BoxManager.cs" />
     <Compile Include="Assets\1_Scripts\Objects\Player.cs" />
     <Compile Include="Assets\1_Scripts\Core\Interface\IUIElement.cs" />
@@ -101,6 +101,10 @@
     <Compile Include="Assets\1_Scripts\Core\Main\UpdateGame.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Coroutines.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\TimeManager.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceSpawnItem.cs" />
+    <Compile Include="Assets\1_Scripts\Core\Managers\ManagerPlacesSpawnItems.cs" />
+    <Compile Include="Assets\1_Scripts\Type\TypePlaceSpawnItem.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Positions\PositionPlaceSpawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
