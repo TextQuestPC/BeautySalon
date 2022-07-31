@@ -72,6 +72,7 @@
     <Compile Include="Assets\1_Scripts\Core\Managers\UpdateManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\SCRO\SCRO_SceneManagers.cs" />
     <Compile Include="Assets\1_Scripts\Systems\Move\MoveObjectComponent.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceSpawnItem.cs" />
     <Compile Include="Assets\1_Scripts\Core\Interface\IManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\CreatorManager.cs" />
     <Compile Include="Assets\1_Scripts\UI\UIManager.cs" />
@@ -90,23 +91,25 @@
     <Compile Include="Assets\1_Scripts\Core\Managers\BaseManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\Storage\GameData.cs" />
     <Compile Include="Assets\1_Scripts\Core\Storage\Storage.cs" />
+    <Compile Include="Assets\1_Scripts\Core\Managers\ManagerPlacesSpawnItems.cs" />
+    <Compile Include="Assets\1_Scripts\Type\TypePlaceSpawnItem.cs" />
     <Compile Include="Assets\1_Scripts\Objects\Positions\PositionsOnScene.cs" />
     <Compile Include="Assets\1_Scripts\Systems\Move\MovePlayerComponent.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\BoxManager.cs" />
     <Compile Include="Assets\1_Scripts\Objects\Player.cs" />
     <Compile Include="Assets\1_Scripts\Core\Interface\IUIElement.cs" />
+    <Compile Include="Assets\1_Scripts\Systems\Move\MoveCameraComponent.cs" />
     <Compile Include="Assets\1_Scripts\UI\Windows\SettingsWindow.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Starter.cs" />
     <Compile Include="Assets\1_Scripts\Core\Interface\IInitialize.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Positions\PositionPlaceSpawn.cs" />
     <Compile Include="Assets\1_Scripts\Core\Settings\GameSettings.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\UpdateGame.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Coroutines.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\TimeManager.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\PlaceSpawnItem.cs" />
-    <Compile Include="Assets\1_Scripts\Core\Managers\ManagerPlacesSpawnItems.cs" />
-    <Compile Include="Assets\1_Scripts\Type\TypePlaceSpawnItem.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\Positions\PositionPlaceSpawn.cs" />
-    <Compile Include="Assets\1_Scripts\Systems\Move\MoveCameraComponent.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Item.cs" />
+    <Compile Include="Assets\1_Scripts\Type\TypeItem.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Chair.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

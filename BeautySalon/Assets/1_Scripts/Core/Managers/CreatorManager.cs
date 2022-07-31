@@ -9,17 +9,20 @@ namespace Core
     {
         [SerializeField] private Player playerPrefab;
         [SerializeField] private PlaceSpawnItem[] placesSpawnPrefabs;
+        [SerializeField] private Item[] itemsPrefabs;
 
         private GameObject objectsParent;
         private GameObject parentPlaceSpawn;
-
-        private Vector3 startSpawnPosition = new Vector3(0, 0, 0);
+        private GameObject parentItems;
 
         public override void OnInitialize()
         {
             objectsParent = new GameObject(NamesData.OBJECTS);
             parentPlaceSpawn = new GameObject(NamesData.PLACE_SPAWN);
+            parentItems = new GameObject(NamesData.ITEMS);
+
             parentPlaceSpawn.transform.SetParent(objectsParent.transform);
+            parentItems.transform.SetParent(objectsParent.transform);
         }
 
         public Player CreatePlayer()
@@ -44,6 +47,7 @@ namespace Core
                 if(place.GetTypePlace == typePlaceSpawn)
                 {
                     prefab = place;
+                    break;
                 }
             }
 
@@ -57,6 +61,32 @@ namespace Core
             placeSpawn.transform.SetParent(parentPlaceSpawn.transform);
 
             return placeSpawn;
+        }
+
+        public Item CreateItem(TypeItem typeItem)
+        {
+            Vector3 spawnPos = PositionsOnScene.Instance.GetSpawnItemsPos.transform.position;
+            Item currentItemPrefab = null;
+
+            foreach (var itemPrefab in itemsPrefabs)
+            {
+                if(itemPrefab.GetTypeItem == typeItem)
+                {
+                    currentItemPrefab = itemPrefab;
+                    break;
+                }
+            }
+
+            if(currentItemPrefab == null)
+            {
+                Debug.Log($"<color=red>Нет префаба Item типа {typeItem}</color>");
+            }
+
+            Item item = Instantiate(currentItemPrefab, spawnPos, Quaternion.identity);
+            item.gameObject.name = NamesData.ITEM + $" {typeItem}";
+            item.transform.SetParent(objectsParent.transform);
+
+            return item;
         }
     }
 }

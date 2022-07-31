@@ -7,5 +7,7 @@ namespace Core
         public static string PLAYER_NAME { get => "Player"; }
         public static string UPDATE_MANAGER { get => "[UPDATE_MANAGER]"; }
         public static string PLACE_SPAWN { get => "[PLACE_SPAWN]"; }
+        public static string ITEMS { get => "[ITEMS]"; }
+        public static string ITEM { get => "[ITEM]"; }
     }
 }

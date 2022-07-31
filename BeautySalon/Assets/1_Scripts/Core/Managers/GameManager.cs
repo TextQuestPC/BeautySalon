@@ -1,4 +1,5 @@
 using Characters;
+using ObjectsOnScene;
 using System;
 using SystemMove;
 using UnityEngine;
@@ -20,18 +21,12 @@ namespace Core
         #region STATES_GAME
 
         public static event Action<bool> ChangeCanMove;
-        public static event Action<bool> ChangeCanShoot;
         public static event Action<bool> ChangeCanSpawn;
         public static event Action<bool> ChangeTimeGo;
 
         private bool CanMove
         {
             set => ChangeCanMove?.Invoke(value);
-        }
-
-        private bool CanShoot
-        {
-            set => ChangeCanShoot?.Invoke(value);
         }
 
         private bool CanSpawn
@@ -46,10 +41,11 @@ namespace Core
 
         #endregion STATES_GAME
 
+        private Player player;
+
         public override void OnStart()
         {
             CanMove = true;
-            CanShoot = true;
             CanSpawn = true;
             TimeGo = true;
 
@@ -58,7 +54,7 @@ namespace Core
 
         private void SpawnObjects()
         {
-            Player player = BoxManager.GetManager<CreatorManager>().CreatePlayer();
+            player = BoxManager.GetManager<CreatorManager>().CreatePlayer();
             Camera.main.GetComponent<MoveCameraComponent>().SetNextTarget(player.transform);
         }
 
@@ -99,5 +95,17 @@ namespace Core
         }
 
         #endregion DO_ACTIONS
+
+        #region ACTIONS_GAME
+
+        public void PlayerTyGetItem(TypeItem typeItem)
+        {
+            if (player.CheckCanGetItem())
+            {
+                player.GetItemFromPlace(typeItem);
+            }
+        }
+
+        #endregion ACTIONS_GAME
     }
 }

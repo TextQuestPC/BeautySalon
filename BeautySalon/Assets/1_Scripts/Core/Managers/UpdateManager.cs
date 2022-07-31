@@ -16,7 +16,6 @@ namespace Core
         private TimeManager timer;
 
         private bool canMove;
-        private bool canShoot;
         private bool timeGo;
 
         #region INITIALIZE
@@ -31,7 +30,6 @@ namespace Core
             timer = BoxManager.GetManager<TimeManager>();
 
             GameManager.ChangeCanMove += (bool canMove) => { this.canMove = canMove; };
-            GameManager.ChangeCanShoot += (bool canShoot) => { this.canShoot = canShoot; };
             GameManager.ChangeTimeGo += (bool timeGo) => { this.timeGo = timeGo; };
         }
 
@@ -49,14 +47,6 @@ namespace Core
                 foreach (var moveObject in moveObjects)
                 {
                     moveObject.Move();
-                }
-            }
-
-            if (canShoot)
-            {
-                foreach (var shootObject in shootObjects)
-                {
-                    shootObject.Shoot();
                 }
             }
 
