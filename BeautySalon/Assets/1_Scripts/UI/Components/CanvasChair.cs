@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace UI
+{
+    public class CanvasChair : MonoBehaviour
+    {
+        [SerializeField] private Slider slider;
+
+        private float maxValue;
+
+        public float SetMaxValue
+        {
+            set
+            {
+                maxValue = value;
+                slider.maxValue = maxValue;
+            }
+        }
+
+        public void ChangeValue(float newValue)
+        {
+            slider.value = newValue;
+        }
+    }
+}

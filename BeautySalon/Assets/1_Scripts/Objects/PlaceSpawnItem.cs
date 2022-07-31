@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace ObjectsOnScene
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class PlaceSpawnItem : ObjectScene
     {
         [SerializeField] private TypePlaceSpawnItem typePlace;
