@@ -4,12 +4,12 @@ using UnityEngine;
 namespace ObjectsOnScene
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class PlaceSpawnItem : ObjectScene
+    public class Service : ObjectScene
     {
-        [SerializeField] private TypePlaceSpawnItem typePlace;
+        [SerializeField] private TypeService typeService;
         [SerializeField] private TypeItem typeItem;
 
-        public TypePlaceSpawnItem GetTypePlace { get => typePlace; }
+        public TypeService GetTypeService { get => typeService; }
 
         private void OnTriggerEnter(Collider other)
         {

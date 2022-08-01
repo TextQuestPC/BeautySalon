@@ -1,6 +1,6 @@
 namespace ObjectsOnScene
 {
-    public enum TypePlaceSpawnItem
+    public enum TypeService
     {
         Haircut
     }

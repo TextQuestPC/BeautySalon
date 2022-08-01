@@ -16,7 +16,8 @@ namespace SystemMove
             {
                 nextPos = targetTransform.position;
                 nextPos.y += 6.5f;
-                nextPos.z -= 7f;
+                nextPos.z -= 5f;
+                nextPos.x -= 5f;
 
                 transform.position = Vector3.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
             }

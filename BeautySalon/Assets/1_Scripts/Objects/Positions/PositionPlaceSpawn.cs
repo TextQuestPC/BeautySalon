@@ -4,8 +4,8 @@ namespace ObjectsOnScene
 {
     public class PositionPlaceSpawn : MonoBehaviour
     {
-        [SerializeField] private TypePlaceSpawnItem typePlaceSpawn;
+        [SerializeField] private TypeService typeService;
 
-        public TypePlaceSpawnItem GetTypePlaceSpawn { get => typePlaceSpawn; }
+        public TypeService GetTypeService { get => typeService; }
     }
 }

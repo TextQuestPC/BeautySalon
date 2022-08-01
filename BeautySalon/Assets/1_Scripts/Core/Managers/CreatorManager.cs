@@ -8,18 +8,21 @@ namespace Core
     public class CreatorManager : BaseManager
     {
         [SerializeField] private Player playerPrefab;
-        [SerializeField] private PlaceSpawnItem[] placesSpawnPrefabs;
+        [SerializeField] private Service[] placesSpawnPrefabs;
         [SerializeField] private Item[] itemsPrefabs;
+        [SerializeField] private Visitor visitorPrefab;
 
         private GameObject objectsParent;
         private GameObject parentPlaceSpawn;
         private GameObject parentItems;
+        private GameObject parentVisitors;
 
         public override void OnInitialize()
         {
             objectsParent = new GameObject(NamesData.OBJECTS);
-            parentPlaceSpawn = new GameObject(NamesData.PLACE_SPAWN);
+            parentPlaceSpawn = new GameObject(NamesData.SERVICE);
             parentItems = new GameObject(NamesData.ITEMS);
+            parentVisitors = new GameObject(NamesData.VISITORS);
 
             parentPlaceSpawn.transform.SetParent(objectsParent.transform);
             parentItems.transform.SetParent(objectsParent.transform);
@@ -37,14 +40,14 @@ namespace Core
             return player;
         }
 
-        public PlaceSpawnItem CreatePlaceSpawn(TypePlaceSpawnItem typePlaceSpawn)
+        public Service CreateService(TypeService typeService)
         {
-            Vector3 position = PositionsOnScene.Instance.GetPositionPlaceSpawn(typePlaceSpawn).transform.position;
-            PlaceSpawnItem prefab = null;
+            Vector3 position = PositionsOnScene.Instance.GetPositionService(typeService).transform.position;
+            Service prefab = null;
 
             foreach (var place in placesSpawnPrefabs)
             {
-                if(place.GetTypePlace == typePlaceSpawn)
+                if(place.GetTypeService == typeService)
                 {
                     prefab = place;
                     break;
@@ -53,14 +56,14 @@ namespace Core
 
             if (prefab == null)
             {
-                Debug.Log($"<color=red>Нет префаба PlaceSpawn типа {typePlaceSpawn}</color>");
+                Debug.Log($"<color=red>Нет префаба PlaceSpawn типа {typeService}</color>");
             }
 
-            PlaceSpawnItem placeSpawn = Instantiate(prefab, position, Quaternion.identity);
-            prefab.gameObject.name = NamesData.PLACE_SPAWN + $" {typePlaceSpawn}";
-            placeSpawn.transform.SetParent(parentPlaceSpawn.transform);
+            Service service = Instantiate(prefab, position, Quaternion.identity);
+            prefab.gameObject.name = NamesData.SERVICE + $" {typeService}";
+            service.transform.SetParent(parentPlaceSpawn.transform);
 
-            return placeSpawn;
+            return service;
         }
 
         public Item CreateItem(TypeItem typeItem)
@@ -87,6 +90,18 @@ namespace Core
             item.transform.SetParent(objectsParent.transform);
 
             return item;
+        }
+
+        public Visitor CreateVisitor()
+        {
+            Vector3 spawnPos = PositionsOnScene.Instance.GetSpawnVisitorPos.transform.position;
+
+            Visitor visitor = Instantiate(visitorPrefab, spawnPos, Quaternion.identity);
+            visitor.gameObject.name = NamesData.VISITOR;
+            visitor.transform.SetParent(parentVisitors.transform);
+            visitor.OnInitialize();
+
+            return visitor;
         }
     }
 }

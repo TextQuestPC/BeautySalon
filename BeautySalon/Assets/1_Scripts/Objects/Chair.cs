@@ -1,3 +1,4 @@
+using Characters;
 using Core;
 using TimerSystem;
 using UI;
@@ -15,12 +16,27 @@ namespace ObjectsOnScene
         public TypeItem GetTypeNeedItem { get => typeNeedItem; }
 
         private float leftTimeProcedure;
+        private bool procedureNow = false;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == NamesData.PLAYER_NAME)
             {
-                StartProcedure();
+                if (other.GetComponent<Player>().CheckHaveItem(typeNeedItem))
+                {
+                    StartProcedure();
+                }
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (procedureNow)
+            {
+                if (other.tag == NamesData.PLAYER_NAME)
+                {
+                    StopProcedure();
+                }
             }
         }
 
@@ -30,20 +46,36 @@ namespace ObjectsOnScene
             sliderProcedure.SetMaxValue = timeProcedure;
             sliderProcedure.gameObject.SetActive(true);
 
+            procedureNow = true;
             BoxManager.GetManager<TimeManager>().AddWaitingObject(this);
         }
 
         public void TickTimer()
         {
-            leftTimeProcedure += Time.deltaTime;
-
-            sliderProcedure.ChangeValue(leftTimeProcedure);
-
-            if (leftTimeProcedure >= timeProcedure)
+            if (procedureNow)
             {
-                sliderProcedure.gameObject.SetActive(false);
-                Debug.Log("End procedure");
+                leftTimeProcedure += Time.deltaTime;
+                sliderProcedure.ChangeValue(leftTimeProcedure);
+
+                if (leftTimeProcedure >= timeProcedure)
+                {
+                    StopProcedure();
+                    CompleteProcedure();
+                }
             }
+        }
+
+        private void StopProcedure()
+        {
+            procedureNow = false;
+            sliderProcedure.gameObject.SetActive(false);
+
+            BoxManager.GetManager<TimeManager>().RemoveWaitingObject(this);
+        }
+
+        private void CompleteProcedure()
+        {
+            BoxManager.GetManager<GameManager>().CompleteProcedure(this);
         }
     }
 }

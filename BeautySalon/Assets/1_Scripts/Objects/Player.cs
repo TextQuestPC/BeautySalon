@@ -24,10 +24,29 @@ namespace Characters
         {
         }
 
+        #region CHECK
+
+        public bool CheckHaveItem(TypeItem typeItem)
+        {
+            foreach (var item in items)
+            {
+                if(item.GetTypeItem == typeItem)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool CheckCanGetItem()
         {
             return items.Count < maxCountItems;
         }
+
+        #endregion CHECK
+
+        #region ITEMS
 
         public void GetItemFromPlace(TypeItem typeItem)
         {
@@ -37,5 +56,22 @@ namespace Characters
 
             items.Add(item);
         }
+
+        public void RemoveItem(TypeItem typeItem)
+        {
+            foreach (var item in items)
+            {
+                if(item.GetTypeItem == typeItem)
+                {
+                    items.Remove(item);
+                    Destroy(item.gameObject);
+                    return;
+                }
+            }
+
+            Debug.Log($"Нужно удалить Item, которого нет у Player. Тип {typeItem}");
+        }
+
+        #endregion ITEMS
     }
 }

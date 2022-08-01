@@ -6,22 +6,24 @@ namespace ObjectsOnScene
     {
         [SerializeField] private GameObject spawnPlayerPos;
         [SerializeField] private GameObject spawnItemsPos;
-        [SerializeField] private PositionPlaceSpawn[] positionsPlaceSpawn;
+        [SerializeField] private GameObject spawnVisitorPos;
+        [SerializeField] private PositionPlaceSpawn[] positionsServices;
 
         public GameObject GetSpawnPlayerPos { get => spawnPlayerPos; }
         public GameObject GetSpawnItemsPos { get => spawnItemsPos; }
+        public GameObject GetSpawnVisitorPos { get => spawnVisitorPos; }
 
-        public GameObject GetPositionPlaceSpawn(TypePlaceSpawnItem typePlaceSpawn)
+        public GameObject GetPositionService(TypeService typeService)
         {
-            foreach (var position in positionsPlaceSpawn)
+            foreach (var position in positionsServices)
             {
-                if (position.GetTypePlaceSpawn == typePlaceSpawn)
+                if (position.GetTypeService == typeService)
                 {
                     return position.gameObject;
                 }
             }
 
-            Debug.Log($"<color=red>Нет позиции PlaceSpawn с типом {typePlaceSpawn}</color>") ;
+            Debug.Log($"<color=red>Нет позиции PlaceSpawn с типом {typeService}</color>") ;
 
             return null;
         }

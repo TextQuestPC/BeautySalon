@@ -106,6 +106,11 @@ namespace Core
             }
         }
 
+        public void CompleteProcedure(Chair chair)
+        {
+            player.RemoveItem(chair.GetTypeNeedItem);
+        }
+
         #endregion ACTIONS_GAME
     }
 }
