@@ -9,6 +9,7 @@ namespace Characters
     public class Player : ObjectScene
     {
         [SerializeField] private GameObject positionItem;
+        [SerializeField] private GameObject model;
 
         private MovePlayerComponent moveComponent;
 

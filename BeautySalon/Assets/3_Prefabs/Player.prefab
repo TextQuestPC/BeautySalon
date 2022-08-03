@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionItem: {fileID: 7494266959973019851}
+  model: {fileID: 5984635897392372368}
 --- !u!1 &7494266959973019851
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +170,7 @@ Animator:
   m_GameObject: {fileID: 5984635897392372368}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d78698b5edf2561409015416316a6c6b, type: 2}
+  m_Controller: {fileID: 9100000, guid: ccc89b176f0b8d84d916d8594bcb06c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
