@@ -17,6 +17,11 @@ namespace SystemMove
             playerInput = new PlayerActionsExample();
         }
 
+        public void Rotate(float value)
+        {
+            transform.Rotate(new Vector3(0, value, 0));
+        }
+
         private void Update()
         {
             Vector2 movement = playerInput.Player.Move.ReadValue<Vector2>();

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\1_Scripts\UI\Windows\UIWindow.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Visitor.cs" />
     <Compile Include="Assets\1_Scripts\Type\TypeItem.cs" />
     <Compile Include="Assets\1_Scripts\UI\Buttons\MyButton.cs" />
     <Compile Include="Assets\1_Scripts\UI\TypeAnimation.cs" />
@@ -91,9 +92,12 @@
     <Compile Include="Assets\1_Scripts\UI\Windows\MainUIWindow.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\ClassReferenceAttribute.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\BaseManager.cs" />
+    <Compile Include="Assets\1_Scripts\Systems\Move\MoveVisitorComponent.cs" />
     <Compile Include="Assets\1_Scripts\Core\Storage\GameData.cs" />
     <Compile Include="Assets\1_Scripts\Core\Storage\Storage.cs" />
+    <Compile Include="Assets\1_Scripts\Type\TypeService.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\ManagerServices.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Service.cs" />
     <Compile Include="Assets\1_Scripts\Objects\Positions\PositionsOnScene.cs" />
     <Compile Include="Assets\1_Scripts\Systems\Move\MovePlayerComponent.cs" />
     <Compile Include="Assets\1_Scripts\Objects\Chair.cs" />
@@ -107,13 +111,10 @@
     <Compile Include="Assets\1_Scripts\Objects\Positions\PositionPlaceSpawn.cs" />
     <Compile Include="Assets\1_Scripts\Core\Settings\GameSettings.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\UpdateGame.cs" />
+    <Compile Include="Assets\1_Scripts\Core\Managers\ManagerVisitors.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Coroutines.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\TimeManager.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\Visitor.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\Service.cs" />
-    <Compile Include="Assets\1_Scripts\Type\TypeService.cs" />
-    <Compile Include="Assets\1_Scripts\Systems\Move\MoveVisitorComponent.cs" />
-    <Compile Include="Assets\1_Scripts\Core\Managers\ManagerVisitors.cs" />
+    <Compile Include="Assets\1_Scripts\Systems\TouchSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
