@@ -1,4 +1,6 @@
 ﻿using Characters;
+using GameUpdate;
+using InputSystem;
 using ObjectsOnScene;
 using UnityEngine;
 
@@ -12,14 +14,14 @@ namespace Core
         [SerializeField] private Item[] itemsPrefabs;
         [SerializeField] private Visitor visitorPrefab;
 
-        private GameObject objectsParent;
-        private GameObject parentPlaceSpawn;
-        private GameObject parentItems;
-        private GameObject parentVisitors;
+        private GameObject objectsParent, singletonsParent, parentPlaceSpawn, parentItems, parentVisitors;
 
         public override void OnInitialize()
         {
             objectsParent = new GameObject(NamesData.OBJECTS);
+            singletonsParent = new GameObject(NamesData.SINGLETONS);
+            singletonsParent.transform.SetParent(objectsParent.transform);
+
             parentPlaceSpawn = new GameObject(NamesData.SERVICE);
             parentItems = new GameObject(NamesData.ITEMS);
             parentVisitors = new GameObject(NamesData.VISITORS);
@@ -102,6 +104,27 @@ namespace Core
             visitor.OnInitialize();
 
             return visitor;
+        }
+
+        public TouchSystem CreateTouchSystem()
+        {
+            GameObject newObject = new GameObject(NamesData.TOUCH_SYSTEM);
+            newObject.transform.SetParent(singletonsParent.transform);
+            return newObject.AddComponent<TouchSystem>();
+        }
+
+        public FocusSystem CreateFocusSystem()
+        {
+            GameObject newObject = new GameObject(NamesData.FOCUS_SYSTEM);
+            newObject.transform.SetParent(objectsParent.transform);
+            return newObject.AddComponent<FocusSystem>();
+        }
+
+        public UpdateGame CreateUpdateGame()
+        {
+            GameObject newObject = new GameObject(NamesData.UPDATE_MANAGER);
+            newObject.transform.SetParent(objectsParent.transform);
+            return newObject.AddComponent<UpdateGame>();
         }
     }
 }

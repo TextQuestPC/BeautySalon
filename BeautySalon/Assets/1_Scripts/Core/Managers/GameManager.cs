@@ -10,6 +10,8 @@ namespace Core
     {
         private Player player;
 
+        public Player GetPlayer { get => player; }
+
         public override void OnStart()
         {
             player = BoxManager.GetManager<CreatorManager>().CreatePlayer();

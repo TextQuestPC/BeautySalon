@@ -8,18 +8,18 @@ namespace Core
     {
         #region ACTIONS
 
-        public static event Action PausedApplication;
-        public static event Action UnpausedApplication;
-        public static event Action FocusedApplication;
-        public static event Action UnfocusedApplication;
+        public event Action PausedApplication;
+        public event Action UnpausedApplication;
+        public event Action FocusedApplication;
+        public event Action UnfocusedApplication;
 
         #endregion ACTIONS
 
         #region STATES_GAME
 
-        public static event Action<bool> ChangeCanMove;
-        public static event Action<bool> ChangeCanSpawn;
-        public static event Action<bool> ChangeTimeGo;
+        public event Action<bool> ChangeCanMove;
+        public event Action<bool> ChangeCanSpawn;
+        public event Action<bool> ChangeTimeGo;
 
         private bool CanMove
         {
@@ -64,14 +64,9 @@ namespace Core
             }
         }
 
-        private void OnApplicationFocus(bool focus)
+        public void ChangeFocusApplication(bool pause)
         {
-            if (BoxManager.GetIsLogging)
-            {
-                Debug.Log($"Application on focus = {focus}");
-            }
-
-            if (focus)
+            if (pause)
             {
                 FocusedApplication?.Invoke();
             }

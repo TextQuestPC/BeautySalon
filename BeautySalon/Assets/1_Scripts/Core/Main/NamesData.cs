@@ -11,5 +11,8 @@ namespace Core
         public static string ITEM { get => "Item"; }
         public static string VISITORS { get => "[VISITORS]"; }
         public static string VISITOR { get => "Visitor"; }
+        public static string SINGLETONS { get => "[SINGLTONS]"; }
+        public static string TOUCH_SYSTEM { get => "TouchSystem"; }
+        public static string FOCUS_SYSTEM { get => "FocusSystem"; }
     }
 }

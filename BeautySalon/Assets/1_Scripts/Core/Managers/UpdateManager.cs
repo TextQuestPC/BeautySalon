@@ -22,15 +22,12 @@ namespace Core
 
         public override void OnInitialize()
         {
-            GameObject newObject = new GameObject();
-            newObject.name = NamesData.UPDATE_MANAGER;
-
-            updateGame = newObject.gameObject.AddComponent<UpdateGame>();
+            updateGame = BoxManager.GetManager<CreatorManager>().CreateUpdateGame();
 
             timer = BoxManager.GetManager<TimeManager>();
 
-            StateGameManager.ChangeCanMove += (bool canMove) => { this.canMove = canMove; };
-            StateGameManager.ChangeTimeGo += (bool timeGo) => { this.timeGo = timeGo; };
+            BoxManager.GetManager<StateGameManager>().ChangeCanMove += (bool canMove) => { this.canMove = canMove; };
+            BoxManager.GetManager<StateGameManager>().ChangeTimeGo += (bool timeGo) => { this.timeGo = timeGo; };
         }
 
         public override void OnStart()

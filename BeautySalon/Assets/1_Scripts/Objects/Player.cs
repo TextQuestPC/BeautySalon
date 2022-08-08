@@ -13,6 +13,8 @@ namespace Characters
 
         private MovePlayerComponent moveComponent;
 
+        public MovePlayerComponent GetMove { get => moveComponent; }
+
         private List<Item> items = new List<Item>();
         private int maxCountItems = 3;
 
@@ -70,7 +72,7 @@ namespace Characters
                 }
             }
 
-            Debug.Log($"Нужно удалить Item, которого нет у Player. Тип {typeItem}");
+            Debug.Log($"????? ??????? Item, ???????? ??? ? Player. ??? {typeItem}");
         }
 
         #endregion ITEMS

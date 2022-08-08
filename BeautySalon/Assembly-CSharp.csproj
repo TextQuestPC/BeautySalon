@@ -84,7 +84,7 @@
     <Compile Include="Assets/1_Scripts/Core/Storage/Storage.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Target/TargetSystem.cs" />
     <Compile Include="Assets/1_Scripts/Type/TypeService.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/TouchSystem.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/InputSystem/TouchSystem.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/ManagerServices.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/UpdateManager.cs" />
     <Compile Include="Assets/1_Scripts/Objects/Service.cs" />
@@ -116,6 +116,7 @@
     <Compile Include="Assets/1_Scripts/Core/Main/Coroutines.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/TimeManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/StateGameManager.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/InputSystem/FocusSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
