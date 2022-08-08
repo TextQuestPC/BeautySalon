@@ -6,7 +6,7 @@ namespace SystemMove
     {
         private bool moveNow;
 
-        private float speedMove = 10f;
+        private float speedMove = 30f;
         private Vector3 nextPos;
         private Transform targetTransform;
 

@@ -19,7 +19,7 @@ namespace SystemMove
 
         public void Rotate(float value)
         {
-            transform.Rotate(new Vector3(0, value, 0));
+            transform.rotation = Quaternion.Euler(0,value,0);
         }
 
         private void Update()

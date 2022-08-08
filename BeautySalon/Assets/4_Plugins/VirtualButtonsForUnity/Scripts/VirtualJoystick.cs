@@ -3,8 +3,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.OnScreen;
 
-public enum VirtualJoystickType { Fixed, Floating }
-
 namespace JoyStick
 {
     public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
@@ -57,7 +55,7 @@ namespace JoyStick
             constructedEventData.position = handle.position;
             handleStickController.OnPointerDown(constructedEventData);
 
-            centerArea.anchoredPosition = GetAnchoredPosition(eventData.position);
+            //centerArea.anchoredPosition = GetAnchoredPosition(eventData.position);
 
             if (hideOnPointerUp)
             {
