@@ -29,8 +29,8 @@ namespace Core
 
             timer = BoxManager.GetManager<TimeManager>();
 
-            GameManager.ChangeCanMove += (bool canMove) => { this.canMove = canMove; };
-            GameManager.ChangeTimeGo += (bool timeGo) => { this.timeGo = timeGo; };
+            StateGameManager.ChangeCanMove += (bool canMove) => { this.canMove = canMove; };
+            StateGameManager.ChangeTimeGo += (bool timeGo) => { this.timeGo = timeGo; };
         }
 
         public override void OnStart()
