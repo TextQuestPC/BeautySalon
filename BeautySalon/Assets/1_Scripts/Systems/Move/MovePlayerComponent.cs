@@ -19,7 +19,7 @@ namespace SystemMove
         {
             if (canMove)
             {
-                transform.position += Vector3.forward * playerSpeed * Time.deltaTime;
+                transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
             }
         }
     }

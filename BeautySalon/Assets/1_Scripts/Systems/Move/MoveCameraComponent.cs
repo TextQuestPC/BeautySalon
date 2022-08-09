@@ -19,7 +19,7 @@ namespace SystemMove
                 nextPos.z -= 5f;
                 nextPos.x -= 5f;
 
-                transform.position = Vector3.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, nextPos, speedMove * Time.deltaTime);
             }
         }
 

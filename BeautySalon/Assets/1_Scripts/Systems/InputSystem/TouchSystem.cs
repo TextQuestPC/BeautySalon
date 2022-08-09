@@ -10,11 +10,17 @@ namespace InputSystem
 
         public Player SetPlayer { set => player = value; }
 
-        private bool down;
+        private bool canMove = false;
+
+        private void ChangeMovePlayer(bool move)
+        {
+            canMove = move;
+            player.ChangeMove(move);
+        }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            down = true;
+            ChangeMovePlayer(true);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -24,16 +30,16 @@ namespace InputSystem
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            down = false;
+            ChangeMovePlayer(false);
         }
 
         private void ChangeAngleRotation(Vector3 positionTouch)
         {
             float x = positionTouch.x - Screen.width / 2;
-            float y = positionTouch.y - Screen.height / 3;
+            float y = positionTouch.y - Screen.height / 3.5f;
 
             float angle = Mathf.Atan2(x, y);
-            float finalAngle = 360 * angle / (2 * Mathf.PI);
+            float finalAngle = 360 * angle / (2 * Mathf.PI) + 45;
 
             player.ChangeAngleMove(finalAngle);
         }
@@ -43,15 +49,15 @@ namespace InputSystem
         {
             if (Input.GetMouseButtonDown(0))
             {
-                down = true;
+                ChangeMovePlayer(true);
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                down = false;
+                ChangeMovePlayer(false);
             }
 
-            if (down)
+            if (canMove)
             {
                 ChangeAngleRotation(Input.mousePosition);
             }

@@ -16,7 +16,10 @@ namespace Core
         {
             player = BoxManager.GetManager<CreatorManager>().CreatePlayer();
             Camera.main.GetComponent<MoveCameraComponent>().SetNextTarget(player.transform);
-        }     
+
+            //Camera.main.transform.position = player.GetCameraPosition.transform.position;
+            //Camera.main.transform.SetParent(player.GetCameraPosition.transform);
+        }
 
         #region ACTIONS_GAME
 

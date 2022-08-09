@@ -10,10 +10,12 @@ namespace Characters
     {
         [SerializeField] private GameObject positionItem;
         [SerializeField] private GameObject model;
+        [SerializeField] private GameObject cameraPosition;
 
         private MovePlayerComponent moveComponent;
 
         public MovePlayerComponent GetMove { get => moveComponent; }
+        public GameObject GetCameraPosition { get => cameraPosition; }
 
         private List<Item> items = new List<Item>();
         private int maxCountItems = 3;
@@ -28,23 +30,16 @@ namespace Characters
         public void ChangeAngleMove(float angle)
         {
             moveComponent.ChangeRotate(angle);
+
+            cameraPosition.transform.rotation = Quaternion.Euler(cameraPosition.transform.rotation.x, angle, cameraPosition.transform.rotation.z);
         }
 
-        public void StartMove()
+        public void ChangeMove(bool move)
         {
-            moveComponent.SetCanMove = true;
-        }
-
-        public void StopMove()
-        {
-            moveComponent.SetCanMove = false;
+            moveComponent.SetCanMove = move;
         }
 
         #endregion
-
-        public void StopSwipe()
-        {
-        }
 
         #region CHECK
 
