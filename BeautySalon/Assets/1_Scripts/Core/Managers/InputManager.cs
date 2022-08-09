@@ -13,7 +13,8 @@ namespace Core
         {
             focusSystem = BoxManager.GetManager<CreatorManager>().CreateFocusSystem();
             touchSystem = BoxManager.GetManager<CreatorManager>().CreateTouchSystem();
-            touchSystem.SetPlayer = BoxManager.GetManager<GameManager>().GetPlayer.GetMove;
+
+            touchSystem.SetPlayer = BoxManager.GetManager<GameManager>().GetPlayer;
         }
     }
 }

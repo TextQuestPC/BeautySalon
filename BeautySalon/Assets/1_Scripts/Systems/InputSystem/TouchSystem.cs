@@ -1,4 +1,4 @@
-using SystemMove;
+using Characters;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,9 +6,9 @@ namespace InputSystem
 {
     public class TouchSystem : Singleton<TouchSystem>, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
-        [SerializeField] private MovePlayerComponent move;
+        [SerializeField] private Player player;
 
-        public MovePlayerComponent SetPlayer { set => move = value; }
+        public Player SetPlayer { set => player = value; }
 
         private bool down;
 
@@ -19,7 +19,7 @@ namespace InputSystem
 
         public void OnDrag(PointerEventData eventData)
         {
-            CreateAngleRotation(eventData.position);
+            ChangeAngleRotation(eventData.position);
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -27,7 +27,7 @@ namespace InputSystem
             down = false;
         }
 
-        private void CreateAngleRotation(Vector3 positionTouch)
+        private void ChangeAngleRotation(Vector3 positionTouch)
         {
             float x = positionTouch.x - Screen.width / 2;
             float y = positionTouch.y - Screen.height / 3;
@@ -35,7 +35,7 @@ namespace InputSystem
             float angle = Mathf.Atan2(x, y);
             float finalAngle = 360 * angle / (2 * Mathf.PI);
 
-            move.Rotate(finalAngle);
+            player.ChangeAngleMove(finalAngle);
         }
 
 #if UNITY_EDITOR
@@ -53,7 +53,7 @@ namespace InputSystem
 
             if (down)
             {
-                CreateAngleRotation(Input.mousePosition);
+                ChangeAngleRotation(Input.mousePosition);
             }
         }
 #endif

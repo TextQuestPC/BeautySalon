@@ -6,44 +6,21 @@ namespace SystemMove
     {
         [SerializeField] private float playerSpeed = 5f;
 
-        protected CharacterController controller;
-        protected PlayerActionsExample playerInput;
+        private bool canMove = false;
 
-        private Vector3 playerVelocity;
+        public bool SetCanMove { set => canMove = value; }
 
-        private void Awake()
-        {
-            controller = gameObject.AddComponent<CharacterController>();
-            playerInput = new PlayerActionsExample();
-        }
-
-        public void Rotate(float value)
+        public void ChangeRotate(float value)
         {
             transform.rotation = Quaternion.Euler(0,value,0);
         }
 
         private void Update()
         {
-            Vector2 movement = playerInput.Player.Move.ReadValue<Vector2>();
-            Vector3 move = new Vector3(movement.x, 0, movement.y);
-            controller.Move(move * Time.deltaTime * playerSpeed);
-
-            if (move != Vector3.zero)
+            if (canMove)
             {
-                gameObject.transform.forward = move;
+                transform.position += Vector3.forward * playerSpeed * Time.deltaTime;
             }
-
-            controller.Move(playerVelocity * Time.deltaTime);
-        }
-
-        private void OnEnable()
-        {
-            playerInput.Enable();
-        }
-
-        private void OnDisable()
-        {
-            playerInput.Disable();
         }
     }
 }

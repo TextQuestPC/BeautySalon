@@ -14,5 +14,6 @@ namespace Core
         public static string SINGLETONS { get => "[SINGLTONS]"; }
         public static string TOUCH_SYSTEM { get => "TouchSystem"; }
         public static string FOCUS_SYSTEM { get => "FocusSystem"; }
+        public static string CONTROLLERS { get => "Controllers"; }
     }
 }

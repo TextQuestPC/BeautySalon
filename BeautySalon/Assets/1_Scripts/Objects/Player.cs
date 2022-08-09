@@ -23,6 +23,25 @@ namespace Characters
             moveComponent = gameObject.AddComponent<MovePlayerComponent>();
         }
 
+        #region CHANGE_MOVE
+
+        public void ChangeAngleMove(float angle)
+        {
+            moveComponent.ChangeRotate(angle);
+        }
+
+        public void StartMove()
+        {
+            moveComponent.SetCanMove = true;
+        }
+
+        public void StopMove()
+        {
+            moveComponent.SetCanMove = false;
+        }
+
+        #endregion
+
         public void StopSwipe()
         {
         }

@@ -14,13 +14,14 @@ namespace Core
         [SerializeField] private Item[] itemsPrefabs;
         [SerializeField] private Visitor visitorPrefab;
 
-        private GameObject objectsParent, singletonsParent, parentPlaceSpawn, parentItems, parentVisitors;
+        private GameObject objectsParent, controllers, parentPlaceSpawn, parentItems, parentVisitors;
 
         public override void OnInitialize()
         {
             objectsParent = new GameObject(NamesData.OBJECTS);
-            singletonsParent = new GameObject(NamesData.SINGLETONS);
-            singletonsParent.transform.SetParent(objectsParent.transform);
+
+            controllers = new GameObject(NamesData.CONTROLLERS);
+            controllers.transform.SetParent(objectsParent.transform);
 
             parentPlaceSpawn = new GameObject(NamesData.SERVICE);
             parentItems = new GameObject(NamesData.ITEMS);
@@ -28,6 +29,7 @@ namespace Core
 
             parentPlaceSpawn.transform.SetParent(objectsParent.transform);
             parentItems.transform.SetParent(objectsParent.transform);
+            parentVisitors.transform.SetParent(objectsParent.transform);
         }
 
         public Player CreatePlayer()
@@ -109,21 +111,21 @@ namespace Core
         public TouchSystem CreateTouchSystem()
         {
             GameObject newObject = new GameObject(NamesData.TOUCH_SYSTEM);
-            newObject.transform.SetParent(singletonsParent.transform);
+            newObject.transform.SetParent(controllers.transform);
             return newObject.AddComponent<TouchSystem>();
         }
 
         public FocusSystem CreateFocusSystem()
         {
             GameObject newObject = new GameObject(NamesData.FOCUS_SYSTEM);
-            newObject.transform.SetParent(objectsParent.transform);
+            newObject.transform.SetParent(controllers.transform);
             return newObject.AddComponent<FocusSystem>();
         }
 
         public UpdateGame CreateUpdateGame()
         {
             GameObject newObject = new GameObject(NamesData.UPDATE_MANAGER);
-            newObject.transform.SetParent(objectsParent.transform);
+            newObject.transform.SetParent(controllers.transform);
             return newObject.AddComponent<UpdateGame>();
         }
     }
