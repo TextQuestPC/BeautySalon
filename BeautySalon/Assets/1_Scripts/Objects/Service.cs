@@ -1,22 +1,107 @@
+using Characters;
 using Core;
+using TimerSystem;
+using UI;
 using UnityEngine;
 
 namespace ObjectsOnScene
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class Service : ObjectScene
+    public class Service : ObjectScene, IWaitTimer
     {
         [SerializeField] private TypeService typeService;
-        [SerializeField] private TypeItem typeItem;
+        [SerializeField] private CanvasChair sliderProcedure;
+        [SerializeField] private float timeProcedure = 2f;
 
+        private float leftTimeProcedure;
+        private bool procedureNow = false;
+        private bool isFree;
+
+        private Visitor myVisitor;
+
+        public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
+        public TypeItem GetTypeNeedItem { get => myVisitor.GetTypeItem; }
+
+
+        public void VisitorIsCame(Visitor visitor)
+        {
+            isFree = false;
+            myVisitor = visitor;
+        }
+
+        #region TRIGGER
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.tag == NamesData.PLAYER_NAME)
+            if (other.tag == NamesData.PLAYER_NAME)
             {
-                BoxManager.GetManager<GameManager>().PlayerTyGetItem(typeItem);
+                if (!isFree)
+                {
+                    if (other.GetComponent<Player>().CheckHaveItem(GetTypeNeedItem))
+                    {
+                        StartProcedure();
+                    }
+                }
             }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.tag == NamesData.PLAYER_NAME)
+            {
+                if (procedureNow)
+                {
+                    if (other.tag == NamesData.PLAYER_NAME)
+                    {
+                        StopProcedure();
+                    }
+                }
+            }
+        }
+
+        #endregion TRIGGER
+
+        #region PROCEDURE
+
+        private void StartProcedure()
+        {
+            leftTimeProcedure = 0;
+            sliderProcedure.SetMaxValue = timeProcedure;
+            sliderProcedure.gameObject.SetActive(true);
+
+            procedureNow = true;
+            BoxManager.GetManager<TimeManager>().AddWaitingObject(this);
+        }
+
+        public void TickTimer()
+        {
+            if (procedureNow)
+            {
+                leftTimeProcedure += Time.deltaTime;
+                sliderProcedure.ChangeValue(leftTimeProcedure);
+
+                if (leftTimeProcedure >= timeProcedure)
+                {
+                    StopProcedure();
+                    CompleteProcedure();
+                }
+            }
+        }
+
+        private void StopProcedure()
+        {
+            procedureNow = false;
+            sliderProcedure.gameObject.SetActive(false);
+
+            BoxManager.GetManager<TimeManager>().RemoveWaitingObject(this);
+        }
+
+        #endregion PROCEDURE
+
+        private void CompleteProcedure()
+        {
+            BoxManager.GetManager<GameManager>().CompleteProcedure(this);
         }
     }
 }

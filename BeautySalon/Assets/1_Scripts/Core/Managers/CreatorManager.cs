@@ -10,11 +10,12 @@ namespace Core
     public class CreatorManager : BaseManager
     {
         [SerializeField] private Player playerPrefab;
-        [SerializeField] private Service[] placesSpawnPrefabs;
+        [SerializeField] private Service[] servicesPrefabs;
+        [SerializeField] private Storage storagePrefab;
         [SerializeField] private Item[] itemsPrefabs;
         [SerializeField] private Visitor visitorPrefab;
 
-        private GameObject objectsParent, controllers, parentPlaceSpawn, parentItems, parentVisitors;
+        private GameObject objectsParent, controllers, parentServices, parentStorages, parentItems, parentVisitors;
 
         public override void OnInitialize()
         {
@@ -23,11 +24,13 @@ namespace Core
             controllers = new GameObject(NamesData.CONTROLLERS);
             controllers.transform.SetParent(objectsParent.transform);
 
-            parentPlaceSpawn = new GameObject(NamesData.SERVICE);
+            parentServices = new GameObject(NamesData.SERVICE);
+            parentStorages = new GameObject(NamesData.STORAGES);
             parentItems = new GameObject(NamesData.ITEMS);
             parentVisitors = new GameObject(NamesData.VISITORS);
 
-            parentPlaceSpawn.transform.SetParent(objectsParent.transform);
+            parentServices.transform.SetParent(objectsParent.transform);
+            parentStorages.transform.SetParent(objectsParent.transform);
             parentItems.transform.SetParent(objectsParent.transform);
             parentVisitors.transform.SetParent(objectsParent.transform);
         }
@@ -49,7 +52,7 @@ namespace Core
             Vector3 position = PositionsOnScene.Instance.GetPositionService(typeService).transform.position;
             Service prefab = null;
 
-            foreach (var place in placesSpawnPrefabs)
+            foreach (var place in servicesPrefabs)
             {
                 if(place.GetTypeService == typeService)
                 {
@@ -65,9 +68,20 @@ namespace Core
 
             Service service = Instantiate(prefab, position, Quaternion.identity);
             prefab.gameObject.name = NamesData.SERVICE + $" {typeService}";
-            service.transform.SetParent(parentPlaceSpawn.transform);
+            service.transform.SetParent(parentServices.transform);
 
             return service;
+        }
+
+        public Storage CreateStorage()
+        {
+            Vector3 position = PositionsOnScene.Instance.GetPositionStorage().transform.position;
+
+            Storage storage = Instantiate(storagePrefab, position, Quaternion.identity);
+            storage.gameObject.name = NamesData.STORAGES;
+            storage.transform.SetParent(parentStorages.transform);
+
+            return storage;
         }
 
         public Item CreateItem(TypeItem typeItem)

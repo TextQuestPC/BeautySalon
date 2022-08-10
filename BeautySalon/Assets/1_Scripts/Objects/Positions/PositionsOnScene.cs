@@ -7,7 +7,8 @@ namespace ObjectsOnScene
         [SerializeField] private GameObject spawnPlayerPos;
         [SerializeField] private GameObject spawnItemsPos;
         [SerializeField] private GameObject spawnVisitorPos;
-        [SerializeField] private PositionPlaceSpawn[] positionsServices;
+        [SerializeField] private PositionTypeService[] positionsServices;
+        [SerializeField] private GameObject positionStorage;
 
         public GameObject GetSpawnPlayerPos { get => spawnPlayerPos; }
         public GameObject GetSpawnItemsPos { get => spawnItemsPos; }
@@ -23,9 +24,14 @@ namespace ObjectsOnScene
                 }
             }
 
-            Debug.Log($"<color=red>Нет позиции PlaceSpawn с типом {typeService}</color>") ;
+            Debug.Log($"<color=red>??? ??????? PlaceSpawn ? ????? {typeService}</color>") ;
 
             return null;
+        }
+
+        public GameObject GetPositionStorage()
+        {
+            return positionStorage;
         }
 
         public void OnInitialize()

@@ -88,16 +88,16 @@
     <Compile Include="Assets/1_Scripts/Systems/Target/TargetSystem.cs" />
     <Compile Include="Assets/1_Scripts/Type/TypeService.cs" />
     <Compile Include="Assets/1_Scripts/Systems/InputSystem/TouchSystem.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/ManagerServices.cs" />
+    <Compile Include="Assets/1_Scripts/Core/Managers/ServicesManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/UpdateManager.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/Service.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/Storage.cs" />
     <Compile Include="Assets/1_Scripts/Core/SCRO/SCRO_SceneManagers.cs" />
     <Compile Include="Assets/1_Scripts/Objects/Positions/PositionsOnScene.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Move/MovePlayerComponent.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Move/MoveObjectComponent.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/IManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/CreatorManager.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/Chair.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/Service.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/BoxManager.cs" />
     <Compile Include="Assets/1_Scripts/UI/UIManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Settings/AudioSettingsCore.cs" />
@@ -112,13 +112,15 @@
     <Compile Include="Assets/1_Scripts/UI/UIElement.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/IInitialize.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/Singleton.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/Positions/PositionPlaceSpawn.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/Positions/PositionTypeService.cs" />
     <Compile Include="Assets/1_Scripts/Core/Settings/GameSettings.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/UpdateGame.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/ManagerVisitors.cs" />
+    <Compile Include="Assets/1_Scripts/Core/Managers/VisitorsManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/Coroutines.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/TimeManager.cs" />
     <Compile Include="Assets/1_Scripts/Systems/CollidersSystem/CheckStopCollider.cs" />
+    <Compile Include="Assets/1_Scripts/Type/StateVisitor.cs" />
+    <Compile Include="Assets/1_Scripts/Core/Managers/StorageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

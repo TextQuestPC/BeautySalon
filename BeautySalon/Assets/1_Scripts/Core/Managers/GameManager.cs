@@ -20,7 +20,7 @@ namespace Core
 
         #region ACTIONS_GAME
 
-        public void PlayerTyGetItem(TypeItem typeItem)
+        public void PlayerTryGetItem(TypeItem typeItem)
         {
             if (player.CheckCanGetItem())
             {
@@ -28,9 +28,9 @@ namespace Core
             }
         }
 
-        public void CompleteProcedure(Chair chair)
+        public void CompleteProcedure(Service service)
         {
-            player.RemoveItem(chair.GetTypeNeedItem);
+            player.RemoveItem(service.GetTypeNeedItem);
         }
 
         #endregion ACTIONS_GAME

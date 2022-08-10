@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ObjectsOnScene 
 {
-    public class PositionPlaceSpawn : MonoBehaviour
+    public class PositionTypeService : MonoBehaviour
     {
         [SerializeField] private TypeService typeService;
 

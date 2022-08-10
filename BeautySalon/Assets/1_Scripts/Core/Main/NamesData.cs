@@ -16,5 +16,7 @@ namespace Core
         public static string FOCUS_SYSTEM { get => "FocusSystem"; }
         public static string CONTROLLERS { get => "Controllers"; }
         public static string STOP_COLLIDER { get => "StopCollider"; }
+        public static string STORAGES { get => "[STORAGES]"; }
+        public static string STORAGE { get => "Storage"; }
     }
 }
