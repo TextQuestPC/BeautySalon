@@ -9,7 +9,7 @@ namespace Characters
     public class Player : ObjectScene
     {
         [SerializeField] private GameObject positionItem;
-        [SerializeField] private GameObject model;
+        [SerializeField] private Animator animator;
         [SerializeField] private GameObject cameraPosition;
 
         private MovePlayerComponent moveComponent;
@@ -37,6 +37,15 @@ namespace Characters
         public void ChangeMove(bool move)
         {
             moveComponent.SetCanMove = move;
+
+            if (move)
+            {
+                animator.SetTrigger("Run");
+            }
+            else
+            {
+                animator.SetTrigger("Idle");
+            }
         }
 
         #endregion
