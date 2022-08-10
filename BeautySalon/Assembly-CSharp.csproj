@@ -64,6 +64,7 @@
     <Compile Include="Assets/1_Scripts/UI/Buttons/CloseButton.cs" />
     <Compile Include="Assets/1_Scripts/UI/TypeAnimation.cs" />
     <Compile Include="Assets/1_Scripts/Objects/ObjectScene.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/CollidersSystem/StopCollider.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Effects/EffectBase.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Target/TargetTowerSystem.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/DontDestroy.cs" />
@@ -117,7 +118,7 @@
     <Compile Include="Assets/1_Scripts/Core/Managers/ManagerVisitors.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/Coroutines.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/TimeManager.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/StopCollider.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/CollidersSystem/CheckStopCollider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

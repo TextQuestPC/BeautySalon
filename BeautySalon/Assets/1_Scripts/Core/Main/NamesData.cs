@@ -15,6 +15,6 @@ namespace Core
         public static string TOUCH_SYSTEM { get => "TouchSystem"; }
         public static string FOCUS_SYSTEM { get => "FocusSystem"; }
         public static string CONTROLLERS { get => "Controllers"; }
-        public static string STOP_MOVE { get => "StopMove"; }
+        public static string STOP_COLLIDER { get => "StopCollider"; }
     }
 }
