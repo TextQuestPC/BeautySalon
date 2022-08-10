@@ -22,8 +22,6 @@ namespace SystemMove
         {
             if (canMove)
             {
-                //GetComponent<Rigidbody>().velocity = new Vector3(playerSpeed, 0,0)* playerSpeed * Time.deltaTime;
-
                 transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
             }
         }

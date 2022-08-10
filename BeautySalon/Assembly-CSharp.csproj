@@ -102,7 +102,7 @@
     <Compile Include="Assets/1_Scripts/UI/UIManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Settings/AudioSettingsCore.cs" />
     <Compile Include="Assets/1_Scripts/Objects/Item.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/Player.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/Characters/Player.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/IUIElement.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Move/MoveCameraComponent.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/IMove.cs" />

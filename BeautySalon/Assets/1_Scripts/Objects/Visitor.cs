@@ -1,15 +1,12 @@
 using ObjectsOnScene;
-using System.Collections;
-using System.Collections.Generic;
 using SystemMove;
-using UnityEngine;
 
 namespace Characters
 {
     public class Visitor : ObjectScene, IInitialize
     {
-        [SerializeField] private TypeService typeNeedServices;
-        [SerializeField] private TypeItem typeNeedItem;
+        private TypeService typeNeedServices = TypeService.Haircut;
+        private TypeItem typeNeedItem = TypeItem.Scissors;
 
         private MoveVisitorComponent moveComponent;
 
@@ -17,5 +14,7 @@ namespace Characters
         {
             moveComponent = new MoveVisitorComponent();
         }
+
+
     }
 }
