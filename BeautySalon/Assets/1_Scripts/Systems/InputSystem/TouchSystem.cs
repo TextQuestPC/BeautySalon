@@ -45,6 +45,7 @@ namespace InputSystem
         }
 
 #if UNITY_EDITOR
+
         public void Update()
         {
             if (Input.GetMouseButtonDown(0))
@@ -62,6 +63,7 @@ namespace InputSystem
                 ChangeAngleRotation(Input.mousePosition);
             }
         }
+
 #endif
 
     }

@@ -36,7 +36,6 @@ namespace Characters
 
         public void ChangeMove(bool move)
         {
-            Debug.Log($"move = {move}");
             moveComponent.SetCanMove = move;
         }
 
