@@ -11,8 +11,6 @@ namespace ObjectsOnScene
 
         public virtual void OnStart() { }
 
-        public virtual void Damage(int value) { }
-
         protected virtual void Death() { }
 
         protected void DeathInvoke()

@@ -10,15 +10,20 @@ namespace SystemMove
 
         public bool SetCanMove { set => canMove = value; }
 
+        private float angle;
+
         public void ChangeRotate(float value)
         {
             transform.rotation = Quaternion.Euler(0,value,0);
+            angle = value;
         }
 
         private void Update()
         {
             if (canMove)
             {
+                //GetComponent<Rigidbody>().velocity = new Vector3(playerSpeed, 0,0)* playerSpeed * Time.deltaTime;
+
                 transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
             }
         }

@@ -73,7 +73,9 @@
     <Compile Include="Assets/1_Scripts/Core/Main/NamesData.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/IShoot.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/GameManager.cs" />
+    <Compile Include="Assets/1_Scripts/Core/Managers/StateGameManager.cs" />
     <Compile Include="Assets/1_Scripts/UI/Windows/MainUIWindow.cs" />
+    <Compile Include="Assets/1_Scripts/Systems/InputSystem/FocusSystem.cs" />
     <Compile Include="Assets/1_Scripts/Type/TypeEffect.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/ClassReferenceAttribute.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/BaseManager.cs" />
@@ -115,8 +117,7 @@
     <Compile Include="Assets/1_Scripts/Core/Managers/ManagerVisitors.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/Coroutines.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/TimeManager.cs" />
-    <Compile Include="Assets/1_Scripts/Core/Managers/StateGameManager.cs" />
-    <Compile Include="Assets/1_Scripts/Systems/InputSystem/FocusSystem.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/StopCollider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
