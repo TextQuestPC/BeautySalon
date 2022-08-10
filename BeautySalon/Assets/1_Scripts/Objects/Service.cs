@@ -15,7 +15,7 @@ namespace ObjectsOnScene
 
         private float leftTimeProcedure;
         private bool procedureNow = false;
-        private bool isFree;
+        private bool isFree = true;
 
         private Visitor myVisitor;
 
@@ -38,9 +38,16 @@ namespace ObjectsOnScene
             {
                 if (!isFree)
                 {
-                    if (other.GetComponent<Player>().CheckHaveItem(GetTypeNeedItem))
+                    if (myVisitor != null)
                     {
-                        StartProcedure();
+                        if (other.GetComponent<Player>().CheckHaveItem(GetTypeNeedItem))
+                        {
+                            StartProcedure();
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log($"<color=red>Not visitor! But service is not free!</color>");
                     }
                 }
             }

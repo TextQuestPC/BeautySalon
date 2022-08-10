@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 189b0a23cf959444ab663d05c824e305, type: 3}
-  m_Name: SceneManagerGame
+  m_Name: GAME_MANAGERS
   m_EditorClassIdentifier: 
   managers:
   - {fileID: 11400000, guid: 5bf93150f97778241a6d4082db6f0b73, type: 2}
@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ac1ea472c599604da3ba2988cf2f975, type: 2}
   - {fileID: 11400000, guid: 9d9b8e548efd03946ba7fd4bf2e6acd4, type: 2}
   - {fileID: 11400000, guid: 8bea7d5dbdedf427c93b2500c5575b6e, type: 2}
+  - {fileID: 11400000, guid: 9d24c83937c60420fa73671917a3e80b, type: 2}

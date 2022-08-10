@@ -24,7 +24,7 @@ namespace Core
             controllers = new GameObject(NamesData.CONTROLLERS);
             controllers.transform.SetParent(objectsParent.transform);
 
-            parentServices = new GameObject(NamesData.SERVICE);
+            parentServices = new GameObject(NamesData.SERVICES);
             parentStorages = new GameObject(NamesData.STORAGES);
             parentItems = new GameObject(NamesData.ITEMS);
             parentVisitors = new GameObject(NamesData.VISITORS);
@@ -78,7 +78,7 @@ namespace Core
             Vector3 position = PositionsOnScene.Instance.GetPositionStorage().transform.position;
 
             Storage storage = Instantiate(storagePrefab, position, Quaternion.identity);
-            storage.gameObject.name = NamesData.STORAGES;
+            storage.gameObject.name = NamesData.STORAGE;
             storage.transform.SetParent(parentStorages.transform);
 
             return storage;
