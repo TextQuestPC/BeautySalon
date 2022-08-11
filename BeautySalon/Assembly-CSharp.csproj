@@ -112,7 +112,7 @@
     <Compile Include="Assets\1_Scripts\Core\Interface\IMove.cs" />
     <Compile Include="Assets\1_Scripts\UI\Windows\SettingsWindow.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Starter.cs" />
-    <Compile Include="Assets\1_Scripts\UI\Components\CanvasChair.cs" />
+    <Compile Include="Assets\1_Scripts\UI\Components\CanvasService.cs" />
     <Compile Include="Assets\1_Scripts\UI\UIElement.cs" />
     <Compile Include="Assets\1_Scripts\Core\Interface\IInitialize.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Singleton.cs" />
@@ -738,6 +738,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NaughtyAttributes.Editor.csproj">
+      <Project>{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}</Project>
+      <Name>NaughtyAttributes.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NaughtyAttributes.Test.csproj">
+      <Project>{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}</Project>
+      <Name>NaughtyAttributes.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="NaughtyAttributes.Core.csproj">
+      <Project>{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}</Project>
+      <Name>NaughtyAttributes.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

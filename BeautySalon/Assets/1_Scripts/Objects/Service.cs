@@ -10,8 +10,9 @@ namespace ObjectsOnScene
     public class Service : ObjectScene, IWaitTimer
     {
         [SerializeField] private TypeService typeService;
-        [SerializeField] private CanvasChair sliderProcedure;
+        [SerializeField] private CanvasService canvasService;
         [SerializeField] private float timeProcedure = 2f;
+        [SerializeField] private GameObject chairPosition;        
 
         private float leftTimeProcedure;
         private bool procedureNow = false;
@@ -22,7 +23,7 @@ namespace ObjectsOnScene
         public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
         public TypeItem GetTypeNeedItem { get => myVisitor.GetTypeItem; }
-
+        public GameObject GetChairPosition { get => chairPosition; }
 
         public void VisitorIsCame(Visitor visitor)
         {
@@ -74,8 +75,8 @@ namespace ObjectsOnScene
         private void StartProcedure()
         {
             leftTimeProcedure = 0;
-            sliderProcedure.SetMaxValue = timeProcedure;
-            sliderProcedure.gameObject.SetActive(true);
+            canvasService.SetMaxValue = timeProcedure;
+            canvasService.gameObject.SetActive(true);
 
             procedureNow = true;
             BoxManager.GetManager<TimeManager>().AddWaitingObject(this);
@@ -86,7 +87,7 @@ namespace ObjectsOnScene
             if (procedureNow)
             {
                 leftTimeProcedure += Time.deltaTime;
-                sliderProcedure.ChangeValue(leftTimeProcedure);
+                canvasService.ChangeValue(leftTimeProcedure);
 
                 if (leftTimeProcedure >= timeProcedure)
                 {
@@ -99,7 +100,7 @@ namespace ObjectsOnScene
         private void StopProcedure()
         {
             procedureNow = false;
-            sliderProcedure.gameObject.SetActive(false);
+            canvasService.gameObject.SetActive(false);
 
             BoxManager.GetManager<TimeManager>().RemoveWaitingObject(this);
         }

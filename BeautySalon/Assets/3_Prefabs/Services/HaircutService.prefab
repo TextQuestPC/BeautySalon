@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 748841122}
   - component: {fileID: 3089939983525209243}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasSrvice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,6 +501,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2688351599718169612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6592681863804254938}
+  m_Layer: 0
+  m_Name: ChairPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6592681863804254938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688351599718169612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06, y: -1.19, z: -3.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6536134886229766314}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6536134886229766319
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +564,7 @@ Transform:
   - {fileID: 748841121}
   - {fileID: 3434187495843655760}
   - {fileID: 2368431293909923518}
+  - {fileID: 6592681863804254938}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -550,8 +581,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeService: 0
-  sliderProcedure: {fileID: 3089939983525209243}
+  canvasService: {fileID: 3089939983525209243}
   timeProcedure: 2
+  chairPosition: {fileID: 2688351599718169612}
 --- !u!65 &6536134886229766316
 BoxCollider:
   m_ObjectHideFlags: 0

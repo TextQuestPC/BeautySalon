@@ -33,7 +33,7 @@ namespace Characters
         {
             stateVisitor = StateVisitor.GoToService;
 
-            MoveToNewPosition(service.transform);
+            MoveToNewPosition(service.GetChairPosition.transform);
         }
 
         public void GoToRestZone(RestZone restZone)
