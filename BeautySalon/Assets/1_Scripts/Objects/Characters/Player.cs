@@ -6,15 +6,12 @@ using UnityEngine;
 
 namespace Characters
 {
-    public class Player : ObjectScene
+    public class Player : Character
     {
         [SerializeField] private GameObject positionItem;
-        [SerializeField] private Animator animator;
         [SerializeField] private GameObject cameraPosition;
 
-        private MovePlayerComponent moveComponent;
-
-        public MovePlayerComponent GetMove { get => moveComponent; }
+        public MovePlayerComponent GetMove { get => moveComponent as MovePlayerComponent; }
         public GameObject GetCameraPosition { get => cameraPosition; }
 
         private List<Item> items = new List<Item>();
@@ -32,21 +29,7 @@ namespace Characters
             moveComponent.ChangeRotate(angle);
 
             cameraPosition.transform.rotation = Quaternion.Euler(cameraPosition.transform.rotation.x, angle, cameraPosition.transform.rotation.z);
-        }
-
-        public void ChangeMove(bool move)
-        {
-            moveComponent.SetCanMove = move;
-
-            if (move)
-            {
-                animator.SetTrigger("Run");
-            }
-            else
-            {
-                animator.SetTrigger("Idle");
-            }
-        }
+        }       
 
         #endregion
 
@@ -95,7 +78,7 @@ namespace Characters
                 }
             }
 
-            Debug.Log($"????? ??????? Item, ???????? ??? ? Player. ??? {typeItem}");
+            Debug.Log($"Try delete item. Not have item, type = {typeItem}");
         }
 
         #endregion ITEMS

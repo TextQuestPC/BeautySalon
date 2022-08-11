@@ -6,13 +6,11 @@ using VisitorSystem;
 
 namespace Characters
 {
-    public class Visitor : ObjectScene, IInitialize
+    public class Visitor : Character
     {
         private TypeService typeNeedServices = TypeService.Haircut;
         private TypeItem typeNeedItem = TypeItem.Scissors;
         private StateVisitor stateVisitor = StateVisitor.StartInDoor;
-
-        private MoveVisitorComponent moveComponent;
 
         public TypeService GetTypeService { get => typeNeedServices; }
         public TypeItem GetTypeItem { get => typeNeedItem; }
@@ -21,8 +19,6 @@ namespace Characters
         public override void OnInitialize()
         {
             moveComponent = gameObject.AddComponent<MoveVisitorComponent>();
-            Debug.Log("init " + moveComponent);
-
         }
 
         public void SetDataVisit(TypeService typeService, TypeItem typeItem)
@@ -37,27 +33,29 @@ namespace Characters
         {
             stateVisitor = StateVisitor.GoToService;
 
-            MoveToNewPosition(service.transform.position);
+            MoveToNewPosition(service.transform);
         }
 
         public void GoToRestZone(RestZone restZone)
         {
             stateVisitor = StateVisitor.GoToRestZone;
 
-            MoveToNewPosition(restZone.transform.position);
+            MoveToNewPosition(restZone.transform);
         }
 
-        private void MoveToNewPosition(Vector3 position)
+        private void MoveToNewPosition(Transform visitorTransform)
         {
-            Debug.Log("MoveToNewPosition  " + moveComponent);
-            moveComponent.EndMove.AddListener(AfterMove);
-            moveComponent.SetNewPos(position);
+            (moveComponent as MoveVisitorComponent).AfterEndMove += AfterMove;
+            (moveComponent as MoveVisitorComponent).SetNewTargetMove(visitorTransform);
+
+            ChangeMove(true);
         }
 
         private void AfterMove()
         {
-            moveComponent.EndMove.RemoveListener(AfterMove);
+            ChangeMove(false);
 
+            (moveComponent as MoveVisitorComponent).AfterEndMove -= AfterMove;
             BoxManager.GetManager<VisitorsManager>().VisitorEndMove(this);
         }
 

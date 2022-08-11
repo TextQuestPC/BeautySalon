@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1d47c8d2bd9694697da42ada33e290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeNeedServices: 0
-  typeNeedItem: 0
+  animator: {fileID: 0}
 --- !u!65 &6585860519727643501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -222,7 +221,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 19ae7cfe583d1714f86a87c1acc98b79, type: 3}
   m_PrefabInstance: {fileID: 6903133628202657729}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &3934233457750234534
+--- !u!95 &3451803407461883231
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -232,7 +231,7 @@ Animator:
   m_GameObject: {fileID: 5984635897392372368}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ccc89b176f0b8d84d916d8594bcb06c2, type: 2}
+  m_Controller: {fileID: 9100000, guid: bfe3a569a9986f841a550e7f14ae11d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

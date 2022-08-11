@@ -60,7 +60,7 @@
     <Compile Include="Assets\1_Scripts\Systems\Interfaces\IWaitTimer.cs" />
     <Compile Include="Assets\1_Scripts\Systems\CollidersSystem\CheckStopCollider.cs" />
     <Compile Include="Assets\1_Scripts\UI\Windows\UIWindow.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\Visitor.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Characters\Visitor.cs" />
     <Compile Include="Assets\1_Scripts\Type\TypeItem.cs" />
     <Compile Include="Assets\1_Scripts\UI\Buttons\MyButton.cs" />
     <Compile Include="Assets\1_Scripts\UI\Buttons\CloseButton.cs" />
@@ -122,6 +122,7 @@
     <Compile Include="Assets\1_Scripts\Core\Managers\VisitorsManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Coroutines.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\TimeManager.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\Characters\Character.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

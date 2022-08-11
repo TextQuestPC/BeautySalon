@@ -5,7 +5,9 @@ namespace SystemMove
     public class MoveComponent : MonoBehaviour
     {
         protected bool canMove;
-        protected float speedMove = 10f;
+        protected float speedMove = 5f;
+
+        public bool SetCanMove { set => canMove = value; }
 
         private void Update()
         {
@@ -13,6 +15,11 @@ namespace SystemMove
             {
                 Move();
             }
+        }
+
+        public void ChangeRotate(float value)
+        {
+            transform.rotation = Quaternion.Euler(0, value, 0);
         }
 
         protected virtual void Move() { }

@@ -6,28 +6,34 @@ namespace SystemMove
     public class MoveVisitorComponent : MoveComponent
     {
         [HideInInspector]
-        public UnityEvent EndMove;
+        public delegate void EndMove();
+        public event EndMove AfterEndMove;
 
         private Vector3 nextPos;
+
+        private void Start()
+        {
+            speedMove = 2f;
+        }
 
         protected override void Move()
         {
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speedMove * Time.deltaTime);
 
-            if(transform.position == nextPos)
+            if (transform.position == nextPos)
             {
-                canMove = false;
+                SetCanMove = false;
 
-                EndMove?.Invoke();
+                AfterEndMove?.Invoke();
             }
         }
 
-        public void SetNewPos(Vector3 newPos)
+        public void SetNewTargetMove(Transform target)
         {
-            newPos.y = transform.position.y;
-            nextPos = newPos;
+            nextPos = target.position;
+            nextPos.y = transform.position.y;
 
-            canMove = true;
+            transform.LookAt(target);
         }
     }
 }
