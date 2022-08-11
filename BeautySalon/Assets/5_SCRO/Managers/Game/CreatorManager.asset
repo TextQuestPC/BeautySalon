@@ -19,3 +19,4 @@ MonoBehaviour:
   itemsPrefabs:
   - {fileID: 8032681403645095070, guid: 841cb5e6da0cc414f94ee4c246c2e501, type: 3}
   visitorPrefab: {fileID: 8608941038399041899, guid: aa621a1770dea44a497a48cec930e99d, type: 3}
+  restZonePrefab: {fileID: 936511574421067626, guid: ef73380f81c784471bdef85b130e54f8, type: 3}

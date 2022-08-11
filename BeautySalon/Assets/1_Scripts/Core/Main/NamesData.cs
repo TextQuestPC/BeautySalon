@@ -19,5 +19,6 @@ namespace Core
         public static string STORAGES { get => "[STORAGES]"; }
         public static string STORAGE { get => "Storage"; }
         public static string SERVICE { get => "Service"; }
+        public static string REST_ZONE { get => "RestZone"; }
     }
 }

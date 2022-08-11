@@ -2,28 +2,23 @@ using UnityEngine;
 
 namespace SystemMove
 {
-    public class MovePlayerComponent : MonoBehaviour
+    public class MovePlayerComponent : MoveComponent
     {
-        [SerializeField] private float playerSpeed = 5f;
-
-        private bool canMove = false;
-
         public bool SetCanMove { set => canMove = value; }
 
-        private float angle;
+        private void Start()
+        {
+            speedMove = 5f;
+        }
 
         public void ChangeRotate(float value)
         {
             transform.rotation = Quaternion.Euler(0,value,0);
-            angle = value;
         }
 
-        private void Update()
+        protected override void Move()
         {
-            if (canMove)
-            {
-                transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
-            }
+            transform.Translate(Vector3.forward * speedMove * Time.deltaTime);
         }
     }
 }

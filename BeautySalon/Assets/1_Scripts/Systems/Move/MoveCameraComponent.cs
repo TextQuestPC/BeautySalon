@@ -2,31 +2,30 @@ using UnityEngine;
 
 namespace SystemMove
 {
-    public class MoveCameraComponent : MonoBehaviour
+    public class MoveCameraComponent : MoveComponent
     {
-        private bool moveNow;
-
-        private float speedMove = 30f;
         private Vector3 nextPos;
         private Transform targetTransform;
 
-        private void Update()
+        private void Start()
         {
-            if (moveNow)
-            {
-                nextPos = targetTransform.position;
-                nextPos.y += 6.5f;
-                nextPos.z -= 5f;
-                nextPos.x -= 5f;
+            speedMove = 30f;
+        }
 
-                transform.position = Vector3.Lerp(transform.position, nextPos, speedMove * Time.deltaTime);
-            }
+        protected override void Move()
+        {
+            nextPos = targetTransform.position;
+            nextPos.y += 6.5f;
+            nextPos.z -= 5f;
+            nextPos.x -= 5f;
+
+            transform.position = Vector3.Lerp(transform.position, nextPos, speedMove * Time.deltaTime);
         }
 
         public void SetNextTarget(Transform targetTransform)
         {
             this.targetTransform = targetTransform;
-            moveNow = true;
+            canMove = true;
         }
     }
 }

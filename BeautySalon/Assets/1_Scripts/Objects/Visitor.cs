@@ -1,5 +1,7 @@
+using Core;
 using ObjectsOnScene;
 using SystemMove;
+using UnityEngine;
 using VisitorSystem;
 
 namespace Characters
@@ -18,7 +20,9 @@ namespace Characters
 
         public override void OnInitialize()
         {
-            moveComponent = new MoveVisitorComponent();
+            moveComponent = gameObject.AddComponent<MoveVisitorComponent>();
+            Debug.Log("init " + moveComponent);
+
         }
 
         public void SetDataVisit(TypeService typeService, TypeItem typeItem)
@@ -26,5 +30,37 @@ namespace Characters
             typeNeedServices = typeService;
             typeNeedItem = typeItem;
         }
+
+        #region CHANGE_STATE
+
+        public void GoToService(Service service)
+        {
+            stateVisitor = StateVisitor.GoToService;
+
+            MoveToNewPosition(service.transform.position);
+        }
+
+        public void GoToRestZone(RestZone restZone)
+        {
+            stateVisitor = StateVisitor.GoToRestZone;
+
+            MoveToNewPosition(restZone.transform.position);
+        }
+
+        private void MoveToNewPosition(Vector3 position)
+        {
+            Debug.Log("MoveToNewPosition  " + moveComponent);
+            moveComponent.EndMove.AddListener(AfterMove);
+            moveComponent.SetNewPos(position);
+        }
+
+        private void AfterMove()
+        {
+            moveComponent.EndMove.RemoveListener(AfterMove);
+
+            BoxManager.GetManager<VisitorsManager>().VisitorEndMove(this);
+        }
+
+        #endregion
     }
 }
