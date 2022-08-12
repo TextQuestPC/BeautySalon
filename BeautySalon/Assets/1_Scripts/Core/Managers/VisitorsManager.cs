@@ -38,9 +38,13 @@ namespace Core
         {
             StateVisitor state = visitor.GetState;
 
-            if(state == StateVisitor.StartInDoor)
+            if (state == StateVisitor.StartInDoor)
             {
                 SetGoToServiceForVisitor(visitor);
+            }
+            else if (state == StateVisitor.StandByService)
+            {
+                visitor.SetDown();
             }
         }
 

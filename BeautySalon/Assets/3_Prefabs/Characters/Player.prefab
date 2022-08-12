@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e07fd0ca2a04b08a29b5c24e15838e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionItem: {fileID: 7494266959973019851}
   animator: {fileID: 3934233457750234534}
+  positionItem: {fileID: 7494266959973019851}
   cameraPosition: {fileID: 5326084986180313805}
 --- !u!65 &6585860519727643501
 BoxCollider:
@@ -228,15 +228,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19ae7cfe583d1714f86a87c1acc98b79, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19ae7cfe583d1714f86a87c1acc98b79, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19ae7cfe583d1714f86a87c1acc98b79, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19ae7cfe583d1714f86a87c1acc98b79, type: 3}
       propertyPath: m_LocalPosition.x

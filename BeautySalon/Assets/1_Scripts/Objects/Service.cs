@@ -1,5 +1,6 @@
 using Characters;
 using Core;
+using NaughtyAttributes;
 using TimerSystem;
 using UI;
 using UnityEngine;
@@ -12,7 +13,9 @@ namespace ObjectsOnScene
         [SerializeField] private TypeService typeService;
         [SerializeField] private CanvasService canvasService;
         [SerializeField] private float timeProcedure = 2f;
-        [SerializeField] private GameObject chairPosition;        
+
+        [BoxGroup("Positions")]
+        [SerializeField] private GameObject sitPosition, lookPosition;  
 
         private float leftTimeProcedure;
         private bool procedureNow = false;
@@ -23,7 +26,8 @@ namespace ObjectsOnScene
         public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
         public TypeItem GetTypeNeedItem { get => myVisitor.GetTypeItem; }
-        public GameObject GetChairPosition { get => chairPosition; }
+        public GameObject GetSitPosition { get => sitPosition; }
+        public GameObject GetLookPosition { get => lookPosition; }
 
         public void VisitorIsCame(Visitor visitor)
         {

@@ -4,6 +4,7 @@ namespace VisitorSystem
     {
         StartInDoor,
         GoToRestZone,
-        GoToService
+        GoToService,
+        StandByService
     }
 }

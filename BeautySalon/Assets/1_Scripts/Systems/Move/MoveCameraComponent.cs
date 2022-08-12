@@ -15,9 +15,9 @@ namespace SystemMove
         protected override void Move()
         {
             nextPos = targetTransform.position;
-            nextPos.y += 6.5f;
-            nextPos.z -= 5f;
-            nextPos.x -= 5f;
+            nextPos.y += 9f;
+            nextPos.z -= 6f;
+            nextPos.x -= 6f;
 
             transform.position = Vector3.Lerp(transform.position, nextPos, speedMove * Time.deltaTime);
         }

@@ -11,11 +11,11 @@ namespace Characters
         [SerializeField] private GameObject positionItem;
         [SerializeField] private GameObject cameraPosition;
 
-        public MovePlayerComponent GetMove { get => moveComponent as MovePlayerComponent; }
-        public GameObject GetCameraPosition { get => cameraPosition; }
-
         private List<Item> items = new List<Item>();
         private int maxCountItems = 3;
+
+        public MovePlayerComponent GetMove { get => moveComponent as MovePlayerComponent; }
+        public GameObject GetCameraPosition { get => cameraPosition; }
 
         public override void OnInitialize()
         {

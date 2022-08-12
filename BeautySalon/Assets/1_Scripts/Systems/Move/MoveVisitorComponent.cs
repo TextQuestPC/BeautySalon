@@ -13,7 +13,7 @@ namespace SystemMove
 
         private void Start()
         {
-            speedMove = 2f;
+            speedMove = 5f;
         }
 
         protected override void Move()
@@ -32,7 +32,10 @@ namespace SystemMove
         {
             nextPos = target.position;
             nextPos.y = transform.position.y;
+        }
 
+        public void LookAt(Transform target)
+        {
             transform.LookAt(target);
         }
     }

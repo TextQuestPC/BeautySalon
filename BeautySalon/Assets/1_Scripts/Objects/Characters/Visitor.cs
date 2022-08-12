@@ -16,6 +16,8 @@ namespace Characters
         public TypeItem GetTypeItem { get => typeNeedItem; }
         public StateVisitor GetState { get => stateVisitor; }
 
+        private Service currentService;
+
         public override void OnInitialize()
         {
             moveComponent = gameObject.AddComponent<MoveVisitorComponent>();
@@ -31,9 +33,10 @@ namespace Characters
 
         public void GoToService(Service service)
         {
+            currentService = service;
             stateVisitor = StateVisitor.GoToService;
 
-            MoveToNewPosition(service.GetChairPosition.transform);
+            MoveToNewPosition(service.GetSitPosition.transform);
         }
 
         public void GoToRestZone(RestZone restZone)
@@ -43,10 +46,19 @@ namespace Characters
             MoveToNewPosition(restZone.transform);
         }
 
-        private void MoveToNewPosition(Transform visitorTransform)
+        public void SetDown()
+        {
+            animator.SetTrigger("Sit");
+
+            (moveComponent as MoveVisitorComponent).LookAt(currentService.transform);
+            transform.position = currentService.GetSitPosition.transform.position;
+        }
+
+        private void MoveToNewPosition(Transform targetTransform)
         {
             (moveComponent as MoveVisitorComponent).AfterEndMove += AfterMove;
-            (moveComponent as MoveVisitorComponent).SetNewTargetMove(visitorTransform);
+            (moveComponent as MoveVisitorComponent).LookAt(targetTransform);
+            (moveComponent as MoveVisitorComponent).SetNewTargetMove(targetTransform);
 
             ChangeMove(true);
         }
@@ -54,9 +66,18 @@ namespace Characters
         private void AfterMove()
         {
             ChangeMove(false);
+            ChangeState();
 
             (moveComponent as MoveVisitorComponent).AfterEndMove -= AfterMove;
             BoxManager.GetManager<VisitorsManager>().VisitorEndMove(this);
+        }
+
+        private void ChangeState()
+        {
+            if(stateVisitor == StateVisitor.GoToService)
+            {
+                stateVisitor = StateVisitor.StandByService;
+            }
         }
 
         #endregion
