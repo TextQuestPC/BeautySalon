@@ -105,11 +105,11 @@
     <Compile Include="Assets\1_Scripts\Type\TypeService.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\ServicesManager.cs" />
     <Compile Include="Assets\1_Scripts\Systems\InputSystem\TouchSystem.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\Storage.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceMap\Storage.cs" />
     <Compile Include="Assets\1_Scripts\Objects\Positions\PositionsOnScene.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\RestZone.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceMap\RestZone.cs" />
     <Compile Include="Assets\1_Scripts\Systems\Move\MovePlayerComponent.cs" />
-    <Compile Include="Assets\1_Scripts\Objects\Service.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceMap\Service.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\BoxManager.cs" />
     <Compile Include="Assets\1_Scripts\Objects\Characters\Player.cs" />
     <Compile Include="Assets\1_Scripts\Core\Interface\IUIElement.cs" />
@@ -123,6 +123,9 @@
     <Compile Include="Assets\1_Scripts\Core\Managers\VisitorsManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Coroutines.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\TimeManager.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceMap\CashService.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceMap\PlaceMap.cs" />
+    <Compile Include="Assets\1_Scripts\Objects\PlaceMap\ServiceWithTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -775,13 +778,13 @@
       <Project>{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}</Project>
       <Name>NaughtyAttributes.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="NaughtyAttributes.Core.csproj">
-      <Project>{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}</Project>
-      <Name>NaughtyAttributes.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="NaughtyAttributes.Test.csproj">
       <Project>{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}</Project>
       <Name>NaughtyAttributes.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="NaughtyAttributes.Core.csproj">
+      <Project>{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}</Project>
+      <Name>NaughtyAttributes.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

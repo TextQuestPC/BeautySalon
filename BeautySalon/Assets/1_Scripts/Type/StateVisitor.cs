@@ -5,6 +5,7 @@ namespace VisitorSystem
         StartInDoor,
         GoToRestZone,
         GoToService,
-        StandByService
+        StandByService,
+        EndProcedure
     }
 }
