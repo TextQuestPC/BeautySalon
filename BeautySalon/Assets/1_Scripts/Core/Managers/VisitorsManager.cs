@@ -20,7 +20,7 @@ namespace Core
             CreateVisitor();
         }
 
-        public void VisitorEndMove(Visitor visitor)
+        public void ChooseNextActionVisitor(Visitor visitor)
         {
             ChooseActionForVisitor(visitor);
         }
@@ -45,6 +45,12 @@ namespace Core
             else if (state == StateVisitor.StandByService)
             {
                 visitor.SetDown();
+            }
+            else if (state == StateVisitor.EndProcedure)
+            {
+                // TODO: check - have any procedure ???
+
+                //visitor.GoToCash();
             }
         }
 

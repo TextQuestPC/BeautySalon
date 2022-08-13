@@ -29,7 +29,7 @@ namespace Characters
             typeNeedItem = typeItem;
         }
 
-        #region CHANGE_STATE
+        #region ACTIONS
 
         public void GoToService(Service service)
         {
@@ -46,12 +46,25 @@ namespace Characters
             MoveToNewPosition(restZone.transform);
         }
 
+        public void GoToCash(Transform cashTransform)
+        {
+
+        }
+
         public void SetDown()
         {
+            currentService.VisitorIsCame(this);
             animator.SetTrigger("Sit");
 
             (moveComponent as MoveVisitorComponent).LookAt(currentService.transform);
             transform.position = currentService.GetSitPosition.transform.position;
+        }
+
+        public void CompleteProcedure()
+        {
+            stateVisitor = StateVisitor.EndProcedure;
+
+            BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }
 
         private void MoveToNewPosition(Transform targetTransform)
@@ -69,7 +82,7 @@ namespace Characters
             ChangeState();
 
             (moveComponent as MoveVisitorComponent).AfterEndMove -= AfterMove;
-            BoxManager.GetManager<VisitorsManager>().VisitorEndMove(this);
+            BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }
 
         private void ChangeState()
@@ -80,6 +93,6 @@ namespace Characters
             }
         }
 
-        #endregion
+        #endregion ACTIONS
     }
 }
