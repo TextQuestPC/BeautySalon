@@ -1,11 +1,16 @@
+using Characters;
 using UnityEngine;
 
 namespace ObjectsOnScene
 {
-    public class CashService : MonoBehaviour
+    public class CashService : Service
     {
-        [SerializeField] private GameObject payPosition;
+        [SerializeField] private GameObject moneyPosition;
 
-        public GameObject GetPayPosition { get => payPosition; }
+        private Visitor waitVisitor;
+
+        protected override void StartProcedure()
+        {
+        }
     }
 }

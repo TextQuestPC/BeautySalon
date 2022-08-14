@@ -2,8 +2,10 @@ using UnityEngine;
 
 namespace ObjectsOnScene
 {
-    public class RestZone : ObjectScene
+    public class RestZone : Service
     {
-        
+        protected override void StartProcedure()
+        {
+        }
     }
 }

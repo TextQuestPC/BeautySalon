@@ -52,7 +52,5 @@ namespace ObjectsOnScene
         protected override void PlayerOutCollider(Player player) { }
 
         #endregion TRIGGER
-
-
     }
 }
