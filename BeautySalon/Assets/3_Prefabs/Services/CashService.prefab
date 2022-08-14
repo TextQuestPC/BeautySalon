@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 561439494941210206}
+  - component: {fileID: 39459100511021344}
+  - component: {fileID: 4181120770366011008}
   m_Layer: 0
   m_Name: CashService
   m_TagString: Untagged
@@ -31,6 +33,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &39459100511021344
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611139381243081155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4181120770366011008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611139381243081155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3999cbbec8c834b4f865d22edb253f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeService: 3
+  visitorPosition: {fileID: 0}
+  visitorLookPosition: {fileID: 0}
+  moneyPosition: {fileID: 0}
 --- !u!1001 &3209519291350264738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,15 +75,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8bd0d6b5fb8a456aa476bf14fd6dcb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.650759
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8bd0d6b5fb8a456aa476bf14fd6dcb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3434062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8bd0d6b5fb8a456aa476bf14fd6dcb4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1002076
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8bd0d6b5fb8a456aa476bf14fd6dcb4, type: 3}
       propertyPath: m_LocalRotation.w
