@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 6536134886229766317}
   - component: {fileID: 6536134886229766316}
   m_Layer: 0
-  m_Name: HaircutService
+  m_Name: HaircutService green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
