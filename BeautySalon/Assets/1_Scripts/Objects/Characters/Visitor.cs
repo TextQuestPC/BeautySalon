@@ -36,7 +36,7 @@ namespace Characters
             currentService = service;
             stateVisitor = StateVisitor.GoToService;
 
-            MoveToNewPosition(service.GetSitPosition.transform);
+            MoveToNewPosition(service.GetVisitorPosition.transform);
         }
 
         public void GoToRestZone(RestZone restZone)
@@ -48,7 +48,7 @@ namespace Characters
 
         public void GoToCash(Transform cashTransform)
         {
-
+            MoveToNewPosition(cashTransform.transform);
         }
 
         public void SetDown()
@@ -57,7 +57,7 @@ namespace Characters
             animator.SetTrigger("Sit");
 
             (moveComponent as MoveVisitorComponent).LookAt(currentService.transform);
-            transform.position = currentService.GetSitPosition.transform.position;
+            transform.position = currentService.GetVisitorPosition.transform.position;
         }
 
         public void CompleteProcedure()

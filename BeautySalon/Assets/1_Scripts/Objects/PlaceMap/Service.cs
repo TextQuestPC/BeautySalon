@@ -18,7 +18,7 @@ namespace ObjectsOnScene
         public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
         public TypeItem GetTypeNeedItem { get => myVisitor.GetTypeItem; }
-        public GameObject GetSitPosition { get => visitorPosition; }
+        public GameObject GetVisitorPosition { get => visitorPosition; }
         public GameObject GetLookPosition { get => visitorLookPosition; }
 
         public void VisitorIsCame(Visitor visitor)

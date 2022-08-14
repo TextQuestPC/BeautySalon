@@ -4,6 +4,7 @@ namespace ObjectsOnScene
     {
         Haircut,
         Nails,
-        Brows
+        Brows,
+        Cash
     }
 }

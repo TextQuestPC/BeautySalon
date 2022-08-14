@@ -50,7 +50,7 @@ namespace Core
             {
                 // TODO: check - have any procedure ???
 
-                //visitor.GoToCash();
+                visitor.GoToCash(serviceManager.GetFreeService(TypeService.Cash).GetVisitorPosition.transform);
             }
         }
 

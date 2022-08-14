@@ -11,6 +11,10 @@ namespace ObjectsOnScene
 
         protected override void StartProcedure()
         {
+            if(myVisitor != null)
+            {
+
+            }
         }
     }
 }

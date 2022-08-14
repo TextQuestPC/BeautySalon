@@ -27,7 +27,7 @@ namespace ObjectsOnScene
                 }
             }
 
-            Debug.Log($"<color=red>??? ??????? PlaceSpawn ? ????? {typeService}</color>") ;
+            Debug.Log($"<color=red>Not find position service {typeService}</color>") ;
 
             return null;
         }
