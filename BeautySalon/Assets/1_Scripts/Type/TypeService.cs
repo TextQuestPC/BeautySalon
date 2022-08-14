@@ -2,6 +2,8 @@ namespace ObjectsOnScene
 {
     public enum TypeService
     {
-        Haircut,        
+        Haircut,
+        Nails,
+        Brows
     }
 }
