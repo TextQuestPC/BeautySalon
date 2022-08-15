@@ -15,6 +15,8 @@ namespace Core
         public override void OnInitialize()
         {
             services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Haircut));
+            services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Nails));
+            services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Brows));
             services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Cash));
             
             restZone = BoxManager.GetManager<CreatorManager>().CreateRestZone();

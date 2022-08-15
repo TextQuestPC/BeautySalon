@@ -11,7 +11,9 @@ namespace Core
 
         public override void OnInitialize()
         {
-            storages.Add(BoxManager.GetManager<CreatorManager>().CreateStorage());
+            storages.Add(BoxManager.GetManager<CreatorManager>().CreateStorage(TypeService.Haircut));
+            storages.Add(BoxManager.GetManager<CreatorManager>().CreateStorage(TypeService.Brows));
+            storages.Add(BoxManager.GetManager<CreatorManager>().CreateStorage(TypeService.Nails));
         }
     }
 }

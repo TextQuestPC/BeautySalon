@@ -16,7 +16,12 @@ MonoBehaviour:
   servicesPrefabs:
   - {fileID: 3276050550089379849, guid: e423f17b36cc32247b3ba2c70d927aa9, type: 3}
   - {fileID: 4181120770366011008, guid: 648dc2e12d170401990b782eccf1d864, type: 3}
-  storagePrefab: {fileID: 1614394254505943674, guid: fd52520e50f3b22418fa6342107246ff, type: 3}
+  - {fileID: 3276050550089379849, guid: 160fc2981de4d64429e28417d747de35, type: 3}
+  - {fileID: 3276050550089379849, guid: b47ee792a22fadd44b8374ebb7564f1b, type: 3}
+  storagesPrefabs:
+  - {fileID: 1614394254505943674, guid: fd52520e50f3b22418fa6342107246ff, type: 3}
+  - {fileID: 1614394254505943674, guid: 5a35c720db95d5246acade534987d167, type: 3}
+  - {fileID: 1614394254505943674, guid: fa62e2a85db386644be8f0bcc4cbd59a, type: 3}
   itemsPrefabs:
   - {fileID: 8032681403645095070, guid: 841cb5e6da0cc414f94ee4c246c2e501, type: 3}
   visitorPrefab: {fileID: 8608941038399041899, guid: aa621a1770dea44a497a48cec930e99d, type: 3}

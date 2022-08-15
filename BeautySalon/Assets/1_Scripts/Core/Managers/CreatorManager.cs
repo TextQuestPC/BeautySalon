@@ -11,7 +11,7 @@ namespace Core
     {
         [SerializeField] private Player playerPrefab;
         [SerializeField] private Service[] servicesPrefabs;
-        [SerializeField] private Storage storagePrefab;
+        [SerializeField] private Storage[] storagesPrefabs;
         [SerializeField] private Item[] itemsPrefabs;
         [SerializeField] private Visitor visitorPrefab;
         [SerializeField] private RestZone restZonePrefab;
@@ -64,10 +64,10 @@ namespace Core
 
             if (prefab == null)
             {
-                Debug.Log($"<color=red>Нет префаба PlaceSpawn типа {typeService}</color>");
+                Debug.Log($"<color=red>Not have prefab service type - {typeService}</color>");
             }
 
-            Service service = Instantiate(prefab, position, Quaternion.identity);
+            Service service = Instantiate(prefab, position, prefab.transform.rotation);
             prefab.gameObject.name = NamesData.SERVICE + $" {typeService}";
             service.transform.SetParent(parentServices.transform);
 
@@ -86,12 +86,28 @@ namespace Core
             return restZone;
         }
 
-        public Storage CreateStorage()
+        public Storage CreateStorage(TypeService typeService)
         {
-            Vector3 position = PositionsOnScene.Instance.GetStoragePos.transform.position;
+            Vector3 position = PositionsOnScene.Instance.GetPositionStorage(typeService).transform.position;
 
-            Storage storage = Instantiate(storagePrefab, position, Quaternion.identity);
-            storage.gameObject.name = NamesData.STORAGE;
+            Storage prefab = null;
+
+            foreach (var storagePrefab in storagesPrefabs)
+            {
+                if(storagePrefab.GetTypeService == typeService)
+                {
+                    prefab = storagePrefab;
+                    break;
+                }
+            }
+
+            if (prefab == null)
+            {
+                Debug.Log($"<color=red>Not have prefab storage type - {typeService}</color>");
+            }
+
+            Storage storage = Instantiate(prefab, position, prefab.transform.rotation);
+            storage.gameObject.name = NamesData.STORAGE + $" {typeService}";
             storage.transform.SetParent(parentStorages.transform);
 
             return storage;
