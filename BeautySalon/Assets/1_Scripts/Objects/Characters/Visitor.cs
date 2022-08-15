@@ -69,6 +69,8 @@ namespace Characters
 
         private void MoveToNewPosition(Transform targetTransform)
         {
+            animator.SetTrigger("Run");
+
             (moveComponent as MoveVisitorComponent).AfterEndMove += AfterMove;
             (moveComponent as MoveVisitorComponent).LookAt(targetTransform);
             (moveComponent as MoveVisitorComponent).SetNewTargetMove(targetTransform);
