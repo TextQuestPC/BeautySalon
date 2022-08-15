@@ -13,6 +13,8 @@ namespace Core
 
         private ServicesManager serviceManager;
 
+        private Visitor currentVisitor;
+
         public override void OnStart()
         {
             serviceManager = BoxManager.GetManager<ServicesManager>();
@@ -36,11 +38,16 @@ namespace Core
 
         private void ChooseActionForVisitor(Visitor visitor)
         {
+            currentVisitor = visitor;
             StateVisitor state = visitor.GetState;
 
             if (state == StateVisitor.StartInDoor)
             {
-                SetGoToServiceForVisitor(visitor);
+                VisitorCameInSalon();
+            }
+            if (state == StateVisitor.StandByStartMove)
+            {
+                SetService();
             }
             else if (state == StateVisitor.StandByService)
             {
@@ -49,30 +56,65 @@ namespace Core
             else if (state == StateVisitor.EndProcedure)
             {
                 // TODO: check - have any procedure ???
-
+                VisitorEndProcedure();
+            }
+            else if (state == StateVisitor.AfterProcedure)
+            {
                 visitor.GoToCash(serviceManager.GetFreeService(TypeService.Cash).GetVisitorPosition.transform);
             }
         }
 
-        private void SetGoToServiceForVisitor(Visitor visitor)
+        private void VisitorCameInSalon()
         {
-            TypeService typeService = visitor.GetTypeService;
+            TypeService typeService = currentVisitor.GetTypeService;
 
-            if (serviceManager.CheckFreeService(visitor.GetTypeService))
+            if (serviceManager.CheckFreeService(currentVisitor.GetTypeService))
             {
-                Service service = serviceManager.GetFreeService(visitor.GetTypeService);
+                float zValueService = serviceManager.GetFreeService(currentVisitor.GetTypeService).transform.position.z;
+                GameObject startMovePos;
 
-                if (service != null)
+                if (zValueService > currentVisitor.transform.position.z)
                 {
-                    visitor.GoToService(service);
-                    return;
+                    startMovePos = PositionsOnScene.Instance.GetLeftStartMovePos;
                 }
+                else
+                {
+                    startMovePos = PositionsOnScene.Instance.GetRightStartMovePos;
+                }
+
+                currentVisitor.GoToStartMove(startMovePos.transform);
             }
+            else // If service is not free
+            {
+                RestZone restZone = serviceManager.GetRestZone;
 
-            // If service == null || service is not free
-            RestZone restZone = serviceManager.GetRestZone;
+                currentVisitor.GoToRestZone(restZone);
+            }
+        }
 
-            visitor.GoToRestZone(restZone);
+        private void VisitorEndProcedure()
+        {
+            GameObject startMovePos;
+
+            if (currentVisitor.transform.position.z > 0)
+            {
+                startMovePos = PositionsOnScene.Instance.GetLeftStartMovePos;
+            }
+            else
+            {
+                startMovePos = PositionsOnScene.Instance.GetRightStartMovePos;
+            }
+        }
+
+        private void SetService()
+        {
+            Service service = serviceManager.GetFreeService(currentVisitor.GetTypeService);
+
+            if (service != null)
+            {
+                currentVisitor.GoToService(service);
+                return;
+            }
         }
     }
 }

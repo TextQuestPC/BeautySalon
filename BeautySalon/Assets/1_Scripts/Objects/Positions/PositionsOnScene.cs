@@ -4,17 +4,18 @@ namespace ObjectsOnScene
 {
     public class PositionsOnScene : Singleton<PositionsOnScene>, IInitialize
     {
-        [SerializeField] private GameObject spawnPlayerPos;
-        [SerializeField] private GameObject spawnItemsPos;
-        [SerializeField] private GameObject spawnVisitorPos;
+        [SerializeField] private GameObject spawnPlayerPos,spawnItemsPos, spawnVisitorPos;
+        [SerializeField] private GameObject restZonePos, leftStartMovePos, rightStartMovePos;
+
         [SerializeField] private PositionTypeService[] positionsServices;
         [SerializeField] private PositionTypeService[] positionsStorages;
-        [SerializeField] private GameObject restZonePos;
 
         public GameObject GetSpawnPlayerPos { get => spawnPlayerPos; }
         public GameObject GetSpawnItemsPos { get => spawnItemsPos; }
         public GameObject GetSpawnVisitorPos { get => spawnVisitorPos; }
         public GameObject GetRestZonePos { get => restZonePos; }
+        public GameObject GetLeftStartMovePos { get => leftStartMovePos; }
+        public GameObject GetRightStartMovePos { get => rightStartMovePos; }
 
         public GameObject GetPositionService(TypeService typeService)
         {

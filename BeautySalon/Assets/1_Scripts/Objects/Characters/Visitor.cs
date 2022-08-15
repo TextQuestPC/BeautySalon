@@ -31,6 +31,13 @@ namespace Characters
 
         #region ACTIONS
 
+        public void GoToStartMove(Transform startMoveTransform)
+        {
+            stateVisitor = StateVisitor.StandByStartMove;
+
+            MoveToNewPosition(startMoveTransform);
+        }
+
         public void GoToService(Service service)
         {
             currentService = service;
@@ -49,6 +56,13 @@ namespace Characters
         public void GoToCash(Transform cashTransform)
         {
             MoveToNewPosition(cashTransform.transform);
+        }
+
+        public void GoToEndProcedure(Transform transform)
+        {
+            stateVisitor = StateVisitor.EndProcedure;
+
+            MoveToNewPosition(transform);
         }
 
         public void SetDown()
