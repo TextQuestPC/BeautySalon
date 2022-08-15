@@ -54,7 +54,7 @@ namespace Characters
         public void SetDown()
         {
             currentService.VisitorIsCame(this);
-            animator.SetTrigger("Sit");
+            animator.SetTrigger("SitLeft");
 
             (moveComponent as MoveVisitorComponent).LookAt(currentService.transform);
             transform.position = currentService.GetVisitorPosition.transform.position;
@@ -69,7 +69,7 @@ namespace Characters
 
         private void MoveToNewPosition(Transform targetTransform)
         {
-            animator.SetTrigger("Run");
+            animator.SetTrigger("Move");
 
             (moveComponent as MoveVisitorComponent).AfterEndMove += AfterMove;
             (moveComponent as MoveVisitorComponent).LookAt(targetTransform);

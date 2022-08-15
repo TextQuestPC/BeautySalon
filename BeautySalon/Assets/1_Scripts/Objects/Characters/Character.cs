@@ -16,7 +16,7 @@ namespace Characters
 
             if (move)
             {
-                animator.SetTrigger("Run");
+                animator.SetTrigger("Move");
             }
             else
             {
