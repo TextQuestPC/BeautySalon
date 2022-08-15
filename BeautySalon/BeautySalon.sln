@@ -1,13 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaughtyAttributes.Test", "NaughtyAttributes.Test.csproj", "{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaughtyAttributes.Core", "NaughtyAttributes.Core.csproj", "{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{20515B49-29C0-67B4-F6CD-B75D776EA181}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaughtyAttributes.Editor", "NaughtyAttributes.Editor.csproj", "{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,22 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E588A25E-94A3-BCBE-58B3-4F7C3FEFBE7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98FB2C8E-8A80-E360-8E48-3E049B3EE22B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20515B49-29C0-67B4-F6CD-B75D776EA181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{20515B49-29C0-67B4-F6CD-B75D776EA181}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20515B49-29C0-67B4-F6CD-B75D776EA181}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20515B49-29C0-67B4-F6CD-B75D776EA181}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CE00756-2FCC-BCC3-18BD-668AFC1843A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
