@@ -4,32 +4,41 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 1295219382483267469
-    second: Idle
+      74: -363590184467296326
+    second: Run
   - first:
-      74: 4983245119425160315
-    second: Armature|Armature.010|RunNew
+      74: -1848491703944652064
+    second: Run
   - first:
-      74: -9163019313653967156
-    second: Armature|Armature.010|SitToLeft
+      74: -6218811360453828443
+    second: Armature.010|Armature.010|SitOnChairLeft
   - first:
-      74: 1953147235619018686
-    second: Armature|Armature.010|SitToRight
+      74: 5684060708333587862
+    second: SitOnChairRight
   - first:
-      74: -3926017418748857410
-    second: Armature|Armature.010|WalkNew
+      74: -736519915237651653
+    second: SitToLeft
   - first:
-      74: -7944405758431113888
-    second: Armature|Armature.010|Working
+      74: -1034262360032833531
+    second: SitToRight
   - first:
-      74: 24674413410296448
+      74: 3153808567421489084
+    second: StandUpFromChairLeft
+  - first:
+      74: -591266909912061292
+    second: StandUpFromChairRight
+  - first:
+      74: -6882364183202987629
     second: Walk
   - first:
-      74: 1295219382483267469
-    second: Armature|Armature.010|IdleNew
+      74: -6624449570768344868
+    second: Working
   - first:
       74: -3100369314251171874
     second: Idle
+  - first:
+      74: 6993824985374761293
+    second: SitOnChairLeft
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -59,18 +68,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Armature.010|IdleNew
-      takeName: Armature|Armature.010|IdleNew
+      name: SitOnChairRight
+      takeName: Armature.010|Armature.010|SitOnChairRight
       internalID: 0
       firstFrame: 0
-      lastFrame: 199
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -88,37 +97,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Armature.010|RunNew
-      takeName: Armature|Armature.010|RunNew
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 24
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Armature.010|SitToLeft
-      takeName: Armature|Armature.010|SitToLeft
+      name: SitToLeft
+      takeName: Armature.010|Armature.010|SitToLeft
       internalID: 0
       firstFrame: 0
       lastFrame: 130
@@ -128,7 +108,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -146,8 +126,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Armature.010|SitToRight
-      takeName: Armature|Armature.010|SitToRight
+      name: SitToRight
+      takeName: Armature.010|Armature.010|SitToRight
       internalID: 0
       firstFrame: 0
       lastFrame: 130
@@ -157,7 +137,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -175,8 +155,66 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Armature.010|WalkNew
-      takeName: Armature|Armature.010|WalkNew
+      name: StandUpFromChairLeft
+      takeName: Armature.010|Armature.010|StandUpFromChairLeft
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StandUpFromChairRight
+      takeName: Armature.010|Armature.010|StandUpFromChairRight
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Armature.010|Armature.010|WalkNew
       internalID: 0
       firstFrame: 0
       lastFrame: 29
@@ -204,8 +242,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Armature.010|Working
-      takeName: Armature|Armature.010|Working
+      name: Working
+      takeName: Armature.010|Armature.010|Working
       internalID: 0
       firstFrame: 0
       lastFrame: 300
@@ -216,6 +254,93 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Armature.010|Armature.010|IdleNew
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 199
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Armature.010|Armature.010|RunNew
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SitOnChairLeft
+      takeName: Armature.010|Armature.010|SitOnChairLeft
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
