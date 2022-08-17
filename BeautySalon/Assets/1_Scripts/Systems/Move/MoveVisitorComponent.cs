@@ -36,7 +36,9 @@ namespace SystemMove
 
         public void LookAt(Transform target)
         {
-            transform.LookAt(target);
+            Vector3 targetVector = target.transform.position;
+
+            transform.LookAt(targetVector);
         }
     }
 }

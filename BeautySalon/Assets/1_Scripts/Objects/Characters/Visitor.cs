@@ -44,7 +44,7 @@ namespace Characters
         {
             currentService = targetService;
 
-            MoveToNewPosition(targetService.transform);
+            MoveToNewPosition(targetService.GetVisitorPosition.transform);
         }
 
         public void StandUpFromChair()
@@ -54,7 +54,7 @@ namespace Characters
 
         private IEnumerator CoStandUpFromChair()
         {
-            animator.SetTrigger("Idle");
+            animator.SetTrigger("StandLeft");
 
             yield return new WaitForSeconds(1f);
 
@@ -66,7 +66,7 @@ namespace Characters
             currentService.VisitorIsCame(this);
             animator.SetTrigger("SitLeft");
 
-            (moveComponent as MoveVisitorComponent).LookAt(currentService.transform);
+            (moveComponent as MoveVisitorComponent).LookAt(currentService.GetLookPosition.transform);
             transform.position = currentService.GetVisitorPosition.transform.position;
         }
 
