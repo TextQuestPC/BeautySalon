@@ -1,5 +1,6 @@
 using Core;
 using ObjectsOnScene;
+using System.Collections;
 using SystemMove;
 using UnityEngine;
 using VisitorSystem;
@@ -41,7 +42,7 @@ namespace Characters
         public void GoToService(Service service)
         {
             currentService = service;
-            stateVisitor = StateVisitor.GoToService;
+            stateVisitor = StateVisitor.StandByService;
 
             MoveToNewPosition(service.GetVisitorPosition.transform);
         }
@@ -53,14 +54,17 @@ namespace Characters
             MoveToNewPosition(restZone.transform);
         }
 
-        public void GoToCash(Transform cashTransform)
+        public void GoToCash(Service service)
         {
-            MoveToNewPosition(cashTransform.transform);
+            currentService = service;
+            stateVisitor = StateVisitor.StandByCash;
+
+            MoveToNewPosition(service.GetVisitorPosition.transform);
         }
 
         public void GoToEndProcedure(Transform transform)
         {
-            stateVisitor = StateVisitor.EndProcedure;
+            stateVisitor = StateVisitor.GoToCash;
 
             MoveToNewPosition(transform);
         }
@@ -76,7 +80,16 @@ namespace Characters
 
         public void CompleteProcedure()
         {
-            stateVisitor = StateVisitor.EndProcedure;
+            stateVisitor = StateVisitor.CompleteProcedure;
+
+            StartCoroutine(CoGetUpFromChair());
+        }
+
+        private IEnumerator CoGetUpFromChair()
+        {
+            animator.SetTrigger("Idle");
+
+            yield return new WaitForSeconds(1f);
 
             BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }
@@ -95,18 +108,9 @@ namespace Characters
         private void AfterMove()
         {
             ChangeMove(false);
-            ChangeState();
 
             (moveComponent as MoveVisitorComponent).AfterEndMove -= AfterMove;
             BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
-        }
-
-        private void ChangeState()
-        {
-            if(stateVisitor == StateVisitor.GoToService)
-            {
-                stateVisitor = StateVisitor.StandByService;
-            }
         }
 
         #endregion ACTIONS

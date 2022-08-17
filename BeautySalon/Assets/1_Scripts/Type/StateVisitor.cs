@@ -6,9 +6,9 @@ namespace VisitorSystem
         GoToRestZone,
         StandByRestZone,
         StandByStartMove,
-        GoToService,
         StandByService,
-        EndProcedure,
-        AfterProcedure
+        CompleteProcedure,
+        GoToCash,
+        StandByCash
     }
 }

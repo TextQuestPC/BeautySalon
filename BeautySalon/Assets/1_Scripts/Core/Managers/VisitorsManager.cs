@@ -53,14 +53,14 @@ namespace Core
             {
                 visitor.SetDown();
             }
-            else if (state == StateVisitor.EndProcedure)
+            else if (state == StateVisitor.CompleteProcedure)
             {
                 // TODO: check - have any procedure ???
                 VisitorEndProcedure();
             }
-            else if (state == StateVisitor.AfterProcedure)
+            else if (state == StateVisitor.GoToCash)
             {
-                visitor.GoToCash(serviceManager.GetFreeService(TypeService.Cash).GetVisitorPosition.transform);
+                visitor.GoToService(serviceManager.GetFreeService(TypeService.Cash));
             }
         }
 
@@ -104,6 +104,8 @@ namespace Core
             {
                 startMovePos = PositionsOnScene.Instance.GetRightStartMovePos;
             }
+
+            currentVisitor.GoToEndProcedure(startMovePos.transform);
         }
 
         private void SetService()
