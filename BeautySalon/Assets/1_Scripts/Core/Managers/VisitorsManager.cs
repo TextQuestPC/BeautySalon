@@ -60,7 +60,7 @@ namespace Core
             }
             else if (state == StateVisitor.GoToCash)
             {
-                visitor.GoToService(serviceManager.GetFreeService(TypeService.Cash));
+                visitor.GoToCash(serviceManager.GetFreeService(TypeService.Cash));
             }
         }
 
