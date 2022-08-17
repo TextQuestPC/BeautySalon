@@ -15,9 +15,11 @@ namespace Characters
 
         public TypeService GetTypeService { get => typeNeedServices; }
         public TypeItem GetTypeItem { get => typeNeedItem; }
-        public StateVisitor GetState { get => stateVisitor; }
+        public StateVisitor StateVisitor { get => stateVisitor; set => stateVisitor = value; }
 
         private Service currentService;
+
+        #region INIT
 
         public override void OnInitialize()
         {
@@ -30,46 +32,36 @@ namespace Characters
             typeNeedItem = typeItem;
         }
 
+        #endregion INIT
+
         #region ACTIONS
 
-        public void GoToStartMove(Transform startMoveTransform)
+        public void GoToTargetTransform(Transform targetTransform)
         {
-            stateVisitor = StateVisitor.StandByStartMove;
+            MoveToNewPosition(targetTransform);
+        }
+        public void GoToTargetService(Service targetService)
+        {
+            currentService = targetService;
 
-            MoveToNewPosition(startMoveTransform);
+            MoveToNewPosition(targetService.transform);
         }
 
-        public void GoToService(Service service)
+        public void StandUpFromChair()
         {
-            currentService = service;
-            stateVisitor = StateVisitor.StandByService;
-
-            MoveToNewPosition(service.GetVisitorPosition.transform);
+            StartCoroutine(CoStandUpFromChair());
         }
 
-        public void GoToRestZone(RestZone restZone)
+        private IEnumerator CoStandUpFromChair()
         {
-            stateVisitor = StateVisitor.GoToRestZone;
+            animator.SetTrigger("Idle");
 
-            MoveToNewPosition(restZone.transform);
+            yield return new WaitForSeconds(1f);
+
+            BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }
 
-        public void GoToCash(Service service)
-        {
-            currentService = service;
-            stateVisitor = StateVisitor.StandByCash;
-
-            MoveToNewPosition(service.GetVisitorPosition.transform);
-        }
-
-        public void GoToEndProcedure(Transform transform)
-        {
-            stateVisitor = StateVisitor.GoToCash;
-
-            MoveToNewPosition(transform);
-        }
-
-        public void SetDown()
+        public void SitDownOnChair()
         {
             currentService.VisitorIsCame(this);
             animator.SetTrigger("SitLeft");
@@ -82,34 +74,30 @@ namespace Characters
         {
             stateVisitor = StateVisitor.CompleteProcedure;
 
-            StartCoroutine(CoGetUpFromChair());
+            BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }
 
-        private IEnumerator CoGetUpFromChair()
+        public void LookAt(Transform targetTransform)
         {
-            animator.SetTrigger("Idle");
-
-            yield return new WaitForSeconds(1f);
-
-            BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
+            (moveComponent as MoveVisitorComponent).LookAt(targetTransform);
         }
 
         private void MoveToNewPosition(Transform targetTransform)
         {
             animator.SetTrigger("Move");
 
-            (moveComponent as MoveVisitorComponent).AfterEndMove += AfterMove;
+            (moveComponent as MoveVisitorComponent).AfterEndMove += AfterMoveToTarget;
             (moveComponent as MoveVisitorComponent).LookAt(targetTransform);
             (moveComponent as MoveVisitorComponent).SetNewTargetMove(targetTransform);
 
             ChangeMove(true);
         }
 
-        private void AfterMove()
+        private void AfterMoveToTarget()
         {
             ChangeMove(false);
 
-            (moveComponent as MoveVisitorComponent).AfterEndMove -= AfterMove;
+            (moveComponent as MoveVisitorComponent).AfterEndMove -= AfterMoveToTarget;
             BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }
 

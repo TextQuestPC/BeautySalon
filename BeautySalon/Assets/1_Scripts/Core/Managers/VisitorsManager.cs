@@ -39,7 +39,7 @@ namespace Core
         private void ChooseActionForVisitor(Visitor visitor)
         {
             currentVisitor = visitor;
-            StateVisitor state = visitor.GetState;
+            StateVisitor state = visitor.StateVisitor;
 
             if (state == StateVisitor.StartInDoor)
             {
@@ -47,20 +47,30 @@ namespace Core
             }
             if (state == StateVisitor.StandByStartMove)
             {
-                SetService();
+                ChooseService();
             }
             else if (state == StateVisitor.StandByService)
             {
-                visitor.SetDown();
+                visitor.SitDownOnChair();
             }
             else if (state == StateVisitor.CompleteProcedure)
+            {
+                visitor.StateVisitor = StateVisitor.StandByServiceAfterProcedure;
+                visitor.StandUpFromChair();
+            }
+            else if (state == StateVisitor.StandByServiceAfterProcedure)
             {
                 // TODO: check - have any procedure ???
                 VisitorEndProcedure();
             }
             else if (state == StateVisitor.GoToCash)
             {
-                visitor.GoToCash(serviceManager.GetFreeService(TypeService.Cash));
+                currentVisitor.StateVisitor = StateVisitor.StandByCash;
+                visitor.GoToTargetService(serviceManager.GetFreeService(TypeService.Cash));
+            }
+            else if (state == StateVisitor.StandByCash)
+            {
+                visitor.LookAt(serviceManager.GetFreeService(TypeService.Cash).GetLookPosition.transform);
             }
         }
 
@@ -82,13 +92,15 @@ namespace Core
                     startMovePos = PositionsOnScene.Instance.GetRightStartMovePos;
                 }
 
-                currentVisitor.GoToStartMove(startMovePos.transform);
+                currentVisitor.StateVisitor = StateVisitor.StandByStartMove;
+                currentVisitor.GoToTargetTransform(startMovePos.transform);
             }
             else // If service is not free
             {
                 RestZone restZone = serviceManager.GetRestZone;
 
-                currentVisitor.GoToRestZone(restZone);
+                currentVisitor.StateVisitor = StateVisitor.StandByRestZone;
+                currentVisitor.GoToTargetTransform(restZone.transform);
             }
         }
 
@@ -105,16 +117,19 @@ namespace Core
                 startMovePos = PositionsOnScene.Instance.GetRightStartMovePos;
             }
 
-            currentVisitor.GoToEndProcedure(startMovePos.transform);
+            currentVisitor.StateVisitor = StateVisitor.GoToCash;
+            currentVisitor.GoToTargetTransform(startMovePos.transform);
         }
 
-        private void SetService()
+        private void ChooseService()
         {
             Service service = serviceManager.GetFreeService(currentVisitor.GetTypeService);
 
             if (service != null)
             {
-                currentVisitor.GoToService(service);
+                currentVisitor.StateVisitor = StateVisitor.StandByService;
+
+                currentVisitor.GoToTargetService(service);
                 return;
             }
         }
