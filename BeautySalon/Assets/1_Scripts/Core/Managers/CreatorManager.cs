@@ -37,6 +37,8 @@ namespace Core
             parentVisitors.transform.SetParent(objectsParent.transform);
         }
 
+        #region CHARACTERS
+
         public Player CreatePlayer()
         {
             Vector3 spawnPos = PositionsOnScene.Instance.GetSpawnPlayerPos.transform.position;
@@ -48,6 +50,22 @@ namespace Core
 
             return player;
         }
+
+        public Visitor CreateVisitor()
+        {
+            Vector3 spawnPos = PositionsOnScene.Instance.GetSpawnVisitorPos.transform.position;
+
+            Visitor visitor = Instantiate(visitorPrefab, spawnPos, Quaternion.identity);
+            visitor.gameObject.name = NamesData.VISITOR;
+            visitor.transform.SetParent(parentVisitors.transform);
+            visitor.OnInitialize();
+
+            return visitor;
+        }
+
+        #endregion CHARACTERS
+
+        #region PLACE_MAP
 
         public Service CreateService(TypeService typeService)
         {
@@ -126,6 +144,8 @@ namespace Core
             return storage;
         }
 
+        #endregion PLACE_MAP
+
         public Item CreateItem(TypeItem typeItem)
         {
             Vector3 spawnPos = PositionsOnScene.Instance.GetSpawnItemsPos.transform.position;
@@ -147,22 +167,12 @@ namespace Core
 
             Item item = Instantiate(currentItemPrefab, spawnPos, Quaternion.identity);
             item.gameObject.name = NamesData.ITEM + $" {typeItem}";
-            item.transform.SetParent(objectsParent.transform);
+            item.transform.SetParent(parentItems.transform);
 
             return item;
         }
 
-        public Visitor CreateVisitor()
-        {
-            Vector3 spawnPos = PositionsOnScene.Instance.GetSpawnVisitorPos.transform.position;
-
-            Visitor visitor = Instantiate(visitorPrefab, spawnPos, Quaternion.identity);
-            visitor.gameObject.name = NamesData.VISITOR;
-            visitor.transform.SetParent(parentVisitors.transform);
-            visitor.OnInitialize();
-
-            return visitor;
-        }
+        #region SYSTEMS
 
         public TouchSystem CreateTouchSystem()
         {
@@ -184,5 +194,7 @@ namespace Core
             newObject.transform.SetParent(controllers.transform);
             return newObject.AddComponent<UpdateGame>();
         }
+
+        #endregion SYSTEMS
     }
 }

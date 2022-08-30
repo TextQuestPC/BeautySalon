@@ -13,8 +13,8 @@ namespace ObjectsOnScene
 
         protected override void PlayerInCollider(Player player)
         {
-            //    if(myVisitor != null)
-            //    {
+                //if(myVisitor != null)
+                //{
             Debug.Log("GET MONEY");
             Item money = BoxManager.GetManager<CreatorManager>().CreateItem(TypeItem.Money);
             money.transform.position = moneyPosition.transform.position;

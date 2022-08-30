@@ -11,7 +11,7 @@ namespace ObjectsOnScene
 
         protected override void PlayerInCollider(Player player)
         {
-            Debug.Log("Get money");
+            Debug.Log("TAke money");
         }
 
         protected override void PlayerOutCollider(Player player)
