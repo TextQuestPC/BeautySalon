@@ -5,7 +5,7 @@ namespace ObjectsOnScene
     public class PositionsOnScene : Singleton<PositionsOnScene>, IInitialize
     {
         [SerializeField] private GameObject spawnPlayerPos,spawnItemsPos, spawnVisitorPos;
-        [SerializeField] private GameObject restZonePos, leftStartMovePos, rightStartMovePos;
+        [SerializeField] private GameObject restZonePos, cashZone, leftStartMovePos, rightStartMovePos;
 
         [SerializeField] private PositionTypeService[] positionsServices;
         [SerializeField] private PositionTypeService[] positionsStorages;
@@ -14,6 +14,7 @@ namespace ObjectsOnScene
         public GameObject GetSpawnItemsPos { get => spawnItemsPos; }
         public GameObject GetSpawnVisitorPos { get => spawnVisitorPos; }
         public GameObject GetRestZonePos { get => restZonePos; }
+        public GameObject GetCashZonePos { get => cashZone; }
         public GameObject GetLeftStartMovePos { get => leftStartMovePos; }
         public GameObject GetRightStartMovePos { get => rightStartMovePos; }
 

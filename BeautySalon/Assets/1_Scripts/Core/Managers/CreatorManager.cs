@@ -15,6 +15,7 @@ namespace Core
         [SerializeField] private Item[] itemsPrefabs;
         [SerializeField] private Visitor visitorPrefab;
         [SerializeField] private RestZone restZonePrefab;
+        [SerializeField] private CashZone cashZonePrefab;
 
         private GameObject objectsParent, controllers, parentServices, parentStorages, parentItems, parentVisitors;
 
@@ -78,12 +79,24 @@ namespace Core
         {
             Vector3 spawnPos = PositionsOnScene.Instance.GetRestZonePos.transform.position;
 
-            RestZone restZone = Instantiate(restZonePrefab, spawnPos, Quaternion.identity);
+            RestZone restZone = Instantiate(restZonePrefab, spawnPos, restZonePrefab.transform.rotation);
             restZone.gameObject.name = NamesData.REST_ZONE;
             restZone.transform.SetParent(parentServices.transform);
             restZone.OnInitialize();
 
             return restZone;
+        }
+
+        public CashZone CreateCashZone()
+        {
+            Vector3 spawnPos = PositionsOnScene.Instance.GetCashZonePos.transform.position;
+
+            CashZone cashZone = Instantiate(cashZonePrefab, spawnPos, cashZonePrefab.transform.rotation);
+            cashZone.gameObject.name = NamesData.CASH_ZONE;
+            cashZone.transform.SetParent(parentServices.transform);
+            cashZone.OnInitialize();
+
+            return cashZone;
         }
 
         public Storage CreateStorage(TypeService typeService)

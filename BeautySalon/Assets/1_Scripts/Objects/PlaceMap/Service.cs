@@ -1,16 +1,12 @@
 using Characters;
-using NaughtyAttributes;
 using UnityEngine;
 
 namespace ObjectsOnScene
 {
     [RequireComponent(typeof(BoxCollider))]
-    public abstract class Service : PlaceMap
+    public abstract class Service : InteractionObject
     {
         [SerializeField] private TypeService typeService;
-
-        [BoxGroup("Positions")]
-        [SerializeField] private GameObject visitorPosition, visitorLookPosition;
 
         protected bool isFree = true;
         protected Visitor myVisitor;
@@ -18,8 +14,6 @@ namespace ObjectsOnScene
         public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
         public TypeItem GetTypeNeedItem { get => myVisitor.GetTypeItem; }
-        public GameObject GetVisitorPosition { get => visitorPosition; }
-        public GameObject GetLookPosition { get => visitorLookPosition; }
 
         public void VisitorIsCame(Visitor visitor)
         {

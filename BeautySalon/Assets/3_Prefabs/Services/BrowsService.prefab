@@ -624,9 +624,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247554ce62cb2654f89edc32e21b2ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeService: 2
   visitorPosition: {fileID: 2688351599718169612}
   visitorLookPosition: {fileID: 5547331458189904882}
+  typeService: 2
   canvasService: {fileID: 3089939983525209243}
   timeProcedure: 2
 --- !u!1001 &4357948632422132414

@@ -14,6 +14,7 @@ namespace Core
 
         private static bool isLogging = false;
         public static bool GetIsLogging { get => isLogging; }
+        public static object GetMan { get; internal set; }
 
         #region INIT
 

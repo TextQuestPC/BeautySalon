@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2364706571561055872}
   - component: {fileID: 4181120770366011008}
   m_Layer: 0
-  m_Name: CashService
+  m_Name: CashZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3999cbbec8c834b4f865d22edb253f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeService: 3
   visitorPosition: {fileID: 4587013675670566660}
   visitorLookPosition: {fileID: 5463072754906103312}
   moneyPosition: {fileID: 2371117018911042806}

@@ -14,7 +14,6 @@ namespace Characters
         private List<Item> items = new List<Item>();
         private int maxCountItems = 3;
 
-        public MovePlayerComponent GetMove { get => moveComponent as MovePlayerComponent; }
         public GameObject GetCameraPosition { get => cameraPosition; }
 
         public override void OnInitialize()

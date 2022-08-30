@@ -9,17 +9,19 @@ namespace Core
     {
         private List<Service> services = new List<Service>();
         private RestZone restZone;
+        private CashZone cashZone;
 
         public RestZone GetRestZone { get => restZone; }
+        public CashZone GetCashZone { get => cashZone; }
 
         public override void OnInitialize()
         {
             services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Haircut));
             services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Nails));
             services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Brows));
-            services.Add(BoxManager.GetManager<CreatorManager>().CreateService(TypeService.Cash));
-            
+                        
             restZone = BoxManager.GetManager<CreatorManager>().CreateRestZone();
+            cashZone = BoxManager.GetManager<CreatorManager>().CreateCashZone();
         }
 
         public bool CheckFreeService(TypeService typeService)

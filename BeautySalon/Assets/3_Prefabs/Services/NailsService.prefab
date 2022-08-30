@@ -555,7 +555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5547331458189904882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.96, y: -1.19, z: 0.05}
+  m_LocalPosition: {x: 0.245, y: -0.5, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6536134886229766314}
@@ -624,9 +624,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247554ce62cb2654f89edc32e21b2ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeService: 1
   visitorPosition: {fileID: 2688351599718169612}
   visitorLookPosition: {fileID: 5547331458189904882}
+  typeService: 1
   canvasService: {fileID: 3089939983525209243}
   timeProcedure: 2
 --- !u!1001 &4357948632422132414
@@ -683,7 +683,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ebcbd19cbd1ba46a0932c8fff08812d4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e29803575c0a8413a904a855d4c5f04a, type: 2}
+      objectReference: {fileID: 2100000, guid: 0fa939c71e9aa469d9be46059ca9562a, type: 2}
     - target: {fileID: 919132149155446097, guid: ebcbd19cbd1ba46a0932c8fff08812d4, type: 3}
       propertyPath: m_Name
       value: Chair

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ObjectsOnScene
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class Storage : PlaceMap
+    public class Storage : InteractionObject
     {
         [SerializeField] private TypeService typeService;
         [SerializeField] private TypeItem typeItem;

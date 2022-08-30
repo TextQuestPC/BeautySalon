@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ObjectsOnScene
 {
-    public class RestZone : PlaceMap
+    public class RestZone : InteractionObject
     {
         protected override void PlayerInCollider(Player player) { }
 

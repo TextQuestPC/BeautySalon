@@ -30,7 +30,7 @@ namespace Core
         private void CreateVisitor()
         {
             Visitor visitor = BoxManager.GetManager<CreatorManager>().CreateVisitor();
-            visitor.SetDataVisit(TypeService.Haircut, TypeItem.Scissors);
+            visitor.SetDataVisit(TypeService.Haircut, TypeItem.HaircutConsumable);
             visitors.Add(visitor);
 
             ChooseActionForVisitor(visitor);
@@ -66,11 +66,15 @@ namespace Core
             else if (state == StateVisitor.GoToCash)
             {
                 currentVisitor.StateVisitor = StateVisitor.StandByCash;
-                visitor.GoToTargetService(serviceManager.GetFreeService(TypeService.Cash));
+
+                CashZone cashZone = serviceManager.GetCashZone;
+                currentVisitor.GoToTargetTransform(cashZone.transform);
             }
             else if (state == StateVisitor.StandByCash)
             {
-                visitor.LookAt(serviceManager.GetFreeService(TypeService.Cash).GetLookPosition.transform);
+                visitor.LookAt(serviceManager.GetCashZone.GetLookPosition.transform);
+
+                serviceManager.GetCashZone.SetWaitVisitor=visitor;
             }
         }
 

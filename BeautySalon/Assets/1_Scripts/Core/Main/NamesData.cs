@@ -20,5 +20,6 @@ namespace Core
         public static string STORAGE { get => "Storage"; }
         public static string SERVICE { get => "Service"; }
         public static string REST_ZONE { get => "RestZone"; }
+        public static string CASH_ZONE { get => "CashZone"; }
     }
 }

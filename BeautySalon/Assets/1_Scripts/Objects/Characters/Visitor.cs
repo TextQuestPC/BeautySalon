@@ -10,7 +10,7 @@ namespace Characters
     public class Visitor : Character
     {
         private TypeService typeNeedServices = TypeService.Haircut;
-        private TypeItem typeNeedItem = TypeItem.Scissors;
+        private TypeItem typeNeedItem = TypeItem.HaircutConsumable;
         private StateVisitor stateVisitor = StateVisitor.StartInDoor;
 
         public TypeService GetTypeService { get => typeNeedServices; }

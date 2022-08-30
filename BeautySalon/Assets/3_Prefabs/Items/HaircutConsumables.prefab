@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8032681403645095071}
   - component: {fileID: 8032681403645095070}
   m_Layer: 0
-  m_Name: Scissors
+  m_Name: HaircutConsumables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
