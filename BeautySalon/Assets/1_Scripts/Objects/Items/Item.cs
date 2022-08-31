@@ -11,10 +11,13 @@ namespace ObjectsOnScene
 
         protected override void PlayerInCollider(Player player)
         {
-            Debug.Log("TAke money");
         }
 
         protected override void PlayerOutCollider(Player player)
+        {
+        }
+
+        protected override void Death()
         {
         }
     }

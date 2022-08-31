@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +9,8 @@ namespace UI
 
         public void ChangeMoneyText(int newValue)
         {
-            moneyText.text = newValue.ToString();
+            moneyText.GetComponent<Animator>().SetTrigger(TypeAnimation.Change.ToString());
+            moneyText.text = newValue + "$";
         }
     }
 }

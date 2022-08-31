@@ -83,7 +83,7 @@
     <Compile Include="Assets/1_Scripts/Objects/PlaceMap/CashZone.cs" />
     <Compile Include="Assets/1_Scripts/Core/Main/ClassReferenceAttribute.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/BaseManager.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/PlaceMap/PlaceMap.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/PlaceMap/InteractionObject.cs" />
     <Compile Include="Assets/1_Scripts/Core/Storage/FileStorage.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Move/MoveVisitorComponent.cs" />
     <Compile Include="Assets/1_Scripts/Core/Storage/GameData.cs" />
@@ -107,7 +107,7 @@
     <Compile Include="Assets/1_Scripts/Objects/PlaceMap/ServiceWithTime.cs" />
     <Compile Include="Assets/1_Scripts/UI/UIManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Settings/AudioSettingsCore.cs" />
-    <Compile Include="Assets/1_Scripts/Objects/Item.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/Items/Item.cs" />
     <Compile Include="Assets/1_Scripts/Objects/Characters/Player.cs" />
     <Compile Include="Assets/1_Scripts/Core/Interface/IUIElement.cs" />
     <Compile Include="Assets/1_Scripts/Systems/Move/MoveCameraComponent.cs" />
@@ -125,6 +125,7 @@
     <Compile Include="Assets/1_Scripts/Core/Managers/TimeManager.cs" />
     <Compile Include="Assets/1_Scripts/Core/Managers/ValuesManager.cs" />
     <Compile Include="Assets/1_Scripts/UI/Windows/UIWindow.cs" />
+    <Compile Include="Assets/1_Scripts/Objects/Items/Money.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

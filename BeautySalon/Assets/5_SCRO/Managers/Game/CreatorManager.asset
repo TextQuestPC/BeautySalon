@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 1614394254505943674, guid: fa62e2a85db386644be8f0bcc4cbd59a, type: 3}
   itemsPrefabs:
   - {fileID: 8032681403645095070, guid: 841cb5e6da0cc414f94ee4c246c2e501, type: 3}
-  - {fileID: 4916865333379233186, guid: 345796a9716e2e144b1bfa5682c9b2e1, type: 3}
+  - {fileID: 1941053189469757198, guid: 345796a9716e2e144b1bfa5682c9b2e1, type: 3}
   visitorPrefab: {fileID: 8608941038399041899, guid: aa621a1770dea44a497a48cec930e99d, type: 3}
   restZonePrefab: {fileID: 936511574421067626, guid: ef73380f81c784471bdef85b130e54f8, type: 3}
   cashZonePrefab: {fileID: 4181120770366011008, guid: 648dc2e12d170401990b782eccf1d864, type: 3}
