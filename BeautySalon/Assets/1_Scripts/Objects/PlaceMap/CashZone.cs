@@ -13,13 +13,17 @@ namespace ObjectsOnScene
 
         protected override void PlayerInCollider(Player player)
         {
-                //if(myVisitor != null)
-                //{
-            Debug.Log("GET MONEY");
-            Item money = BoxManager.GetManager<CreatorManager>().CreateItem(TypeItem.Money);
-            money.transform.position = moneyPosition.transform.position;
-            //}
-        }
+            if (waitVisitor != null) // Расчитываем посетителя
+            {
+                Money money = BoxManager.GetManager<CreatorManager>().CreateItem(TypeItem.Money) as Money;
+
+                money.SetCountMoney = waitVisitor.GetMoneyForServices;
+                money.transform.position = moneyPosition.transform.position;
+
+                waitVisitor.CalculateVisitor();
+                waitVisitor = null;
+            }
+    }
 
         protected override void PlayerOutCollider(Player player)
         {

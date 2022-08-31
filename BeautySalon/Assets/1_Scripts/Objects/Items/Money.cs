@@ -7,6 +7,8 @@ namespace ObjectsOnScene
     {
         private int countMoney = 50;
 
+        public int SetCountMoney { set => countMoney = value; }
+
         protected override void PlayerInCollider(Player player)
         {
             BoxManager.GetManager<ValuesManager>().AddMoney(countMoney);

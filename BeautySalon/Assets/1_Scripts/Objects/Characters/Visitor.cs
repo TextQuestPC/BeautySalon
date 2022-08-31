@@ -18,6 +18,9 @@ namespace Characters
         public StateVisitor StateVisitor { get => stateVisitor; set => stateVisitor = value; }
 
         private Service currentService;
+        private int moneyForServices = 50; // TODO: расчитывать от стоимости полученных услуг
+
+        public int GetMoneyForServices { get => moneyForServices; }
 
         #region INIT
 
@@ -73,6 +76,13 @@ namespace Characters
         public void CompleteProcedure()
         {
             stateVisitor = StateVisitor.CompleteProcedure;
+
+            BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
+        }
+
+        public void CalculateVisitor()
+        {
+            stateVisitor = StateVisitor.GetMoney;
 
             BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }

@@ -68,13 +68,17 @@ namespace Core
                 currentVisitor.StateVisitor = StateVisitor.StandByCash;
 
                 CashZone cashZone = serviceManager.GetCashZone;
-                currentVisitor.GoToTargetTransform(cashZone.transform);
+                currentVisitor.GoToTargetTransform(cashZone.GetVisitorPosition.transform);
             }
             else if (state == StateVisitor.StandByCash)
             {
                 visitor.LookAt(serviceManager.GetCashZone.GetLookPosition.transform);
 
                 serviceManager.GetCashZone.SetWaitVisitor=visitor;
+            }
+            else if(state == StateVisitor.GetMoney)
+            {
+                currentVisitor.GoToTargetTransform(PositionsOnScene.Instance.GetSpawnVisitorPos.transform);
             }
         }
 

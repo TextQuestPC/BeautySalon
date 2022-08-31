@@ -9,6 +9,7 @@ namespace VisitorSystem
         CompleteProcedure,
         StandByServiceAfterProcedure,
         GoToCash,
-        StandByCash
+        StandByCash,
+        GetMoney
     }
 }
