@@ -4,14 +4,14 @@ namespace SystemMove
 {
     public class MoveComponent : MonoBehaviour
     {
-        protected bool canMove;
+        protected bool moveNow;
         protected float speedMove = 5f;
 
-        public bool SetCanMove { set => canMove = value; }
+        public bool SetMoveNow { set => moveNow = value; }
 
         private void Update()
         {
-            if (canMove)
+            if (moveNow)
             {
                 Move();
             }

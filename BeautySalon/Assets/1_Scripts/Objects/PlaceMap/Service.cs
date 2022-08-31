@@ -32,6 +32,8 @@ namespace ObjectsOnScene
                     if (player.CheckHaveItem(GetTypeNeedItem))
                     {
                         StartProcedure();
+
+                        player.StartProcedure();
                     }
                 }
                 else

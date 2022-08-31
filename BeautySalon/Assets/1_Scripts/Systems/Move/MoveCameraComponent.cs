@@ -25,7 +25,7 @@ namespace SystemMove
         public void SetNextTarget(Transform targetTransform)
         {
             this.targetTransform = targetTransform;
-            canMove = true;
+            moveNow = true;
         }
     }
 }

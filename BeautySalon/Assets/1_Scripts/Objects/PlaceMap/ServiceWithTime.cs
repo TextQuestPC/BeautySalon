@@ -14,14 +14,6 @@ namespace ObjectsOnScene
         private float leftTimeProcedure;
         private bool procedureNow = false;
 
-        protected override void PlayerOutCollider(Player player)
-        {
-            if (procedureNow)
-            {
-                StopProcedure();
-            }
-        }
-
         #region PROCEDURE
 
         protected override void StartProcedure()
@@ -43,25 +35,21 @@ namespace ObjectsOnScene
 
                 if (leftTimeProcedure >= timeProcedure)
                 {
-                    StopProcedure();
                     CompleteProcedure();
                 }
             }
         }
 
-        private void StopProcedure()
+        private void CompleteProcedure()
         {
+            isFree = true;
             procedureNow = false;
             canvasService.gameObject.SetActive(false);
 
             BoxManager.GetManager<TimeManager>().RemoveWaitingObject(this);
-        }
-
-        private void CompleteProcedure()
-        {
-            isFree = true;
-
             BoxManager.GetManager<GameManager>().CompleteProcedure(this);
+            BoxManager.GetManager<GameManager>().GetPlayer.EndProcedure();
+
             myVisitor.CompleteProcedure();
         }
 

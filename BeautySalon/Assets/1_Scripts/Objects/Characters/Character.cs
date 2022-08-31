@@ -9,18 +9,22 @@ namespace Characters
         [SerializeField] protected Animator animator;
 
         protected MoveComponent moveComponent;
+        protected bool canMove = true;
 
         public void ChangeMove(bool move)
         {
-            moveComponent.SetCanMove = move;
+            if (canMove)
+            {
+                moveComponent.SetMoveNow = move;
 
-            if (move)
-            {
-                animator.SetTrigger("Move");
-            }
-            else
-            {
-                animator.SetTrigger("Idle");
+                if (move)
+                {
+                    animator.SetTrigger(TypeAnimationCharacter.Move.ToString());
+                }
+                else
+                {
+                    animator.SetTrigger(TypeAnimationCharacter.Idle.ToString());
+                }
             }
         }
     }

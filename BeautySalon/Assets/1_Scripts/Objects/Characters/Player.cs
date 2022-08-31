@@ -21,16 +21,32 @@ namespace Characters
             moveComponent = gameObject.AddComponent<MovePlayerComponent>();
         }
 
-        #region CHANGE_MOVE
-
         public void ChangeAngleMove(float angle)
         {
             moveComponent.ChangeRotate(angle);
 
             cameraPosition.transform.rotation = Quaternion.Euler(cameraPosition.transform.rotation.x, angle, cameraPosition.transform.rotation.z);
-        }       
+        }
 
-        #endregion
+        public void StartProcedure()
+        {
+            canMove = false;
+            moveComponent.SetMoveNow = false;
+
+            ShowAnimation(TypeAnimationCharacter.Work);
+        }
+
+        public void EndProcedure()
+        {
+            canMove = true;
+
+            ShowAnimation(TypeAnimationCharacter.Idle);
+        }
+
+        private void ShowAnimation(TypeAnimationCharacter typeAnimation)
+        {
+            animator.SetTrigger(typeAnimation.ToString());
+        }
 
         #region CHECK
 
