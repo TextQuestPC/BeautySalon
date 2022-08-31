@@ -1,23 +1,17 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
-    public abstract class UIWindow : UIElement, IUIElement
+    public class UIWindow : Window
     {
-        public event Action<IUIElement> ClickCloseButton;
+        [SerializeField] private Text moneyText;
 
-        private CloseButton buttonClose;
-
-        public override void OnStart()
+        public void ChangeMoneyText(int newValue)
         {
-            buttonClose = GetComponentInChildren<CloseButton>();
-        }
-
-        protected void OnClickButtonClose()
-        {
-            BeforeClickButtonClose();
-            Hide();
-            AfterClickButtonClose();
+            moneyText.text = newValue.ToString();
         }
     }
 }

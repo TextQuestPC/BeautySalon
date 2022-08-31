@@ -6,14 +6,14 @@ namespace UI
 {
     public class UIManager : Singleton<UIManager>, IInitialize
     {
-        private Dictionary<Type, UIWindow> windows;
+        private Dictionary<Type, Window> windows;
 
         #region INITIALIZE
 
         public void OnInitialize()
         {
-            UIWindow[] getWindows = GetComponentsInChildren<UIWindow>();
-            windows = new Dictionary<Type, UIWindow>();
+            Window[] getWindows = GetComponentsInChildren<Window>();
+            windows = new Dictionary<Type, Window>();
 
             foreach (var window in getWindows)
             {
@@ -38,7 +38,21 @@ namespace UI
 
         #region SHOW/HIDE
 
-        public void ShowWindow<T>() where T : UIWindow
+        public T GetWindow<T>() where T : Window
+        {
+            if (windows.TryGetValue(typeof(T), out var window))
+            {
+                return window as T;
+            }
+            else
+            {
+                Debug.Log($"<color=red>Нет окна {typeof(T)}, для показа!");
+
+                return null;
+            }
+        }
+
+        public void ShowWindow<T>() where T : Window
         {
             if(windows.TryGetValue(typeof(T) ,out var window))
             {
@@ -50,7 +64,7 @@ namespace UI
             }
         }
 
-        public void HideWindow<T>() where T : UIWindow
+        public void HideWindow<T>() where T : Window
         {
             if (windows.TryGetValue(typeof(T), out var window))
             {
