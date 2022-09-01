@@ -7,7 +7,7 @@ namespace SystemMove
         protected bool moveNow;
         protected float speedMove = 5f;
 
-        public bool SetMoveNow { set => moveNow = value; }
+        public bool MoveNow { set => moveNow = value; get => moveNow; }
 
         private void Update()
         {

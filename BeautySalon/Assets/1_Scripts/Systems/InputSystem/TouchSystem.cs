@@ -5,15 +5,18 @@ namespace InputSystem
 {
     public class TouchSystem : Singleton<TouchSystem>
     {
-        [SerializeField] private Player player;
+        private Player player;
 
         public Player SetPlayer { set => player = value; }
 
-        private bool canMove = false;
+        private bool move = false;
+        private bool mouseDown = false;
+
+        public bool GetMouseDown { get => mouseDown; }
 
         private void ChangeMovePlayer(bool move)
         {
-            canMove = move;
+            this.move = move;
             player.ChangeMove(move);
         }
 
@@ -33,14 +36,16 @@ namespace InputSystem
             if (Input.GetMouseButtonDown(0))
             {
                 ChangeMovePlayer(true);
+                mouseDown = true;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
                 ChangeMovePlayer(false);
+                mouseDown = false;
             }
 
-            if (canMove)
+            if (move)
             {
                 ChangeAngleRotation(Input.mousePosition);
             }

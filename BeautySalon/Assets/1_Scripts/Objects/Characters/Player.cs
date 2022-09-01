@@ -1,4 +1,5 @@
 using Core;
+using InputSystem;
 using ObjectsOnScene;
 using System.Collections.Generic;
 using SystemMove;
@@ -23,15 +24,18 @@ namespace Characters
 
         public void ChangeAngleMove(float angle)
         {
-            moveComponent.ChangeRotate(angle);
+            if (canMove)
+            {
+                moveComponent.ChangeRotate(angle);
 
-            cameraPosition.transform.rotation = Quaternion.Euler(cameraPosition.transform.rotation.x, angle, cameraPosition.transform.rotation.z);
+                cameraPosition.transform.rotation = Quaternion.Euler(cameraPosition.transform.rotation.x, angle, cameraPosition.transform.rotation.z);
+            }
         }
 
         public void StartProcedure()
         {
             canMove = false;
-            moveComponent.SetMoveNow = false;
+            moveComponent.MoveNow = false;
 
             ShowAnimation(TypeAnimationCharacter.Work);
         }
@@ -40,12 +44,16 @@ namespace Characters
         {
             canMove = true;
 
-            ShowAnimation(TypeAnimationCharacter.Idle);
-        }
+            if (TouchSystem.Instance.GetMouseDown)
+            {
+                moveComponent.MoveNow = true;
 
-        private void ShowAnimation(TypeAnimationCharacter typeAnimation)
-        {
-            animator.SetTrigger(typeAnimation.ToString());
+                ShowAnimation(TypeAnimationCharacter.Move);
+            }
+            else
+            {
+                ShowAnimation(TypeAnimationCharacter.Idle);
+            }
         }
 
         #region CHECK

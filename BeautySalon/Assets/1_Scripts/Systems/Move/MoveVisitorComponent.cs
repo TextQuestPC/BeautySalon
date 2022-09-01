@@ -22,7 +22,7 @@ namespace SystemMove
 
             if (transform.position == nextPos)
             {
-                SetMoveNow = false;
+                MoveNow = false;
 
                 AfterEndMove?.Invoke();
             }

@@ -57,7 +57,7 @@ namespace Characters
 
         private IEnumerator CoStandUpFromChair()
         {
-            animator.SetTrigger("StandLeft");
+            ShowAnimation(TypeAnimationCharacter.StandLeft);
 
             yield return new WaitForSeconds(1f);
 
@@ -66,8 +66,10 @@ namespace Characters
 
         public void SitDownOnChair()
         {
+            Debug.Log("sit down"); у ебучего блять сука амиматора не включается анимация.
+                Сука блять включается дважды move анимация
             currentService.VisitorIsCame(this);
-            animator.SetTrigger("SitLeft");
+            ShowAnimation(TypeAnimationCharacter.SitLeft);
 
             (moveComponent as MoveVisitorComponent).LookAt(currentService.GetLookPosition.transform);
             transform.position = currentService.GetVisitorPosition.transform.position;
@@ -94,8 +96,6 @@ namespace Characters
 
         private void MoveToNewPosition(Transform targetTransform)
         {
-            animator.SetTrigger("Move");
-
             (moveComponent as MoveVisitorComponent).AfterEndMove += AfterMoveToTarget;
             (moveComponent as MoveVisitorComponent).LookAt(targetTransform);
             (moveComponent as MoveVisitorComponent).SetNewTargetMove(targetTransform);

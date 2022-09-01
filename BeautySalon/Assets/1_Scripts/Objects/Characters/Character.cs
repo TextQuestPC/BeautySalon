@@ -13,19 +13,30 @@ namespace Characters
 
         public void ChangeMove(bool move)
         {
+            Debug.Log("Change move " + move);
             if (canMove)
             {
-                moveComponent.SetMoveNow = move;
+                if(moveComponent.MoveNow == move)
+                {
+                    return;
+                }
+
+                moveComponent.MoveNow = move;
 
                 if (move)
                 {
-                    animator.SetTrigger(TypeAnimationCharacter.Move.ToString());
+                    ShowAnimation(TypeAnimationCharacter.Move);
                 }
                 else
                 {
-                    animator.SetTrigger(TypeAnimationCharacter.Idle.ToString());
+                    ShowAnimation(TypeAnimationCharacter.Idle);
                 }
             }
+        }
+
+        protected void ShowAnimation(TypeAnimationCharacter typeAnimation)
+        {
+            animator.SetTrigger(typeAnimation.ToString());
         }
     }
 }

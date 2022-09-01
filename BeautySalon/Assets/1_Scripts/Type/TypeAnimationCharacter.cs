@@ -5,5 +5,10 @@ namespace Characters
         Idle,
         Move,
         Work,
+        StopWork,
+        SitLeft,
+        SitRight,
+        StandLeft,
+        StandRight
     }
 }
