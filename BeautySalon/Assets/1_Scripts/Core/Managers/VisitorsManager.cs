@@ -54,10 +54,6 @@ namespace Core
             {
                 visitor.SitDownOnChair();
             }
-            //else if (state == StateVisitor.CompleteProcedure)
-            //{
-
-            //}
             else if (state == StateVisitor.CompleteAllProcedure)
             {
                 VisitorEndAllProcedure();
