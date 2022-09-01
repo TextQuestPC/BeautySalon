@@ -66,8 +66,7 @@ namespace Characters
 
         public void SitDownOnChair()
         {
-            Debug.Log("sit down"); у ебучего блять сука амиматора не включается анимация.
-                Сука блять включается дважды move анимация
+            Debug.Log("sit down");
             currentService.VisitorIsCame(this);
             ShowAnimation(TypeAnimationCharacter.SitLeft);
 

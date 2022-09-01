@@ -11,16 +11,12 @@ namespace Characters
         protected MoveComponent moveComponent;
         protected bool canMove = true;
 
+        private TypeAnimationCharacter prevTypeAnimation = TypeAnimationCharacter.Work;
+
         public void ChangeMove(bool move)
         {
-            Debug.Log("Change move " + move);
             if (canMove)
             {
-                if(moveComponent.MoveNow == move)
-                {
-                    return;
-                }
-
                 moveComponent.MoveNow = move;
 
                 if (move)
@@ -36,6 +32,12 @@ namespace Characters
 
         protected void ShowAnimation(TypeAnimationCharacter typeAnimation)
         {
+            if (prevTypeAnimation == typeAnimation)
+            {
+                return;
+            }
+
+            prevTypeAnimation = typeAnimation;
             animator.SetTrigger(typeAnimation.ToString());
         }
     }
