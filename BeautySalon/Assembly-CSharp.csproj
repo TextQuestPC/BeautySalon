@@ -127,6 +127,8 @@
     <Compile Include="Assets\1_Scripts\Core\Managers\VisitorsManager.cs" />
     <Compile Include="Assets\1_Scripts\Core\Main\Coroutines.cs" />
     <Compile Include="Assets\1_Scripts\Core\Managers\TimeManager.cs" />
+    <Compile Include="Assets\1_Scripts\Type\DataVisit.cs" />
+    <Compile Include="Assets\1_Scripts\Core\Managers\BalanceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

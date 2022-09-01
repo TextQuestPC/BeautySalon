@@ -30,7 +30,8 @@ namespace Core
         private void CreateVisitor()
         {
             Visitor visitor = BoxManager.GetManager<CreatorManager>().CreateVisitor();
-            visitor.SetDataVisit(TypeService.Haircut, TypeItem.HaircutConsumable);
+            DataVisit[] data = BoxManager.GetManager<BalanceManager>().GetDataVisit();
+            visitor.SetDataVisit = data;
             visitors.Add(visitor);
 
             ChooseActionForVisitor(visitor);
@@ -74,9 +75,9 @@ namespace Core
             {
                 visitor.LookAt(serviceManager.GetCashZone.GetLookPosition.transform);
 
-                serviceManager.GetCashZone.SetWaitVisitor=visitor;
+                serviceManager.GetCashZone.SetWaitVisitor = visitor;
             }
-            else if(state == StateVisitor.GetMoney)
+            else if (state == StateVisitor.GetMoney)
             {
                 currentVisitor.GoToTargetTransform(PositionsOnScene.Instance.GetSpawnVisitorPos.transform);
             }
@@ -84,11 +85,9 @@ namespace Core
 
         private void VisitorCameInSalon()
         {
-            TypeService typeService = currentVisitor.GetTypeService;
-
-            if (serviceManager.CheckFreeService(currentVisitor.GetTypeService))
+            if (serviceManager.CheckFreeService(currentVisitor.GetCurrentTypeService))
             {
-                float zValueService = serviceManager.GetFreeService(currentVisitor.GetTypeService).transform.position.z;
+                float zValueService = serviceManager.GetFreeService(currentVisitor.GetCurrentTypeService).transform.position.z;
                 GameObject startMovePos;
 
                 if (zValueService > currentVisitor.transform.position.z)
@@ -131,7 +130,7 @@ namespace Core
 
         private void ChooseService()
         {
-            Service service = serviceManager.GetFreeService(currentVisitor.GetTypeService);
+            Service service = serviceManager.GetFreeService(currentVisitor.GetCurrentTypeService);
 
             if (service != null)
             {

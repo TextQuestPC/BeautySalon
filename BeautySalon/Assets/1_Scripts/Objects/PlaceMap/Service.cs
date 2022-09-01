@@ -13,7 +13,7 @@ namespace ObjectsOnScene
 
         public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
-        public TypeItem GetTypeNeedItem { get => myVisitor.GetTypeItem; }
+        public TypeItem GetTypeNeedItem { get => myVisitor.GetCurrentTypeItem; }
 
         public void VisitorIsCame(Visitor visitor)
         {

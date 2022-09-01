@@ -9,12 +9,13 @@ namespace Characters
 {
     public class Visitor : Character
     {
-        private TypeService typeNeedServices = TypeService.Haircut;
-        private TypeItem typeNeedItem = TypeItem.HaircutConsumable;
+        private DataVisit[] dataVisit;
+        private int counterDataVisit = 0;
         private StateVisitor stateVisitor = StateVisitor.StartInDoor;
 
-        public TypeService GetTypeService { get => typeNeedServices; }
-        public TypeItem GetTypeItem { get => typeNeedItem; }
+        public DataVisit[] SetDataVisit { set => dataVisit = value; }
+        public TypeItem GetCurrentTypeItem { get => dataVisit[counterDataVisit].GetTypeItem; }
+        public TypeService GetCurrentTypeService { get => dataVisit[counterDataVisit].GetTypeService; }
         public StateVisitor StateVisitor { get => stateVisitor; set => stateVisitor = value; }
 
         private Service currentService;
@@ -27,12 +28,6 @@ namespace Characters
         public override void OnInitialize()
         {
             moveComponent = gameObject.AddComponent<MoveVisitorComponent>();
-        }
-
-        public void SetDataVisit(TypeService typeService, TypeItem typeItem)
-        {
-            typeNeedServices = typeService;
-            typeNeedItem = typeItem;
         }
 
         #endregion INIT
@@ -66,7 +61,6 @@ namespace Characters
 
         public void SitDownOnChair()
         {
-            Debug.Log("sit down");
             currentService.VisitorIsCame(this);
             ShowAnimation(TypeAnimationCharacter.SitLeft);
 

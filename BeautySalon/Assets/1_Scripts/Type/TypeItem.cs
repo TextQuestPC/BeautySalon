@@ -2,9 +2,9 @@ namespace ObjectsOnScene
 {
     public enum TypeItem
     {
-        HaircutConsumable,
-        NailsConsumable,
-        BrowsConsumable,
+        Scissors,
+        NailFile,
+        Ink,
         Money
     }
 }
