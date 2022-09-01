@@ -17,7 +17,7 @@ namespace Characters
         public TypeItem GetCurrentTypeItem { get => dataVisit[counterDataVisit].GetTypeItem; }
         public TypeService GetCurrentTypeService { get => dataVisit[counterDataVisit].GetTypeService; }
         public StateVisitor StateVisitor { get => stateVisitor; set => stateVisitor = value; }
-
+       
         private Service currentService;
         private int moneyForServices = 50; // TODO: расчитывать от стоимости полученных услуг
 
@@ -45,8 +45,19 @@ namespace Characters
             MoveToNewPosition(targetService.GetVisitorPosition.transform);
         }
 
-        public void StandUpFromChair()
+        public void CompleteCurrentProcedure()
         {
+            counterDataVisit++;
+
+            if(counterDataVisit < dataVisit.Length)
+            {
+                stateVisitor = StateVisitor.WaitProcedure;
+            }
+            else
+            {
+                stateVisitor = StateVisitor.CompleteAllProcedure;
+            }
+
             StartCoroutine(CoStandUpFromChair());
         }
 
@@ -68,10 +79,8 @@ namespace Characters
             transform.position = currentService.GetVisitorPosition.transform.position;
         }
 
-        public void CompleteProcedure()
+        public void CompleteAllProcedure()
         {
-            stateVisitor = StateVisitor.CompleteProcedure;
-
             BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
         }
 

@@ -4,10 +4,9 @@ namespace VisitorSystem
     {
         StartInDoor,
         StandByRestZone,
-        StandByStartMove,
+        WaitProcedure,
         StandByService,
-        CompleteProcedure,
-        StandByServiceAfterProcedure,
+        CompleteAllProcedure,
         GoToCash,
         StandByCash,
         GetMoney

@@ -50,7 +50,7 @@ namespace ObjectsOnScene
             BoxManager.GetManager<GameManager>().CompleteProcedure(this);
             BoxManager.GetManager<GameManager>().GetPlayer.EndProcedure();
 
-            myVisitor.CompleteProcedure();
+            myVisitor.CompleteCurrentProcedure();
         }
 
         #endregion PROCEDURE

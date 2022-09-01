@@ -46,7 +46,7 @@ namespace Core
             {
                 VisitorCameInSalon();
             }
-            if (state == StateVisitor.StandByStartMove)
+            if (state == StateVisitor.WaitProcedure)
             {
                 ChooseService();
             }
@@ -54,15 +54,13 @@ namespace Core
             {
                 visitor.SitDownOnChair();
             }
-            else if (state == StateVisitor.CompleteProcedure)
+            //else if (state == StateVisitor.CompleteProcedure)
+            //{
+
+            //}
+            else if (state == StateVisitor.CompleteAllProcedure)
             {
-                visitor.StateVisitor = StateVisitor.StandByServiceAfterProcedure;
-                visitor.StandUpFromChair();
-            }
-            else if (state == StateVisitor.StandByServiceAfterProcedure)
-            {
-                // TODO: check - have any procedure ???
-                VisitorEndProcedure();
+                VisitorEndAllProcedure();
             }
             else if (state == StateVisitor.GoToCash)
             {
@@ -99,7 +97,7 @@ namespace Core
                     startMovePos = PositionsOnScene.Instance.GetRightStartMovePos;
                 }
 
-                currentVisitor.StateVisitor = StateVisitor.StandByStartMove;
+                currentVisitor.StateVisitor = StateVisitor.WaitProcedure;
                 currentVisitor.GoToTargetTransform(startMovePos.transform);
             }
             else // If service is not free
@@ -111,7 +109,7 @@ namespace Core
             }
         }
 
-        private void VisitorEndProcedure()
+        private void VisitorEndAllProcedure()
         {
             GameObject startMovePos;
 
