@@ -1,6 +1,7 @@
 using Characters;
 using Core;
 using UnityEngine;
+using UI;
 
 namespace ObjectsOnScene
 {
@@ -14,7 +15,8 @@ namespace ObjectsOnScene
 
         protected override void PlayerInCollider(Player player)
         {
-            BoxManager.GetManager<GameManager>().PlayerTryGetItem(typeItem);
+            UIManager.Instance.GetWindow<StorageWindow>().ShowButtons(new TypeItem[] { typeItem });
+            //BoxManager.GetManager<GameManager>().PlayerTryGetItem(typeItem);
         }
 
         protected override void PlayerOutCollider(Player player) { }

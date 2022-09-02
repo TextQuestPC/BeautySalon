@@ -4,22 +4,18 @@ using UnityEngine.UI;
 namespace UI
 {
     [RequireComponent(typeof(Button))]
-    public class MyButton : UIElement
+    public class MyButton : MonoBehaviour
     {
-        protected override void AfterInitialization()
+        private void Awake()
         {
             GetComponent<Button>().onClick.AddListener(OnClickButton);
+
+            AfterAwake();
         }
 
-        private void OnClickButton()
-        {
-            OtherActionClick();
-        }
+        protected virtual void AfterAwake() { }
 
-        protected virtual void OtherActionClick()
-        {
-
-        }
+        protected virtual void OnClickButton(){ }
 
         private void OnDestroy()
         {

@@ -131,6 +131,8 @@
     <Compile Include="Assets/1_Scripts/Core/Managers/TimeManager.cs" />
     <Compile Include="Assets/1_Scripts/UI/Windows/StorageWindow.cs" />
     <Compile Include="Assets/1_Scripts/Data/DataItemUI.cs" />
+    <Compile Include="Assets/1_Scripts/Core/Managers/DataManager.cs" />
+    <Compile Include="Assets/1_Scripts/UI/Buttons/ItemChooseButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
