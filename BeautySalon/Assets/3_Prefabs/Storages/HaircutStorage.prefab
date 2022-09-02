@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9789635a37f4ab44c96a11c240b67b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visitorPosition: {fileID: 0}
+  visitorLookPosition: {fileID: 0}
   typeService: 0
   typeItem: 0
 --- !u!65 &2226938865858946596
