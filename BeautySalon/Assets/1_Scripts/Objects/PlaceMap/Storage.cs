@@ -16,9 +16,11 @@ namespace ObjectsOnScene
         protected override void PlayerInCollider(Player player)
         {
             UIManager.Instance.GetWindow<StorageWindow>().ShowButtons(new TypeItem[] { typeItem });
-            //BoxManager.GetManager<GameManager>().PlayerTryGetItem(typeItem);
         }
 
-        protected override void PlayerOutCollider(Player player) { }
+        protected override void PlayerOutCollider(Player player)
+        {
+            UIManager.Instance.HideWindow<StorageWindow>();
+        }
     }
 }

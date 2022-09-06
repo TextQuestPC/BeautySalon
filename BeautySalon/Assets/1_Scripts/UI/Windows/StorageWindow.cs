@@ -12,10 +12,13 @@ namespace UI
         public delegate void ChooseItem();
         public event ChooseItem AfterChooseItem;
 
+        [SerializeField] private GameObject substrateObject;
         [SerializeField] private ItemChooseButton[] itemButtons;
 
         public void ShowButtons(TypeItem[] typeItems)
         {
+            substrateObject.SetActive(true);
+
             for (int i = 0; i < typeItems.Length; i++)
             {
                 DataItemUI data = BoxManager.GetManager<DataManager>().GetDataItemUI(typeItems[i]);
@@ -27,7 +30,19 @@ namespace UI
 
         public void OnClickButtonItem(TypeItem typeItem)
         {
-            Debug.Log($"click {typeItem}");
+            BoxManager.GetManager<GameManager>().PlayerTryGetItem(typeItem);
+
+            Hide();
+        }
+
+        protected override void AfterHide()
+        {
+            substrateObject.SetActive(false);
+
+            foreach (var button in itemButtons)
+            {
+                button.gameObject.SetActive(false);
+            }
         }
     }
 }
