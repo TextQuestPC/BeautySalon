@@ -20,6 +20,7 @@ namespace UI
         protected float timeHide;
         protected float timeChange;
 
+        private GameObject background;
         private Animator animator;
         private bool haveAnimation;
 
@@ -43,6 +44,7 @@ namespace UI
 
         public void OnStart()
         {
+            background = gameObject.transform.GetChild(0).gameObject;
             buttonClose = GetComponentInChildren<CloseButton>();
         }
 
@@ -126,6 +128,7 @@ namespace UI
             }
             else
             {
+                background.SetActive(true);
                 IsActive = true;
                 BeforeShow();
 
@@ -151,6 +154,9 @@ namespace UI
             }
             else
             {
+                background.SetActive(false);
+
+                Debug.Log("Hide");
                 IsActive = false;
                 BeforeHide();
 

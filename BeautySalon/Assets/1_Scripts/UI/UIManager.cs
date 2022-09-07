@@ -36,7 +36,7 @@ namespace UI
 
         #endregion INITIALIZE
 
-        #region SHOW/HIDE
+        #region GET/SHOW/HIDE
 
         public T GetWindow<T>() where T : Window
         {
@@ -76,6 +76,6 @@ namespace UI
             }
         }
 
-        #endregion SHOW/HIDE
+        #endregion GET/SHOW/HIDE
     }
 }

@@ -18,15 +18,16 @@ namespace UI
             storageWindow.OnClickButtonItem(typeItem);
         }
 
-        protected override void AfterAwake()
-        {
-            imageItem = GetComponent<Image>();
-        }
-
         public void SetDataItemUI(StorageWindow storageWindow, TypeItem typeItem, Sprite sprite)
         {
             this.storageWindow = storageWindow;
             this.typeItem = typeItem;
+
+            if(imageItem == null)
+            {
+                imageItem = GetComponent<Image>();
+            }
+
             imageItem.sprite = sprite;
         }
     }
