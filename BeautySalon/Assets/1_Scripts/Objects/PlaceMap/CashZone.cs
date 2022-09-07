@@ -13,6 +13,7 @@ namespace ObjectsOnScene
 
         protected override void PlayerInCollider(Player player)
         {
+            не сработало, когда player уже был здесь, а visitor еще нет
             if (waitVisitor != null) // Расчитываем посетителя
             {
                 Money money = BoxManager.GetManager<CreatorManager>().CreateItem(TypeItem.Money) as Money;

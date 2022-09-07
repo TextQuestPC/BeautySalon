@@ -10,6 +10,7 @@ namespace ObjectsOnScene
 
         protected bool isFree = true;
         protected Visitor myVisitor;
+        private Player player;
 
         public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
@@ -19,22 +20,24 @@ namespace ObjectsOnScene
         {
             isFree = false;
             myVisitor = visitor;
+
+            if(player != null)
+            {
+                CheckStartProcedure();
+            }
         }
 
         #region TRIGGER
 
         protected override void PlayerInCollider(Player player)
         {
+            this.player = player;
+
             if (!isFree)
             {
                 if (myVisitor != null)
                 {
-                    if (player.CheckHaveItem(GetTypeNeedItem))
-                    {
-                        StartProcedure();
-
-                        player.StartProcedure();
-                    }
+                    CheckStartProcedure();   
                 }
                 else
                 {
@@ -43,9 +46,22 @@ namespace ObjectsOnScene
             }
         }
 
+        private void CheckStartProcedure()
+        {
+            if (player.CheckHaveItem(GetTypeNeedItem))
+            {
+                StartProcedure();
+
+                player.StartProcedure();
+            }
+        }
+
         protected abstract void StartProcedure();
 
-        protected override void PlayerOutCollider(Player player) { }
+        protected override void PlayerOutCollider(Player player)
+        {
+            player = null;
+        }
 
         #endregion TRIGGER
     }

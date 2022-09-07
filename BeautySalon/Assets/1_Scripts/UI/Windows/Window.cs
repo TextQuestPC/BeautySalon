@@ -123,7 +123,6 @@ namespace UI
         {
             if (IsActive)
             {
-                Debug.Log($"<color=red>Вызывается показ элемента {gameObject.GetType()}, а оно уже показан!");
                 return;
             }
             else
@@ -149,14 +148,12 @@ namespace UI
         {
             if (!IsActive)
             {
-                Debug.Log($"<color=red>Вызывается сокрытие элемента {gameObject.GetType()}, а он уже скрыт!</color>");
                 return;
             }
             else
             {
                 background.SetActive(false);
 
-                Debug.Log("Hide");
                 IsActive = false;
                 BeforeHide();
 
