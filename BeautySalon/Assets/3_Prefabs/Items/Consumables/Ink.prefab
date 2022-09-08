@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 69e225e82e62a73439c101e5d0f88e7e, type: 2}
+  - {fileID: 2100000, guid: ec82db6bcd829ba4ca1b45ce1f9734f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8032681403645095070}
   - component: {fileID: 2478446467291454203}
   m_Layer: 0
-  m_Name: Scissors
+  m_Name: Ink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visitorPosition: {fileID: 0}
   visitorLookPosition: {fileID: 0}
-  typeItem: 0
+  typeItem: 2
 --- !u!65 &2478446467291454203
 BoxCollider:
   m_ObjectHideFlags: 0

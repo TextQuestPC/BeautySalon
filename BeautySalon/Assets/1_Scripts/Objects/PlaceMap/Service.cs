@@ -19,6 +19,11 @@ namespace ObjectsOnScene
         {
             isFree = false;
             myVisitor = visitor;
+
+            if(player != null)
+            {
+                CheckStartProcedure();
+            }
         }
 
         #region TRIGGER
@@ -29,12 +34,7 @@ namespace ObjectsOnScene
             {
                 if (myVisitor != null)
                 {
-                    if (player.CheckHaveItem(GetTypeNeedItem))
-                    {
-                        StartProcedure();
-
-                        player.StartProcedure();
-                    }
+                    CheckStartProcedure();   
                 }
                 else
                 {
@@ -43,9 +43,21 @@ namespace ObjectsOnScene
             }
         }
 
+        private void CheckStartProcedure()
+        {
+            if (player.CheckHaveItem(GetTypeNeedItem))
+            {
+                StartProcedure();
+
+                player.StartProcedure();
+            }
+        }
+
         protected abstract void StartProcedure();
 
-        protected override void PlayerOutCollider(Player player) { }
+        protected override void PlayerOutCollider(Player player)
+        {
+        }
 
         #endregion TRIGGER
     }

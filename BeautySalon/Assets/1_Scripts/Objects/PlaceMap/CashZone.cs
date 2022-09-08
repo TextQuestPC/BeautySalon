@@ -9,24 +9,38 @@ namespace ObjectsOnScene
         [SerializeField] private GameObject moneyPosition;
 
         private Visitor waitVisitor = null;
-        public Visitor SetWaitVisitor { set => waitVisitor = value; }
+        public Visitor SetWaitVisitor
+        {
+            set
+            {
+                waitVisitor = value;
+
+                if(player != null)
+                {
+                    CashVisitor();
+                }
+            }
+        }
 
         protected override void PlayerInCollider(Player player)
         {
             if (waitVisitor != null) // Расчитываем посетителя
             {
-                Money money = BoxManager.GetManager<CreatorManager>().CreateItem(TypeItem.Money) as Money;
-
-                money.SetCountMoney = waitVisitor.GetMoneyForServices;
-                money.transform.position = moneyPosition.transform.position;
-
-                waitVisitor.CalculateVisitor();
-                waitVisitor = null;
+                CashVisitor();
             }
-    }
+        }
 
-        protected override void PlayerOutCollider(Player player)
+        protected override void PlayerOutCollider(Player player){}
+
+        private void CashVisitor()
         {
+            Money money = BoxManager.GetManager<CreatorManager>().CreateItem(TypeItem.Money) as Money;
+
+            money.SetCountMoney = waitVisitor.GetMoneyForServices;
+            money.transform.position = moneyPosition.transform.position;
+
+            waitVisitor.CalculateVisitor();
+            waitVisitor = null;
         }
     }
 }
