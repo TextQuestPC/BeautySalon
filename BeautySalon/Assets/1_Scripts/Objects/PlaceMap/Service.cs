@@ -10,7 +10,6 @@ namespace ObjectsOnScene
 
         protected bool isFree = true;
         protected Visitor myVisitor;
-        private Player player;
 
         public bool GetIsFree { get => isFree; }
         public TypeService GetTypeService { get => typeService; }
@@ -31,8 +30,6 @@ namespace ObjectsOnScene
 
         protected override void PlayerInCollider(Player player)
         {
-            this.player = player;
-
             if (!isFree)
             {
                 if (myVisitor != null)
@@ -60,7 +57,6 @@ namespace ObjectsOnScene
 
         protected override void PlayerOutCollider(Player player)
         {
-            player = null;
         }
 
         #endregion TRIGGER

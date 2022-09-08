@@ -14,6 +14,8 @@ namespace ObjectsOnScene
         public GameObject GetVisitorPosition { get => visitorPosition; }
         public GameObject GetLookPosition { get => visitorLookPosition; }
 
+        protected Player player;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == NamesData.PLAYER_NAME)
@@ -22,6 +24,7 @@ namespace ObjectsOnScene
 
                 if (player != null)
                 {
+                    this.player = player;
                     PlayerInCollider(player);
                 }
                 else
@@ -39,6 +42,7 @@ namespace ObjectsOnScene
 
                 if (player != null)
                 {
+                    this.player = null;
                     PlayerOutCollider(player);
                 }
                 else

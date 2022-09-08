@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DataManager
   m_EditorClassIdentifier: 
   dataItemsUI:
-  - {fileID: 11400000, guid: 33716c469b41040e3b5c076867575095, type: 2}
-  - {fileID: 11400000, guid: 1e23b91489ff744d3b66a251bc135281, type: 2}
   - {fileID: 11400000, guid: bc446d9ecff8f4f6aa092c82da739d70, type: 2}
+  - {fileID: 11400000, guid: 1e23b91489ff744d3b66a251bc135281, type: 2}
+  - {fileID: 11400000, guid: 33716c469b41040e3b5c076867575095, type: 2}

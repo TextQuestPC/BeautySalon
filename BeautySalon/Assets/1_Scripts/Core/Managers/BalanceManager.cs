@@ -20,8 +20,8 @@ namespace Core
             dataVisits.Add(0, new DataVisit[]
             {
                 new DataVisit(TypeService.Haircut, TypeItem.Scissors),
-                new DataVisit(TypeService.Nails, TypeItem.NailFile),
-                new DataVisit(TypeService.Brows, TypeItem.Ink)
+                //new DataVisit(TypeService.Nails, TypeItem.NailFile),
+                //new DataVisit(TypeService.Brows, TypeItem.Ink)
             });
         }
 
