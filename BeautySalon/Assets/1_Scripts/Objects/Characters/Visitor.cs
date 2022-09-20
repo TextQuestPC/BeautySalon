@@ -51,6 +51,7 @@ namespace Characters
 
         public void CompleteCurrentProcedure()
         {
+            wishCanvas.HideWish();
             counterDataVisit++;
 
             if(counterDataVisit < dataVisit.Length)
@@ -88,6 +89,11 @@ namespace Characters
         public void CompleteAllProcedure()
         {
             BoxManager.GetManager<VisitorsManager>().ChooseNextActionVisitor(this);
+        }
+
+        public void StandAroundCash()
+        {
+            wishCanvas.ShowWish(BoxManager.GetManager<DataManager>().GetDataItemUI(TypeItem.Money).SpriteItem);
         }
 
         public void CalculateVisitor()

@@ -68,6 +68,7 @@ namespace Core
             else if (state == StateVisitor.StandByCash)
             {
                 visitor.LookAt(serviceManager.GetCashZone.GetLookPosition.transform);
+                visitor.StandAroundCash();
 
                 serviceManager.GetCashZone.SetWaitVisitor = visitor;
             }
