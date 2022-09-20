@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ScissorsItemUI
   m_EditorClassIdentifier: 
   TypeItem: 0
-  SpriteItem: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  SpriteItem: {fileID: 21300000, guid: 5ebee2e7f68e348469e51b73fd9f947a, type: 3}

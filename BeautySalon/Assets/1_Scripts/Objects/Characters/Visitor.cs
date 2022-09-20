@@ -2,6 +2,7 @@ using Core;
 using ObjectsOnScene;
 using System.Collections;
 using SystemMove;
+using UI;
 using UnityEngine;
 using VisitorSystem;
 
@@ -9,6 +10,8 @@ namespace Characters
 {
     public class Visitor : Character
     {
+        private WishCanvas wishCanvas;
+
         private DataVisit[] dataVisit;
         private int counterDataVisit = 0;
         private StateVisitor stateVisitor = StateVisitor.StartInDoor;
@@ -28,6 +31,7 @@ namespace Characters
         public override void OnInitialize()
         {
             moveComponent = gameObject.AddComponent<MoveVisitorComponent>();
+            wishCanvas = GetComponentInChildren<WishCanvas>();
         }
 
         #endregion INIT
@@ -77,6 +81,8 @@ namespace Characters
 
             (moveComponent as MoveVisitorComponent).LookAt(currentService.GetLookPosition.transform);
             transform.position = currentService.GetVisitorPosition.transform.position;
+
+            wishCanvas.ShowWish(BoxManager.GetManager<DataManager>().GetDataItemUI(GetCurrentTypeItem).SpriteItem);
         }
 
         public void CompleteAllProcedure()
